@@ -86,10 +86,13 @@
 <meta property="og:site_name" content="RainRx">
 <meta property="og:description" content="规范化函数依赖定义：设一个关系为R(U)，X和Y为属性集U上的子集，若对于X上的每个值都有Y上的一个唯一值与之对应,则称X和Y具有函数依赖关系,并称X 函数决定Y,或称Y函数依赖于X,记作X→Y,称X为决定因素。  简单来说，函数依赖就是知道A的可以确切地知道B。  PS：函数依赖是属性间的一种关系。 平凡函数依赖和非平凡函数依赖定义：在关系模式R(U,F)中，对于U的子集X、Y，如果X→Y，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-14T09:16:30.559Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g40tb90g7nj31a00egq67.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g40v6idubdj318m0u0q8d.jpg">
+<meta property="og:updated_time" content="2019-06-14T16:28:16.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DB">
 <meta name="twitter:description" content="规范化函数依赖定义：设一个关系为R(U)，X和Y为属性集U上的子集，若对于X上的每个值都有Y上的一个唯一值与之对应,则称X和Y具有函数依赖关系,并称X 函数决定Y,或称Y函数依赖于X,记作X→Y,称X为决定因素。  简单来说，函数依赖就是知道A的可以确切地知道B。  PS：函数依赖是属性间的一种关系。 平凡函数依赖和非平凡函数依赖定义：在关系模式R(U,F)中，对于U的子集X、Y，如果X→Y，">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g40tb90g7nj31a00egq67.jpg">
 
 
 
@@ -306,14 +309,64 @@
 <p>简单来说，函数依赖就是知道A的可以<strong>确切</strong>地知道B。</p>
 </blockquote>
 <p>PS：函数依赖是属性间的一种关系。</p>
-<h3 id="平凡函数依赖和非平凡函数依赖"><a href="#平凡函数依赖和非平凡函数依赖" class="headerlink" title="平凡函数依赖和非平凡函数依赖"></a>平凡函数依赖和非平凡函数依赖</h3><p>定义：在关系模式R(U,F)中，对于U的子集X、Y，如果X→Y，但$X \notin Y$，则称X→Y是非平凡函数依赖；如果$X \in Y$，则称X→Y是平凡函数依赖。</p>
+<h3 id="平凡函数依赖和非平凡函数依赖"><a href="#平凡函数依赖和非平凡函数依赖" class="headerlink" title="平凡函数依赖和非平凡函数依赖"></a>平凡函数依赖和非平凡函数依赖</h3><p>定义：在关系模式R(U,F)中，对于U的子集X、Y，如果X→Y，但Y不是X的真子集，则称X→Y是非平凡函数依赖；如果Y是X的真子集，则称X→Y是平凡函数依赖。</p>
 <p>ps：若不特别声明，本书中讨论的是非平凡函数依赖。</p>
 <p>例：</p>
 <ul>
-<li>(SNo, CName) → Score — 非平凡函数<br>$$(Score) \notin (SNo, CName)$$</li>
-<li>(SNo, CName) → CName — 平凡函数<br>$$(CName) \in (SNo, CName)$$</li>
+<li>(SNo, CName) → Score — 非平凡函数<br>$$(Score) \not\subseteq (SNo, CName)$$</li>
+<li>(SNo, CName) → CName — 平凡函数<br>$$(CName) \subseteq (SNo, CName)$$</li>
 </ul>
-
+<h3 id="完全-部分函数依赖"><a href="#完全-部分函数依赖" class="headerlink" title="完全/部分函数依赖"></a>完全/部分函数依赖</h3><p>定义：在R(U,F)中，<br>如果X→Y，对于X的任一真子集X’，都有X’ -\&gt; Y，则称Y对X完全函数依赖，记为X -f&gt; Y；<br>否则，称Y对X是部分函数依赖，记为X -p&gt; Y；</p>
+<p><img src="https://ws3.sinaimg.cn/large/005BYqpggy1g40tb90g7nj31a00egq67.jpg" style="border:none"></p>
+<blockquote>
+<ul>
+<li><strong>超键(super key)</strong>:在关系中能唯一标识元组的属性集称为关系模式的超键  </li>
+<li><strong>候选键(candidate key)</strong>:不含有多余属性的超键称为候选键  </li>
+<li><strong>主键(primary key)</strong>:用户选作元组标识的一个候选键程序主键  </li>
+<li><strong>外键(foreign key)</strong>:如果关系模式R1中的某属性集不是R1的主键，而是另一个关系R2的主键则该属性集是关系模式R1的外键。 </li>
+</ul>
+</blockquote>
+<p>只要能唯一标识元组的属性集都能称为超键，如学生表中含有学号或者身份证号的任意组合都为此表的超键。<br>候选健属于超键，它是最小的超键，就是说如果再去掉候选键中的任何一个属性它就不再是超键了。<br>主键就是候选健里面的一个，是人为规定的。<br>外键比如学生表中的外键就是“教师编号”。外键主要用来描述两个表的关系。</p>
+<h3 id="候选键"><a href="#候选键" class="headerlink" title="候选键"></a>候选键</h3><p>定义：设K是关系模式R(U,F)中的属性或属性组，若K -f&gt; U，则K为R的<strong>候选键</strong>，简称<strong>键</strong>。</p>
+<h4 id="候选键求解"><a href="#候选键求解" class="headerlink" title="候选键求解"></a>候选键求解</h4><p>对于给定的关系模式R(U)和函数依赖集F，可将其属性分为4类：</p>
+<ul>
+<li><code>L</code>类 <strong>仅</strong>出现在的函数依赖<code>左部</code>的属性；</li>
+<li><code>R</code>类 <strong>仅</strong>出现在的函数依赖<code>右部</code>的属性；</li>
+<li><code>N</code>类 在的函数依赖<code>左右两边均未出现</code>的属性；</li>
+<li><code>LR</code>类 在的函数依赖<code>左右两边均出现</code>的属性。 </li>
+</ul>
+<p><strong>推论：</strong></p>
+<ol>
+<li>若X是<code>L类</code>属性，则<code>X必为R的任一候选键的成员</code>。</li>
+<li>若X是<code>L类</code>属性，且X+包含了R的全部属性，则<code>X必为R的唯一候选键</code>。</li>
+<li>若X是<code>R类</code>属性，则<code>X不再任何候选键中</code>。</li>
+<li>若X是<code>N类</code>属性，则<code>X必为R的任一候选键的成员</code>。</li>
+<li>若X是<code>N类和L类组成的属性集</code>，且X+包含了R的全部属性，则<code>X必为R的唯一候选键</code>。</li>
+</ol>
+<h3 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h3><p>符合某一级别的关系的模式的<strong>集合</strong>。<br>满足不同程度要求的为不同范式。</p>
+<blockquote>
+<p>主属性：候选码并集的属性。<br>非主属性：不在任何候选码中的属性。</p>
+</blockquote>
+<h4 id="第一范式（1NF）"><a href="#第一范式（1NF）" class="headerlink" title="第一范式（1NF）"></a>第一范式（1NF）</h4><p>如果一个关系模式R(U,F)的所有属性都是不可分的基本数据项，则属于1NF。</p>
+<blockquote>
+<p>不满足1NF的数据库模式不能称为关系数据库模式。</p>
+</blockquote>
+<h4 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h4><p>满足第一范式的关系模式R(U,F)，如果所有<code>非主属性</code>都<strong>完全依赖</strong>于<code>键</code>，则称R属于第二范式（2NF）。</p>
+<h4 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h4><p>满足第二范式的关系模式R(U,F)，且它的任何一个<code>非主属性</code>都<strong>不传递依赖</strong>于<code>键</code>，则称关系R属于第三范式（3NF）。</p>
+<blockquote>
+<p>在关系数据库模型设计中目前一般采用第三范式。</p>
+</blockquote>
+<h4 id="改进的3NF-BCNF"><a href="#改进的3NF-BCNF" class="headerlink" title="改进的3NF - BCNF"></a>改进的3NF - BCNF</h4><p>设关系模式R(U,F)属于第一范式，若X→Y且Y不是X的子集时<code>X必包含键</code>，则称关系R属于BCNF。</p>
+<p>一个满足BCNF的关系模式必然有：</p>
+<ul>
+<li>R中所有非主属性对每一个键都是完全函数依赖；</li>
+<li>R中所有主属性对每一个不包含它的键，都是完全函数依赖；</li>
+<li>R中没有任何属性完全函数依赖于非键的任何一组属性。</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/005BYqpggy1g40v6idubdj318m0u0q8d.jpg" style="border:none"></p>
+<h3 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h3><h4 id="无损连接分解"><a href="#无损连接分解" class="headerlink" title="无损连接分解"></a>无损连接分解</h4><p>无损连接性：如果R与R1,R2,…,Rn自然连接的结果相等，则称关系模式R的分解具有无损连接性。</p>
+<p>R被分解成R1和R2后，如果他们的公共属性集是R1或R2的主键，那么分解是无损的。</p>
+<h4 id="依赖保持分解"><a href="#依赖保持分解" class="headerlink" title="依赖保持分解"></a>依赖保持分解</h4>
       
     </div>
     
@@ -346,6 +399,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/15/软工/" rel="prev" title="软工">
+                软工 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -422,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -477,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#规范化"><span class="nav-number">1.</span> <span class="nav-text">规范化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数依赖"><span class="nav-number">1.1.</span> <span class="nav-text">函数依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平凡函数依赖和非平凡函数依赖"><span class="nav-number">1.2.</span> <span class="nav-text">平凡函数依赖和非平凡函数依赖</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#规范化"><span class="nav-number">1.</span> <span class="nav-text">规范化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数依赖"><span class="nav-number">1.1.</span> <span class="nav-text">函数依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平凡函数依赖和非平凡函数依赖"><span class="nav-number">1.2.</span> <span class="nav-text">平凡函数依赖和非平凡函数依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全-部分函数依赖"><span class="nav-number">1.3.</span> <span class="nav-text">完全/部分函数依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#候选键"><span class="nav-number">1.4.</span> <span class="nav-text">候选键</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#候选键求解"><span class="nav-number">1.4.1.</span> <span class="nav-text">候选键求解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范式"><span class="nav-number">1.5.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一范式（1NF）"><span class="nav-number">1.5.1.</span> <span class="nav-text">第一范式（1NF）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二范式（2NF）"><span class="nav-number">1.5.2.</span> <span class="nav-text">第二范式（2NF）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三范式（3NF）"><span class="nav-number">1.5.3.</span> <span class="nav-text">第三范式（3NF）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改进的3NF-BCNF"><span class="nav-number">1.5.4.</span> <span class="nav-text">改进的3NF - BCNF</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分解"><span class="nav-number">1.6.</span> <span class="nav-text">分解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无损连接分解"><span class="nav-number">1.6.1.</span> <span class="nav-text">无损连接分解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖保持分解"><span class="nav-number">1.6.2.</span> <span class="nav-text">依赖保持分解</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
