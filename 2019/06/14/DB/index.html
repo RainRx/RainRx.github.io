@@ -88,7 +88,8 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g40tb90g7nj31a00egq67.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g40v6idubdj318m0u0q8d.jpg">
-<meta property="og:updated_time" content="2019-06-14T16:28:16.598Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g44de26uzxj30zc0h40z8.jpg">
+<meta property="og:updated_time" content="2019-06-17T16:19:02.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DB">
 <meta name="twitter:description" content="规范化函数依赖定义：设一个关系为R(U)，X和Y为属性集U上的子集，若对于X上的每个值都有Y上的一个唯一值与之对应,则称X和Y具有函数依赖关系,并称X 函数决定Y,或称Y函数依赖于X,记作X→Y,称X为决定因素。  简单来说，函数依赖就是知道A的可以确切地知道B。  PS：函数依赖是属性间的一种关系。 平凡函数依赖和非平凡函数依赖定义：在关系模式R(U,F)中，对于U的子集X、Y，如果X→Y，">
@@ -366,7 +367,15 @@
 <p><img src="https://ws3.sinaimg.cn/large/005BYqpggy1g40v6idubdj318m0u0q8d.jpg" style="border:none"></p>
 <h3 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h3><h4 id="无损连接分解"><a href="#无损连接分解" class="headerlink" title="无损连接分解"></a>无损连接分解</h4><p>无损连接性：如果R与R1,R2,…,Rn自然连接的结果相等，则称关系模式R的分解具有无损连接性。</p>
 <p>R被分解成R1和R2后，如果他们的公共属性集是R1或R2的主键，那么分解是无损的。</p>
-<h4 id="依赖保持分解"><a href="#依赖保持分解" class="headerlink" title="依赖保持分解"></a>依赖保持分解</h4>
+<h4 id="依赖保持分解"><a href="#依赖保持分解" class="headerlink" title="依赖保持分解"></a>依赖保持分解</h4><p><img src="https://ws3.sinaimg.cn/large/005BYqpggy1g44de26uzxj30zc0h40z8.jpg" style="border:none"></p>
+<blockquote>
+<ul>
+<li>如果一个分解具有无损分解，则它能够保证不丢失信息。</li>
+<li>如果一个分解保持了函数依赖，则它可以减轻或解决各种异常情况。</li>
+<li>具有无损连接性的分解不一定保持函数依赖，保持函数依赖的分解不一定具有无损连接性。</li>
+</ul>
+</blockquote>
+
       
     </div>
     
@@ -469,7 +478,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">RainRX</p>
-              <p class="site-description motion-element" itemprop="description">自闭患者康复日记</p>
+              <p class="site-description motion-element" itemprop="description">自闭患者康复日志</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -479,7 +488,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
