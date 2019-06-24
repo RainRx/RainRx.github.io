@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="RainRx">
 <meta property="og:description" content="第一章 软件的本质软件软件是： 指令的集合（计算机程序），通过执行这些指令可以满足预期的特性、功能和性能需求； 数据结构，使得程序可以合理利用信息； 软件描述信息，它以硬拷贝和虚拟形式存在，用来描述程序的操作和使用。  软件的特点： 功能性：一组功能及其指定的性质有关的一组属性。适合性、准确性、互用性/互操作性、依从性、安全性。 可靠性：在规定的一段时间和条件下，软件维持其性能水平有关的一组软件属">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-16T10:02:12.156Z">
+<meta property="og:updated_time" content="2019-06-24T12:57:31.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软工">
 <meta name="twitter:description" content="第一章 软件的本质软件软件是： 指令的集合（计算机程序），通过执行这些指令可以满足预期的特性、功能和性能需求； 数据结构，使得程序可以合理利用信息； 软件描述信息，它以硬拷贝和虚拟形式存在，用来描述程序的操作和使用。  软件的特点： 功能性：一组功能及其指定的性质有关的一组属性。适合性、准确性、互用性/互操作性、依从性、安全性。 可靠性：在规定的一段时间和条件下，软件维持其性能水平有关的一组软件属">
@@ -315,7 +315,10 @@
 <h3 id="软硬件的区别："><a href="#软硬件的区别：" class="headerlink" title="软硬件的区别："></a>软硬件的区别：</h3><ul>
 <li>软件是开发设计的，不是生产制造的。</li>
 <li>软件不会磨损，但会退化。不断的变更是软件退化的根本原因。硬件会磨损，磨损的部分可以用备用的构建替换，而软件却不存在备用构件。</li>
-<li>虽然整个工业向着基于构件的构造模型发展，然而大多数的软件还是主要采用用户定制的方式。在硬件设计中，构件复用是工程进程中通用的方法。而在软件设计中，大规模的复用还刚刚开始尝试。<h2 id="软件的变更本质"><a href="#软件的变更本质" class="headerlink" title="软件的变更本质"></a>软件的变更本质</h2>四大类软件不断演化，在行业中占有主导地位。</li>
+<li>虽然整个工业向着基于构件的构造模型发展，然而大多数的软件还是主要采用用户定制的方式。在硬件设计中，构件复用是工程进程中通用的方法。而在软件设计中，大规模的复用还刚刚开始尝试。</li>
+</ul>
+<h2 id="软件的变更本质"><a href="#软件的变更本质" class="headerlink" title="软件的变更本质"></a>软件的变更本质</h2><p>四大类软件不断演化，在行业中占有主导地位。</p>
+<ul>
 <li>WebApp</li>
 <li>移动App</li>
 <li>云计算</li>
@@ -493,6 +496,162 @@
 <li>创建系统状态图</li>
 <li>评审行为模型以验证准确性和一致性</li>
 </ol>
+<h1 id="第十二章-设计概念"><a href="#第十二章-设计概念" class="headerlink" title="第十二章 设计概念"></a>第十二章 设计概念</h1><h2 id="软件工程中的设计"><a href="#软件工程中的设计" class="headerlink" title="软件工程中的设计"></a>软件工程中的设计</h2><p>将分析模型映射到设计模型中</p>
+<h2 id="设计概念"><a href="#设计概念" class="headerlink" title="设计概念"></a>设计概念</h2><ul>
+<li>抽象（abstraction）</li>
+<li>体系结构（architecture）：软件的整体结构和这种结构为系统提供概念完整性的方式。</li>
+<li>模式（patterns）：每个设计模式的目的都是提供一个描述，使得设计人员能够确定：模式是否适用于现在的工作，模式能否复用，模式是否能够指导类似模式。</li>
+<li>模块化（modularity）：软件划分为独立命名的、可处理的构件。</li>
+<li>信息隐藏（information hiding）：每个模块对其他所有模块都隐蔽自己的设计决策。</li>
+<li>功能独立（functional independence）：开发具有专一功能和避免与其他模块过多交互的模块。</li>
+<li>求精（refinement）：通过连续精化过程细节层次来实现程序开发，通过逐步分解功能的宏观陈述直至形成程序设计语言的语句来实现层次开发。</li>
+<li>重构（refactoring）：一种重新组织的技术，可以简化构件的设计（或代码）而无需改变其功能或行为。</li>
+<li>设计类（design class）：当设计模型发生演化时，必须定义一组设计类，它们可以：（1）通过提供设计细节对分析类进行求精，而这些设计细节将促成类的实现；（2）实现支持业务解决方案的软件基础设施。</li>
+</ul>
+<h2 id="设计模型"><a href="#设计模型" class="headerlink" title="设计模型"></a>设计模型</h2><h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ul>
+<li>数据设计元素</li>
+<li>体系结构设计元素</li>
+<li>接口设计元素</li>
+<li>构件级设计元素</li>
+<li>部署级设计元素</li>
+</ul>
+<h3 id="组织良好的设计类的四个特征"><a href="#组织良好的设计类的四个特征" class="headerlink" title="组织良好的设计类的四个特征"></a>组织良好的设计类的四个特征</h3><ul>
+<li>完整性与充分性</li>
+<li>原始性</li>
+<li>高内聚性</li>
+<li>低耦合性</li>
+</ul>
+<p>实现所有功能，提供软件完整的视图。</p>
+<h1 id="第十三章-体系结构设计"><a href="#第十三章-体系结构设计" class="headerlink" title="第十三章 体系结构设计"></a>第十三章 体系结构设计</h1><h2 id="软件体系结构"><a href="#软件体系结构" class="headerlink" title="软件体系结构"></a>软件体系结构</h2><p>程序或计算系统的软件体系结构是指系统的一个或者多个结构，它包括软件构件、构件的外部可见属性以及它们之间的相互关系。</p>
+<h2 id="数据设计的目标"><a href="#数据设计的目标" class="headerlink" title="数据设计的目标"></a>数据设计的目标</h2><p>把在分析模型中定义的数据对象转化成软件构件级的数据结构，并且在必要时转化为应用程序级的数据库体系结构。</p>
+<h2 id="体系结构风格和模式"><a href="#体系结构风格和模式" class="headerlink" title="体系结构风格和模式"></a>体系结构风格和模式</h2><h3 id="体系结构风格的简单分类"><a href="#体系结构风格的简单分类" class="headerlink" title="体系结构风格的简单分类"></a>体系结构风格的简单分类</h3><ul>
+<li>以数据为中心的体系结构</li>
+<li>数据流体系结构</li>
+<li>调用和返回体系结构</li>
+<li>面向对象体系结构</li>
+<li>层次体系结构</li>
+</ul>
+<h3 id="体系架构设计的复杂性-三种依赖"><a href="#体系架构设计的复杂性-三种依赖" class="headerlink" title="体系架构设计的复杂性(三种依赖):"></a>体系架构设计的复杂性(三种依赖):</h3><ul>
+<li>sharing dependency(共享依赖):消费者间或生产者间的依赖关系</li>
+<li>flow dependency(流依赖):资源的生产者和消费者间的依赖关系</li>
+<li>constrained dependency(约束依赖):在一组活动间相关控制流上的约束。</li>
+</ul>
+<h1 id="第十四章"><a href="#第十四章" class="headerlink" title="第十四章"></a>第十四章</h1><h2 id="什么是构件"><a href="#什么是构件" class="headerlink" title="什么是构件"></a>什么是构件</h2><h3 id="面对对象的观点"><a href="#面对对象的观点" class="headerlink" title="面对对象的观点"></a>面对对象的观点</h3><p>在面向对象软件工程观点中，构件包括一个协作类集合。</p>
+<h3 id="传统的观点"><a href="#传统的观点" class="headerlink" title="传统的观点"></a>传统的观点</h3><p>在传统观点中，一个构件就是程序的一个功能要素，三种角色为：</p>
+<ul>
+<li>control component(控制构件)</li>
+<li>problem domain component(问题域构件)</li>
+<li>infrastructure component(基础设施构件)</li>
+</ul>
+<h2 id="设计基于类的构件"><a href="#设计基于类的构件" class="headerlink" title="设计基于类的构件"></a>设计基于类的构件</h2><h3 id="基本设计原则"><a href="#基本设计原则" class="headerlink" title="基本设计原则"></a>基本设计原则</h3><ul>
+<li><strong>开闭原则（The Open-Closed Principle，OCP）</strong>：模块（构件）应该对外延具有开放性，对修改具有封闭性。</li>
+<li>Liskov替换原则（Liskov Substitution Principle，LSP）：子类可以替换它们的基类。</li>
+<li>依赖倒置原则（Dependency Inversion Principle，DIP）：依赖于抽象，而非具体实现。</li>
+<li>接口分离原则（Interface Segregation Principle，ISP）：多个客户专用接口比一个通用接口要好。</li>
+<li>发布复用等价性原则（Release Reuse Equivalency Principle，REP）：复用的粒度就是发布的粒度。</li>
+<li>共同封装原则（Common Closure Principle，CCP）：一同变更的类应该合在一起。</li>
+<li>共同复用原则（Common Reuse Principle，CRP）：不能一起复用的类不能被分到一组。</li>
+</ul>
+<h3 id="内聚-amp-耦合"><a href="#内聚-amp-耦合" class="headerlink" title="内聚 &amp; 耦合"></a>内聚 &amp; 耦合</h3><h4 id="内聚"><a href="#内聚" class="headerlink" title="内聚"></a>内聚</h4><ul>
+<li>功能内聚：主要通过操作来体现，当一个模块完成一组且只有一组操作并返回结果时，就成此模块是功能内聚的。</li>
+<li>分层内聚：由包、构件和类来体现。高层能够访问低层的服务，但低层不能访问高层的服务。</li>
+<li>通信内聚：访问相同数据的所有操作被定义在一个类中。</li>
+</ul>
+<h4 id="耦合"><a href="#耦合" class="headerlink" title="耦合"></a>耦合</h4><p>耦合是类之间彼此联系程度的一种定性度量。</p>
+<h2 id="面向对象构件级设计的步骤"><a href="#面向对象构件级设计的步骤" class="headerlink" title="面向对象构件级设计的步骤"></a>面向对象构件级设计的步骤</h2><ol>
+<li>标识出所有于问题域相对应的设计类。</li>
+<li>确定所有基础设施域相对应的设计类。</li>
+<li>细化所有不需要作为复用构件的设计类。<ol>
+<li>在类或构件协作时说明消息的细节。</li>
+<li>为每个构件确定适当的接口。</li>
+<li>细化属性，并且定义实现属性所需要的数据类型和数据结构。</li>
+<li>详细描述每个操作中的处理流。</li>
+</ol>
+</li>
+<li>说明持久数据源（数据库和文件）并确定管理数据源所需要的类。</li>
+<li>开发并细化类或构件的行为表示。</li>
+<li>细化部署图以提供额外的实现细节。</li>
+<li>考虑每个构件级设计表示，并且时刻考虑其他可选方案。</li>
+</ol>
+<h2 id="传统构件级设计"><a href="#传统构件级设计" class="headerlink" title="传统构件级设计"></a>传统构件级设计</h2><p>传统构件的三种设计表示:</p>
+<ul>
+<li>图形 —— 流程图</li>
+<li>表格 —— 决策表</li>
+<li>文本 —— PDL</li>
+</ul>
+<h2 id="在构件级设计中，面向对象的观点和传统的观点的区别"><a href="#在构件级设计中，面向对象的观点和传统的观点的区别" class="headerlink" title="在构件级设计中，面向对象的观点和传统的观点的区别?"></a>在构件级设计中，面向对象的观点和传统的观点的区别?</h2><ul>
+<li>面向对象的观点注重细化来自于问题域和基础设施域的设计类</li>
+<li>面向对象的观点注重细化来自于问题域和基础设施域的设计类</li>
+</ul>
+<h1 id="第十五章"><a href="#第十五章" class="headerlink" title="第十五章"></a>第十五章</h1><h2 id="黄金规则"><a href="#黄金规则" class="headerlink" title="黄金规则"></a>黄金规则</h2><ol>
+<li>把控制权交给用户</li>
+<li>减轻用户的记忆负担</li>
+<li>保持界面一致</li>
+</ol>
+<h2 id="用户界面分析和设计"><a href="#用户界面分析和设计" class="headerlink" title="用户界面分析和设计"></a>用户界面分析和设计</h2><h3 id="界面分析步骤"><a href="#界面分析步骤" class="headerlink" title="界面分析步骤"></a>界面分析步骤</h3><ol>
+<li>用户分析</li>
+<li>任务分析和建模</li>
+<li>显示内容分析</li>
+<li>工作环境分析</li>
+</ol>
+<h3 id="界面设计步骤"><a href="#界面设计步骤" class="headerlink" title="界面设计步骤"></a>界面设计步骤</h3><ol>
+<li>定义界面对象和动作</li>
+<li>确定事件（用户动作），即会导致用户界面状态发生变化的事件</li>
+<li>描述每个状态的表示形式</li>
+<li>说明用户如何利用界面提供的信息来解释每个状态</li>
+</ol>
+<h1 id="第二十二、二十三、二十四章"><a href="#第二十二、二十三、二十四章" class="headerlink" title="第二十二、二十三、二十四章"></a>第二十二、二十三、二十四章</h1><h2 id="软件测试的策略性方法"><a href="#软件测试的策略性方法" class="headerlink" title="软件测试的策略性方法"></a>软件测试的策略性方法</h2><h3 id="验证与确认"><a href="#验证与确认" class="headerlink" title="验证与确认"></a>验证与确认</h3><p>验证：是指确保软件正确地实现某一特定功能的一系列活动；<br>确认：指的是确保开发的软件可追溯到客户需求的另外一系列活动</p>
+<h2 id="传统软件的测试策略（过程与文档）"><a href="#传统软件的测试策略（过程与文档）" class="headerlink" title="传统软件的测试策略（过程与文档）"></a>传统软件的测试策略（过程与文档）</h2><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>单元测试侧重于软件设计的最小单元（软件构件或模块）的验证工作。</p>
+<h3 id="集成测试-amp-回归测试"><a href="#集成测试-amp-回归测试" class="headerlink" title="集成测试&amp;回归测试"></a>集成测试&amp;回归测试</h3><p><strong>集成测试</strong>：是构建软件体系结构的系统化技术，同时也是进行一些旨在发现与接口相关的错误的测试。</p>
+<p><strong>回归测试</strong>：重新执行已测试过的某些子集，以确保变更没有传播不期望的副作用。</p>
+<h4 id="为什么说回归测试是集成测试流程中的关键部分"><a href="#为什么说回归测试是集成测试流程中的关键部分" class="headerlink" title="为什么说回归测试是集成测试流程中的关键部分?"></a>为什么说回归测试是集成测试流程中的关键部分?</h4><p>因为在集成测试策略的环境下，每加入一个新的模块作为测试的一部分时，软件会发生变更，这些变更可能会是使本来可以正常工作的功能产生问题，而回归测试只是重新执行已进行测试的某个子集，以确保变更没有传播不期望的副作用。</p>
+<h3 id="确认测试"><a href="#确认测试" class="headerlink" title="确认测试"></a>确认测试</h3><p>确认测试始于集成测试的结束，那时已测试完单个构件，软件已组装成完整的软件包，且接口错误已被发现和改正。</p>
+<h3 id="系统测试"><a href="#系统测试" class="headerlink" title="系统测试"></a>系统测试</h3><h2 id="调试技巧"><a href="#调试技巧" class="headerlink" title="调试技巧"></a>调试技巧</h2><h3 id="测试和调试的关系"><a href="#测试和调试的关系" class="headerlink" title="测试和调试的关系"></a>测试和调试的关系</h3><ul>
+<li>测试发现错误，调试诊断错误出现的原因和位置，以便消除错误。</li>
+<li>调试出现在成功的测试之后。</li>
+</ul>
+<h2 id="软件测试基础"><a href="#软件测试基础" class="headerlink" title="软件测试基础"></a>软件测试基础</h2><h3 id="软件可测试的定义和特点"><a href="#软件可测试的定义和特点" class="headerlink" title="软件可测试的定义和特点"></a>软件可测试的定义和特点</h3><p>软件可测试就是（计算机程序）能够被测试的容易程度。</p>
+<p>特点：</p>
+<ul>
+<li>可操作性</li>
+<li>可观察性</li>
+<li>可控制性</li>
+<li>可分解性</li>
+<li>简单性</li>
+<li>稳定性</li>
+<li>易理解性</li>
+</ul>
+<h2 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h2><p>白盒测试是在了解模块内部结构的情况下进行的测试。<br>白盒测试集中在程序控制结构上。</p>
+<h3 id="流图表示"><a href="#流图表示" class="headerlink" title="流图表示"></a>流图表示</h3><p>流图是一种简单的控制流表示方法。</p>
+<ul>
+<li>边和结点限定的范围称为域</li>
+<li>在计算域的数量时，将图的外部区域作为一个域。</li>
+</ul>
+<h3 id="环复杂度"><a href="#环复杂度" class="headerlink" title="环复杂度"></a>环复杂度</h3><p>V(G) = E − N + 2 (E 是流图边数，N 是流图节点数)</p>
+<h2 id="基本路径测试"><a href="#基本路径测试" class="headerlink" title="基本路径测试"></a>基本路径测试</h2><h2 id="控制结构测试"><a href="#控制结构测试" class="headerlink" title="控制结构测试"></a>控制结构测试</h2><h2 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a>黑盒测试</h2><p>黑盒测试旨在验证功能需求，而不考虑程序的内部工作。</p>
+<h3 id="等价类划分"><a href="#等价类划分" class="headerlink" title="等价类划分"></a>等价类划分</h3><p>它将程序的输入划分为若干个数据类，从中生成测试用例。</p>
+<h3 id="边界值分析"><a href="#边界值分析" class="headerlink" title="边界值分析"></a>边界值分析</h3><p>边界值分析通常在边界值附近设计测试用例。</p>
+<h2 id="面向对象的测试方法"><a href="#面向对象的测试方法" class="headerlink" title="面向对象的测试方法"></a>面向对象的测试方法</h2><h3 id="基于错误的测试"><a href="#基于错误的测试" class="headerlink" title="基于错误的测试"></a>基于错误的测试</h3><h3 id="基于场景的测试"><a href="#基于场景的测试" class="headerlink" title="基于场景的测试"></a>基于场景的测试</h3><p>是一种面向对象的测试方法，意味着捕获用户必须完成的任务，然后在测试时使用它们及其变体。</p>
+<h1 id="第21-29-31-32-33-34-35章"><a href="#第21-29-31-32-33-34-35章" class="headerlink" title="第21,29,31,32,33,34,35章"></a>第21,29,31,32,33,34,35章</h1><h2 id="4P’s"><a href="#4P’s" class="headerlink" title="4P’s"></a>4P’s</h2><ul>
+<li><strong>people</strong>：人员是软件项目的基本要素和关键因素。</li>
+<li><strong>product</strong>：在制定项目计划之前，应该首先确定产品的目标和范围，考虑可选的解决方案，识别技术和管理上的限制。</li>
+<li><strong>process</strong>：项目团队要选择一个适合于待开发软件的过程模型</li>
+<li><strong>Project</strong>：采用科学的方法和工具对项目基本内容进行管理。</li>
+</ul>
+<h2 id="软件配置管理"><a href="#软件配置管理" class="headerlink" title="软件配置管理"></a>软件配置管理</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>是一组管理变更的活动，<br>是应用于整个软件过程的一种普适性活动。</p>
+<h3 id="SCM过程"><a href="#SCM过程" class="headerlink" title="SCM过程"></a>SCM过程</h3><ul>
+<li>标识</li>
+<li>变更控制</li>
+<li>版本控制</li>
+<li>配置审核</li>
+<li>报告</li>
+</ul>
+<h2 id="风险管理"><a href="#风险管理" class="headerlink" title="风险管理"></a>风险管理</h2><ul>
+<li>项目风险：项目风险是指预算、进度、人员、资源、利益相关者、需求等方面的潜在问题以及它们对软件项目的影响。</li>
+<li>技术风险：技术风险是指设计、实现、接口、验证和维护等方面的潜在问题。</li>
+<li>商业风险：商业风险威胁到要开发软件的生存能力。</li>
+</ul>
+<p>开发了一个无人真正需要的产品(市场风险)<br>开发的产品不符合公司的整体商业策略(策略风险)<br>建造了一个销售部门不知如何销售的产品<br>由于重点转移失去了高级管理层支持(管理风险)  </p>
 
       
     </div>
@@ -661,7 +820,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-软件的本质"><span class="nav-number">1.</span> <span class="nav-text">第一章 软件的本质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件"><span class="nav-number">1.1.</span> <span class="nav-text">软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件是："><span class="nav-number">1.1.1.</span> <span class="nav-text">软件是：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件的特点："><span class="nav-number">1.1.2.</span> <span class="nav-text">软件的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软硬件的区别："><span class="nav-number">1.1.3.</span> <span class="nav-text">软硬件的区别：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件的变更本质"><span class="nav-number">1.2.</span> <span class="nav-text">软件的变更本质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-软件工程"><span class="nav-number">2.</span> <span class="nav-text">第二章 软件工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件工程-一种层次化的技术"><span class="nav-number">2.1.</span> <span class="nav-text">软件工程 - 一种层次化的技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件工程的定义："><span class="nav-number">2.1.1.</span> <span class="nav-text">软件工程的定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件工程的目的"><span class="nav-number">2.1.2.</span> <span class="nav-text">软件工程的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer"><span class="nav-number">2.1.3.</span> <span class="nav-text">Layer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程框架"><span class="nav-number">2.2.</span> <span class="nav-text">过程框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件开发神话"><span class="nav-number">2.3.</span> <span class="nav-text">软件开发神话</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-软件过程结构"><span class="nav-number">3.</span> <span class="nav-text">第三章 软件过程结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prescriptive-models"><span class="nav-number">3.1.</span> <span class="nav-text">Prescriptive models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#瀑布模型"><span class="nav-number">3.2.</span> <span class="nav-text">瀑布模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增量过程模型"><span class="nav-number">3.3.</span> <span class="nav-text">增量过程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAD模型"><span class="nav-number">3.4.</span> <span class="nav-text">RAD模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演化过程模型"><span class="nav-number">3.5.</span> <span class="nav-text">演化过程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型开发"><span class="nav-number">3.5.1.</span> <span class="nav-text">原型开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#螺旋模型"><span class="nav-number">3.5.2.</span> <span class="nav-text">螺旋模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专用过程模型"><span class="nav-number">3.6.</span> <span class="nav-text">专用过程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于构件的开发"><span class="nav-number">3.6.1.</span> <span class="nav-text">基于构件的开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向方面的软件开发（AOSD）"><span class="nav-number">3.6.2.</span> <span class="nav-text">面向方面的软件开发（AOSD）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统一过程（UP）"><span class="nav-number">3.7.</span> <span class="nav-text">统一过程（UP）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-敏捷开发"><span class="nav-number">4.</span> <span class="nav-text">第四章 敏捷开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是敏捷"><span class="nav-number">4.1.</span> <span class="nav-text">什么是敏捷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极限编程XP"><span class="nav-number">4.2.</span> <span class="nav-text">极限编程XP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态系统开发方法（DSDM）"><span class="nav-number">4.3.</span> <span class="nav-text">动态系统开发方法（DSDM）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum（橄榄球）"><span class="nav-number">4.4.</span> <span class="nav-text">Scrum（橄榄球）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章-理解需求"><span class="nav-number">5.</span> <span class="nav-text">第八章 理解需求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求工程-design和construction的桥梁"><span class="nav-number">5.1.</span> <span class="nav-text">需求工程 - design和construction的桥梁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发用例"><span class="nav-number">5.2.</span> <span class="nav-text">开发用例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九、十、十一章-需求模型"><span class="nav-number">6.</span> <span class="nav-text">第九、十、十一章 需求模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-number">6.1.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析模型的三个主要目标："><span class="nav-number">6.1.1.</span> <span class="nav-text">分析模型的三个主要目标：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析模型"><span class="nav-number">6.1.2.</span> <span class="nav-text">分析模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求建模方法"><span class="nav-number">6.2.</span> <span class="nav-text">需求建模方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据建模"><span class="nav-number">6.3.</span> <span class="nav-text">数据建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于场景建模"><span class="nav-number">6.4.</span> <span class="nav-text">基于场景建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML"><span class="nav-number">6.4.1.</span> <span class="nav-text">UML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Cases"><span class="nav-number">6.4.2.</span> <span class="nav-text">Use-Cases</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面对对象分析"><span class="nav-number">6.4.3.</span> <span class="nav-text">面对对象分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成行为模型"><span class="nav-number">6.5.</span> <span class="nav-text">生成行为模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-软件的本质"><span class="nav-number">1.</span> <span class="nav-text">第一章 软件的本质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件"><span class="nav-number">1.1.</span> <span class="nav-text">软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件是："><span class="nav-number">1.1.1.</span> <span class="nav-text">软件是：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件的特点："><span class="nav-number">1.1.2.</span> <span class="nav-text">软件的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软硬件的区别："><span class="nav-number">1.1.3.</span> <span class="nav-text">软硬件的区别：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件的变更本质"><span class="nav-number">1.2.</span> <span class="nav-text">软件的变更本质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-软件工程"><span class="nav-number">2.</span> <span class="nav-text">第二章 软件工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件工程-一种层次化的技术"><span class="nav-number">2.1.</span> <span class="nav-text">软件工程 - 一种层次化的技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件工程的定义："><span class="nav-number">2.1.1.</span> <span class="nav-text">软件工程的定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件工程的目的"><span class="nav-number">2.1.2.</span> <span class="nav-text">软件工程的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer"><span class="nav-number">2.1.3.</span> <span class="nav-text">Layer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程框架"><span class="nav-number">2.2.</span> <span class="nav-text">过程框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件开发神话"><span class="nav-number">2.3.</span> <span class="nav-text">软件开发神话</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-软件过程结构"><span class="nav-number">3.</span> <span class="nav-text">第三章 软件过程结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prescriptive-models"><span class="nav-number">3.1.</span> <span class="nav-text">Prescriptive models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#瀑布模型"><span class="nav-number">3.2.</span> <span class="nav-text">瀑布模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增量过程模型"><span class="nav-number">3.3.</span> <span class="nav-text">增量过程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAD模型"><span class="nav-number">3.4.</span> <span class="nav-text">RAD模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演化过程模型"><span class="nav-number">3.5.</span> <span class="nav-text">演化过程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型开发"><span class="nav-number">3.5.1.</span> <span class="nav-text">原型开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#螺旋模型"><span class="nav-number">3.5.2.</span> <span class="nav-text">螺旋模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专用过程模型"><span class="nav-number">3.6.</span> <span class="nav-text">专用过程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于构件的开发"><span class="nav-number">3.6.1.</span> <span class="nav-text">基于构件的开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向方面的软件开发（AOSD）"><span class="nav-number">3.6.2.</span> <span class="nav-text">面向方面的软件开发（AOSD）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统一过程（UP）"><span class="nav-number">3.7.</span> <span class="nav-text">统一过程（UP）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-敏捷开发"><span class="nav-number">4.</span> <span class="nav-text">第四章 敏捷开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是敏捷"><span class="nav-number">4.1.</span> <span class="nav-text">什么是敏捷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极限编程XP"><span class="nav-number">4.2.</span> <span class="nav-text">极限编程XP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态系统开发方法（DSDM）"><span class="nav-number">4.3.</span> <span class="nav-text">动态系统开发方法（DSDM）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum（橄榄球）"><span class="nav-number">4.4.</span> <span class="nav-text">Scrum（橄榄球）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章-理解需求"><span class="nav-number">5.</span> <span class="nav-text">第八章 理解需求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求工程-design和construction的桥梁"><span class="nav-number">5.1.</span> <span class="nav-text">需求工程 - design和construction的桥梁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发用例"><span class="nav-number">5.2.</span> <span class="nav-text">开发用例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九、十、十一章-需求模型"><span class="nav-number">6.</span> <span class="nav-text">第九、十、十一章 需求模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-number">6.1.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析模型的三个主要目标："><span class="nav-number">6.1.1.</span> <span class="nav-text">分析模型的三个主要目标：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析模型"><span class="nav-number">6.1.2.</span> <span class="nav-text">分析模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求建模方法"><span class="nav-number">6.2.</span> <span class="nav-text">需求建模方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据建模"><span class="nav-number">6.3.</span> <span class="nav-text">数据建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于场景建模"><span class="nav-number">6.4.</span> <span class="nav-text">基于场景建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML"><span class="nav-number">6.4.1.</span> <span class="nav-text">UML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Cases"><span class="nav-number">6.4.2.</span> <span class="nav-text">Use-Cases</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面对对象分析"><span class="nav-number">6.4.3.</span> <span class="nav-text">面对对象分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成行为模型"><span class="nav-number">6.5.</span> <span class="nav-text">生成行为模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十二章-设计概念"><span class="nav-number">7.</span> <span class="nav-text">第十二章 设计概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件工程中的设计"><span class="nav-number">7.1.</span> <span class="nav-text">软件工程中的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计概念"><span class="nav-number">7.2.</span> <span class="nav-text">设计概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模型"><span class="nav-number">7.3.</span> <span class="nav-text">设计模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过程"><span class="nav-number">7.3.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组织良好的设计类的四个特征"><span class="nav-number">7.3.2.</span> <span class="nav-text">组织良好的设计类的四个特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十三章-体系结构设计"><span class="nav-number">8.</span> <span class="nav-text">第十三章 体系结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件体系结构"><span class="nav-number">8.1.</span> <span class="nav-text">软件体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据设计的目标"><span class="nav-number">8.2.</span> <span class="nav-text">数据设计的目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构风格和模式"><span class="nav-number">8.3.</span> <span class="nav-text">体系结构风格和模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#体系结构风格的简单分类"><span class="nav-number">8.3.1.</span> <span class="nav-text">体系结构风格的简单分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体系架构设计的复杂性-三种依赖"><span class="nav-number">8.3.2.</span> <span class="nav-text">体系架构设计的复杂性(三种依赖):</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十四章"><span class="nav-number">9.</span> <span class="nav-text">第十四章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是构件"><span class="nav-number">9.1.</span> <span class="nav-text">什么是构件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面对对象的观点"><span class="nav-number">9.1.1.</span> <span class="nav-text">面对对象的观点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的观点"><span class="nav-number">9.1.2.</span> <span class="nav-text">传统的观点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计基于类的构件"><span class="nav-number">9.2.</span> <span class="nav-text">设计基于类的构件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设计原则"><span class="nav-number">9.2.1.</span> <span class="nav-text">基本设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内聚-amp-耦合"><span class="nav-number">9.2.2.</span> <span class="nav-text">内聚 &amp; 耦合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内聚"><span class="nav-number">9.2.2.1.</span> <span class="nav-text">内聚</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#耦合"><span class="nav-number">9.2.2.2.</span> <span class="nav-text">耦合</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象构件级设计的步骤"><span class="nav-number">9.3.</span> <span class="nav-text">面向对象构件级设计的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统构件级设计"><span class="nav-number">9.4.</span> <span class="nav-text">传统构件级设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在构件级设计中，面向对象的观点和传统的观点的区别"><span class="nav-number">9.5.</span> <span class="nav-text">在构件级设计中，面向对象的观点和传统的观点的区别?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十五章"><span class="nav-number">10.</span> <span class="nav-text">第十五章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#黄金规则"><span class="nav-number">10.1.</span> <span class="nav-text">黄金规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户界面分析和设计"><span class="nav-number">10.2.</span> <span class="nav-text">用户界面分析和设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#界面分析步骤"><span class="nav-number">10.2.1.</span> <span class="nav-text">界面分析步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#界面设计步骤"><span class="nav-number">10.2.2.</span> <span class="nav-text">界面设计步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二十二、二十三、二十四章"><span class="nav-number">11.</span> <span class="nav-text">第二十二、二十三、二十四章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件测试的策略性方法"><span class="nav-number">11.1.</span> <span class="nav-text">软件测试的策略性方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#验证与确认"><span class="nav-number">11.1.1.</span> <span class="nav-text">验证与确认</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统软件的测试策略（过程与文档）"><span class="nav-number">11.2.</span> <span class="nav-text">传统软件的测试策略（过程与文档）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试"><span class="nav-number">11.2.1.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成测试-amp-回归测试"><span class="nav-number">11.2.2.</span> <span class="nav-text">集成测试&amp;回归测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么说回归测试是集成测试流程中的关键部分"><span class="nav-number">11.2.2.1.</span> <span class="nav-text">为什么说回归测试是集成测试流程中的关键部分?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确认测试"><span class="nav-number">11.2.3.</span> <span class="nav-text">确认测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统测试"><span class="nav-number">11.2.4.</span> <span class="nav-text">系统测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试技巧"><span class="nav-number">11.3.</span> <span class="nav-text">调试技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试和调试的关系"><span class="nav-number">11.3.1.</span> <span class="nav-text">测试和调试的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件测试基础"><span class="nav-number">11.4.</span> <span class="nav-text">软件测试基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件可测试的定义和特点"><span class="nav-number">11.4.1.</span> <span class="nav-text">软件可测试的定义和特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#白盒测试"><span class="nav-number">11.5.</span> <span class="nav-text">白盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流图表示"><span class="nav-number">11.5.1.</span> <span class="nav-text">流图表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环复杂度"><span class="nav-number">11.5.2.</span> <span class="nav-text">环复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本路径测试"><span class="nav-number">11.6.</span> <span class="nav-text">基本路径测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制结构测试"><span class="nav-number">11.7.</span> <span class="nav-text">控制结构测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#黑盒测试"><span class="nav-number">11.8.</span> <span class="nav-text">黑盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#等价类划分"><span class="nav-number">11.8.1.</span> <span class="nav-text">等价类划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边界值分析"><span class="nav-number">11.8.2.</span> <span class="nav-text">边界值分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象的测试方法"><span class="nav-number">11.9.</span> <span class="nav-text">面向对象的测试方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于错误的测试"><span class="nav-number">11.9.1.</span> <span class="nav-text">基于错误的测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于场景的测试"><span class="nav-number">11.9.2.</span> <span class="nav-text">基于场景的测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第21-29-31-32-33-34-35章"><span class="nav-number">12.</span> <span class="nav-text">第21,29,31,32,33,34,35章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4P’s"><span class="nav-number">12.1.</span> <span class="nav-text">4P’s</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件配置管理"><span class="nav-number">12.2.</span> <span class="nav-text">软件配置管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">12.2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCM过程"><span class="nav-number">12.2.2.</span> <span class="nav-text">SCM过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风险管理"><span class="nav-number">12.3.</span> <span class="nav-text">风险管理</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g45mvkgwegj31d40ookjl.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g46gocltb2j317a0d6tj7.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/005BYqpggy1g46dqy40hsj30ki0ug495.jpg">
-<meta property="og:updated_time" content="2019-06-19T07:03:50.341Z">
+<meta property="og:updated_time" content="2019-06-19T07:11:57.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS">
 <meta name="twitter:description" content="第一章了解计算机系统构成 处理器 内存 输入输出模块 系统总线  指令周期的过程开始 - 取下一条指令 - 执行指令 - 停止 硬件I/O需要的三种方式 可编程I/O 中断驱动I/O 直接内存存取（DMA）  第二章理解操作系统是什么操作系统是控制应用程序执行的程序，是应用程序和计算机硬件间的接口。 操作系统构成的模块 进程管理 存储管理 I/O管理 文件系统  串型处理、简单批处理、多道程序批处">
@@ -459,7 +459,9 @@
 <p>外部碎片：外部碎片是指还没有分配出去，但是由于大小太小而无法分配给申请空间的新进程的内存空间空闲块。</p>
 <h3 id="地址转换流程"><a href="#地址转换流程" class="headerlink" title="地址转换流程"></a>地址转换流程</h3><p>分页</p>
 <p>分段</p>
-<h3 id="分区、分页、分段的区别"><a href="#分区、分页、分段的区别" class="headerlink" title="分区、分页、分段的区别"></a>分区、分页、分段的区别</h3><p><img src="https://ws3.sinaimg.cn/large/005BYqpggy1g45mvkgwegj31d40ookjl.jpg" style="border:none"></p>
+<h3 id="分区、分页、分段的区别"><a href="#分区、分页、分段的区别" class="headerlink" title="分区、分页、分段的区别"></a>分区、分页、分段的区别</h3><p>页是信息的物理单位，提高内存利用率，大小固定。</p>
+<p>段是信息的逻辑单位，它具有一组其意义相对完整的信息，更好地满足用户的需要，大小不固定（取决于用户编写的程序）</p>
+<p><img src="https://ws3.sinaimg.cn/large/005BYqpggy1g45mvkgwegj31d40ookjl.jpg" style="border:none"></p>
 <h1 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h1><h2 id="了解-5"><a href="#了解-5" class="headerlink" title="了解"></a>了解</h2><h3 id="按需清除和预清除的区别"><a href="#按需清除和预清除的区别" class="headerlink" title="按需清除和预清除的区别"></a>按需清除和预清除的区别</h3><h3 id="清除的概念、策略"><a href="#清除的概念、策略" class="headerlink" title="清除的概念、策略"></a>清除的概念、策略</h3><h3 id="抖动"><a href="#抖动" class="headerlink" title="抖动"></a>抖动</h3><p>处理器的大部分时间都在用于交换块而非执行指令。</p>
 <h3 id="页缓冲"><a href="#页缓冲" class="headerlink" title="页缓冲"></a>页缓冲</h3><h2 id="理解-6"><a href="#理解-6" class="headerlink" title="理解"></a>理解</h2><h3 id="缺页、缺页后产生的流程"><a href="#缺页、缺页后产生的流程" class="headerlink" title="缺页、缺页后产生的流程"></a>缺页、缺页后产生的流程</h3><p>若“存在位”为置位，则表示需要的页不在内存中，这时会产生一次内存访问故障，称为<strong>缺页</strong>中断。此时离开硬件作用范围，调用操作系统，由操作系统负责装入所需要的页，并更新页表。</p>
 <h3 id="页表是什么"><a href="#页表是什么" class="headerlink" title="页表是什么"></a>页表是什么</h3><p>页表给出了该进程的每页对应页框的位置。</p>
