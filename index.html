@@ -1312,11 +1312,11 @@ js执行分成两个步骤：
           
           为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：
 
-基本类型：Number, Stirng, Boolean, Null, Undefined
-引用类型：Object, Function
+基本类型：Number, Stirng, Boolean, Null, Undefined ：（赋值）
+引用类型：Object ：（赋址）
 
 其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引用类型的变量其实更像一个指针（个人理解），因此在对新的变量赋值时，其实只是将地址赋值给这个变量，所以新旧变量其实指向的是同一数据，当对其中一个对象进行操作时，会影响到另一个变量。
-123456789v
+12345678
           ...
           <!--noindex-->
           <div class="post-button text-center">

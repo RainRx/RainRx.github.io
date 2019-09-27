@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined 引用类型：Object, Function  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引">
+<meta name="description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined ：（赋值） 引用类型：Object ：（赋址）  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS中的深浅拷贝">
 <meta property="og:url" content="http://yoursite.com/2019/06/04/工地英语2/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined 引用类型：Object, Function  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引">
+<meta property="og:description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined ：（赋值） 引用类型：Object ：（赋址）  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-27T09:27:33.211Z">
+<meta property="og:updated_time" content="2019-09-27T10:47:08.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中的深浅拷贝">
-<meta name="twitter:description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined 引用类型：Object, Function  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引">
+<meta name="twitter:description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined ：（赋值） 引用类型：Object ：（赋址）  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。">
 
 
 
@@ -323,8 +323,8 @@
       
         <h2 id="为什么要进行拷贝"><a href="#为什么要进行拷贝" class="headerlink" title="为什么要进行拷贝"></a>为什么要进行拷贝</h2><p>首先我们知道JS中的数据类型分为基本类型和引用类型：</p>
 <ul>
-<li>基本类型：Number, Stirng, Boolean, Null, Undefined</li>
-<li>引用类型：Object, Function</li>
+<li>基本类型：Number, Stirng, Boolean, Null, Undefined ：（赋值）</li>
+<li>引用类型：Object ：（赋<strong>址</strong>）</li>
 </ul>
 <p>其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对<strong>基本类型</strong>进行复制时，（<code>var i = 0; var j = i</code>），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而<strong>引用类型</strong>的变量其实更像一个指针（个人理解），因此在对新的变量赋值时，其实只是将地址赋值给这个变量，所以新旧变量其实指向的是同一数据，当对其中一个对象进行操作时，会影响到另一个变量。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    value: <span class="string">'a'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = obj1</span><br><span class="line"></span><br><span class="line">obj2.value = <span class="string">'b'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.value) <span class="comment">// b</span></span><br></pre></td></tr></table></figure>
@@ -338,6 +338,17 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    value: <span class="string">'a'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj1)</span><br><span class="line">obj2.value = <span class="string">'b'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.value) <span class="comment">// b</span></span><br></pre></td></tr></table></figure>
 <p>而如果拷贝的对象当中包含对象（即拷贝对象为多级属性），那么 <code>Object.assign()</code> 方法只会拷贝对象的引用地址。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1=&#123;</span><br><span class="line">    value: <span class="string">'a'</span>,</span><br><span class="line">    obj3:&#123;</span><br><span class="line">        value2: <span class="string">'c'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;,obj1);</span><br><span class="line">obj2.obj3.value2=<span class="string">'b'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1);<span class="comment">//&#123; value: 'a', obj3:&#123; value2: 'b' &#125; &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="JSON-parse-JSON-stringify-object"><a href="#JSON-parse-JSON-stringify-object" class="headerlink" title="JSON.parse(JSON.stringify(object))"></a><code>JSON.parse(JSON.stringify(object))</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">  student: &#123;</span><br><span class="line">    name: <span class="string">'xx'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'你好'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  un: <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(a)) <span class="comment">// &#123;student: &#123;name: "xx"&#125;&#125;</span></span><br><span class="line">b.student.name = <span class="string">'kk'</span></span><br><span class="line">a.student.name <span class="comment">// "xx"</span></span><br></pre></td></tr></table></figure>
+<p>缺点：</p>
+<ol>
+<li>会忽略 <code>undefined</code></li>
+<li>会忽略 <code>symbol</code></li>
+<li>不能序列化函数</li>
+<li>不能解决循环引用的对象</li>
+<li>不能正确处理 <code>new Date()</code></li>
+<li>不能处理正则</li>
+</ol>
+<h3 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">source</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 如果参数不是对象直接返回</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> source !== <span class="string">'object'</span>) <span class="keyword">return</span> source</span><br><span class="line">    <span class="comment">// 初始化新数组 对象或者是数组</span></span><br><span class="line">    <span class="keyword">var</span> newObj = <span class="built_in">Object</span>.prototype.toString.call(source) === <span class="string">'[Object Array]'</span> ? [] : &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> source)&#123;</span><br><span class="line">        <span class="comment">// 判断该属性是否在该对象实例上</span></span><br><span class="line">        <span class="keyword">if</span>(source.hasOwnProperty(key))&#123;</span><br><span class="line">            <span class="comment">// 判断该属性的值是否是对象，如果是则对该对象进行拷贝</span></span><br><span class="line">            newObj[key] = <span class="keyword">typeof</span> source[key] === <span class="string">'object'</span> ? deepCopy(source(key)) : source[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -506,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行拷贝"><span class="nav-number">1.</span> <span class="nav-text">为什么要进行拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝"><span class="nav-number">3.</span> <span class="nav-text">深拷贝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行拷贝"><span class="nav-number">1.</span> <span class="nav-text">为什么要进行拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝"><span class="nav-number">3.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-parse-JSON-stringify-object"><span class="nav-number">3.1.</span> <span class="nav-text">JSON.parse(JSON.stringify(object))</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归实现"><span class="nav-number">3.2.</span> <span class="nav-text">递归实现</span></a></li></ol></li></ol></div>
             
 
           </div>
