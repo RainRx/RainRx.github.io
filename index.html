@@ -386,7 +386,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/19/api/" itemprop="url">接口文档</a></h1>
+                <a class="post-title-link" href="/2019/07/19/api/" itemprop="url">浏览器地址输入url到显示页面的步骤（HTTP）</a></h1>
         
 
         <div class="post-meta">
@@ -438,9 +438,8 @@
       
         
           
-          首页1.获取首页内容路由:/productHome前端请求参数:{}  
-12345678910111213141516后端返回: &#123;    success,    message,    data:[    &#123;        name, // 板块名称        panelContents:[ // 板块内容 - 商品列表        &#123;            productId,            salePrice,            picUrl,            subTitle,            productName    
-          ...
+          
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/07/19/api/#more" rel="contents">
@@ -912,7 +911,7 @@ ps：若不特别声明，本书中讨论的是非平凡函数依赖。
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/短文翻译/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/JS变量提升/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RainRX">
@@ -931,7 +930,7 @@ ps：若不特别声明，本书中讨论的是非平凡函数依赖。
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/13/短文翻译/" itemprop="url">短文翻译</a></h1>
+                <a class="post-title-link" href="/2019/06/13/JS变量提升/" itemprop="url">JS变量提升</a></h1>
         
 
         <div class="post-meta">
@@ -966,8 +965,8 @@ ps：若不特别声明，本书中讨论的是非平凡函数依赖。
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工地英语/" itemprop="url" rel="index">
-                    <span itemprop="name">工地英语</span>
+                  <a href="/categories/脑瘫前端/" itemprop="url" rel="index">
+                    <span itemprop="name">脑瘫前端</span>
                   </a>
                 </span>
 
@@ -1006,21 +1005,20 @@ ps：若不特别声明，本书中讨论的是非平凡函数依赖。
         
           
           
-向······开放：be open to
-免费：free of charge;for free
-······已很常见：It has become very common to see that…
-排长队：stand in long queues
-采取措施：take measures;take action;take steps;
-限制：limit；restrict
-···的形式：the forms of…
-利用：use;take advantage of;make use of
-不少：quite a few
-更具吸引力：more attractive;more appealing
-观赏：en
+js并不是一行一行向下执行的
+js执行分成两个步骤：
+编译（词法解释/预解释）
+执行
+
+
+
+123456789a = 'ghostwu';var a;console.log( a );//上面这段代码经过编译之后，变成下面这样 var a;  //被提升到当前作用域的最前面a = 'ghostwu'; //留在原地，等待执行console.log( a );
+函数声明会被提升
+123456789101112131415show()function show()&#123;    console.log(a);    var a = &apos;test&apos;;&#125;// 上面的代
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/06/13/短文翻译/#more" rel="contents">
+            <a class="btn" href="/2019/06/13/JS变量提升/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1090,7 +1088,7 @@ ps：若不特别声明，本书中讨论的是非平凡函数依赖。
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/11/工地英语3/" itemprop="url">单词3</a></h1>
+                <a class="post-title-link" href="/2019/06/11/工地英语3/" itemprop="url">JS事件流</a></h1>
         
 
         <div class="post-meta">
@@ -1125,8 +1123,8 @@ ps：若不特别声明，本书中讨论的是非平凡函数依赖。
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工地英语/" itemprop="url" rel="index">
-                    <span itemprop="name">工地英语</span>
+                  <a href="/categories/脑瘫前端/" itemprop="url" rel="index">
+                    <span itemprop="name">脑瘫前端</span>
                   </a>
                 </span>
 
@@ -1165,88 +1163,7 @@ ps：若不特别声明，本书中讨论的是非平凡函数依赖。
         
           
           
-
-
-单词
-释义
-
-
-
-
-even
-对称；偶数
-
-
-speculate
-猜测
-
-
-chronicle
-编年史
-
-
-fascinate
-迷住
-
-
-hypothesis
-假设；假说
-
-
-momentum
-动量
-
-
-remnant
-剩余部分
-
-
-revelation
-披露；被披露的真相
-
-
-lamb
-羊羔🐑
-
-
-eternal
-永恒的；不朽的
-
-
-advocacy
-拥护
-
-
-fierce
-凶猛的；狂热的
-
-
-obsessed
-使痴迷
-
-
-proclamation
-宣布
-
-
-rectify
-纠正
-
-
-reputed
-据说
-
-
-supposed
-认为的
-
-
-versatile
-多才多艺的
-
-
-admi
-          ...
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/11/工地英语3/#more" rel="contents">
@@ -1319,7 +1236,7 @@ admi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/04/工地英语2/" itemprop="url">单词2</a></h1>
+                <a class="post-title-link" href="/2019/06/04/工地英语2/" itemprop="url">JS中的深浅拷贝</a></h1>
         
 
         <div class="post-meta">
@@ -1354,8 +1271,8 @@ admi
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工地英语/" itemprop="url" rel="index">
-                    <span itemprop="name">工地英语</span>
+                  <a href="/categories/脑瘫前端/" itemprop="url" rel="index">
+                    <span itemprop="name">脑瘫前端</span>
                   </a>
                 </span>
 
@@ -1393,84 +1310,13 @@ admi
       
         
           
-          
+          为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：
 
+基本类型：Number, Stirng, Boolean, Null, Undefined
+引用类型：Object, Function
 
-单词
-释义
-
-
-
-
-headline
-新闻摘要
-
-
-herd
-兽群
-
-
-conservation
-保护
-
-
-sustainable
-可持续的
-
-
-devise
-设计；想出
-
-
-elsewhere
-在别处
-
-
-nevertheless
-然而；不过如此
-
-
-otherwise
-否则；原本
-
-
-predator
-捕食者
-
-
-retort
-反驳；回嘴
-
-
-testimony
-证词
-
-
-wrestle
-摔跤；使劲
-
-
-whistle
-口哨
-
-
-clinical
-临床
-
-
-consistent
-始终如一的；一致的
-
-
-modest
-谦逊的；微小的
-
-
-contemporary
-同时期的；同龄人
-
-
-
+其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引用类型的变量其实更像一个指针（个人理解），因此在对新的变量赋值时，其实只是将地址赋值给这个变量，所以新旧变量其实指向的是同一数据，当对其中一个对象进行操作时，会影响到另一个变量。
+123456789v
           ...
           <!--noindex-->
           <div class="post-button text-center">

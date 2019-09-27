@@ -88,7 +88,8 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://user-images.githubusercontent.com/22290721/38778241-36f852c4-40e9-11e8-9570-47b7166d8a52.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/698814/201809/698814-20180906145003189-254912994.jpg">
-<meta property="og:updated_time" content="2019-09-22T11:14:49.333Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2791152-ba592aa9b81fe174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-27T09:27:33.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="头条前端面试">
 <meta name="twitter:description" content="居中实现方法之前在写项目的时候 都是一顿flex，好用就完事了。  行内元素水平居中 123.container&amp;#123;     text-align: center;&amp;#125;  已知块级元素的宽水平居中 通过设置左右margin的值为auto 1234.container&amp;#123;    width: 600px;    margin: 0 auto;&amp;#125;  通过 table-">
@@ -399,7 +400,17 @@
 <blockquote>
 <p>箭头函数内部的this是词法作用域，由上下文确定。因此箭头函数的this是<strong>固定</strong>的，不再善变。</p>
 </blockquote>
-<h2 id="position-属性以及区别"><a href="#position-属性以及区别" class="headerlink" title="position 属性以及区别"></a>position 属性以及区别</h2><h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><h2 id="var-let-const-作用域"><a href="#var-let-const-作用域" class="headerlink" title="var let const 作用域"></a>var let const 作用域</h2><ul>
+<h2 id="position-属性以及区别"><a href="#position-属性以及区别" class="headerlink" title="position 属性以及区别"></a>position 属性以及区别</h2><h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><h2 id="箭头函数与普通函数的区别"><a href="#箭头函数与普通函数的区别" class="headerlink" title="箭头函数与普通函数的区别"></a>箭头函数与普通函数的区别</h2><ol>
+<li>箭头函数体内的this对象，就是定义时所在的对象，而不是运行时所在的对象。</li>
+<li>不可以使用 arguments 对象，该对象在函数体内不存在。</li>
+<li>不可以使用yield命令，因此箭头函数不能作为Genertor函数。</li>
+<li>不可以使用new命令，因为：<ul>
+<li>没有自己的this，因此不能调用call，apply</li>
+<li>没有prototype属性，而new函数需要把构造函数的prototype赋值给新的对象的<strong>proto</strong>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="var-let-const-作用域"><a href="#var-let-const-作用域" class="headerlink" title="var let const 作用域"></a>var let const 作用域</h2><ul>
 <li><p>var 可以进行变量提升；let、const 不能进行变量提升，只能先定义后使用</p>
 </li>
 <li><p>let、const可以用来创建块作用域变量，const的值是固定的（常量）</p>
@@ -441,7 +452,8 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createComparisonFunction</span>(<span class="params">propertyName</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">object1, object2</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> value1 = object1[propertyName]</span><br><span class="line">        <span class="keyword">var</span> value2 = object2[propertyName]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(value1 &gt; value2)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(value1 &lt; value2)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在这个例子中，<code>var value1 = object1[propertName]</code>和<code>var value2 = object2[propertyName]</code>访问了外部函数中的变量<code>propertyName</code>，即使这个函数被返回了，而且是在其他地方被调用了，但它依然可以访问变量<code>propertyName</code>，<strong>之所以还能访问这个变量，是因为内部函数的作用域链包含了<code>createComparisonFunction()</code>的作用域</strong></p>
-<h2 id="VUE-双向绑定"><a href="#VUE-双向绑定" class="headerlink" title="VUE 双向绑定"></a>VUE 双向绑定</h2><h2 id="ES5-转-ES6"><a href="#ES5-转-ES6" class="headerlink" title="ES5 转 ES6"></a>ES5 转 ES6</h2><ol>
+<h2 id="VUE-双向绑定"><a href="#VUE-双向绑定" class="headerlink" title="VUE 双向绑定"></a>VUE 双向绑定</h2><p>数据劫持 + 订阅者-发布者模式</p>
+<h2 id="ES5-转-ES6"><a href="#ES5-转-ES6" class="headerlink" title="ES5 转 ES6"></a>ES5 转 ES6</h2><ol>
 <li>将代码字符串解析成抽象语法树，即所谓的 AST。</li>
 <li>对 AST 进行处理，在这个阶段可以对 ES6 代码进行相应转换，即转成 ES5 代码。</li>
 <li>根据处理后的 AST 再生成代码字符串。</li>
@@ -515,7 +527,47 @@
 <li><span style="color:#e52721;font-weight:bold">返回实例</span>返回obj</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span>(<span class="params">F</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;<span class="attr">__proto__</span>:F.prototype&#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        F.apply(obj,<span class="built_in">arguments</span>); <span class="comment">// 调用构造函数，并将this指向obj</span></span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = _new(Person)(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
-<p>JS原型和原型链<br>JS new<br>JS面向对象<br>JS 继承</p>
+<h2 id="JS中深拷贝和浅拷贝"><a href="#JS中深拷贝和浅拷贝" class="headerlink" title="JS中深拷贝和浅拷贝"></a>JS中深拷贝和浅拷贝</h2><p>深拷贝和浅拷贝都只针对引用类型</p>
+<p>浅拷贝（shallow copy）：只复制指向某个对象的指针，而不复制对象本身，新旧对象共享一块内存；<br>  深拷贝（deep copy）：复制并创建一个一摸一样的对象，不共享内存，修改新对象，旧对象保持不变。</p>
+<hr>
+<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2><p><img src="https://upload-images.jianshu.io/upload_images/2791152-ba592aa9b81fe174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<hr>
+<h2 id="TCP和UDP的区别。"><a href="#TCP和UDP的区别。" class="headerlink" title="TCP和UDP的区别。"></a>TCP和UDP的区别。</h2><ul>
+<li>TCP(Transmission Control Protocal)：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
+<li>UDP(User Datagram Protocal)：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
+<li>TCP和UDP协议的一些应用例子：<br>  TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。</li>
+</ul>
+<h2 id="HTTP-method"><a href="#HTTP-method" class="headerlink" title="HTTP method"></a>HTTP method</h2><ol>
+<li><code>GET</code> 通常于请求服务器发送某个资源。<ul>
+<li>参数可见：参数会被明文可见的显示在url中</li>
+<li>数据类型只允许ASCII（不能传递二进制文件）</li>
+<li>可以保存书签</li>
+<li>可以被缓存：当本次请求允许被缓存时，会将本地资源存在本地cache中，在未过期时直接读取本地cache</li>
+<li>参数会保留在浏览器历史记录</li>
+<li>请求长度会受限于所使用的浏览器与服务器：不同的<strong>浏览器</strong>对url的长度有限。</li>
+</ul>
+</li>
+<li><code>POST</code> 的主要目的是用来提交的，一般是用来添加资源。<ul>
+<li>参数不可见：参数不会在url中明文显示</li>
+<li>不能收藏为书签</li>
+<li>不会被缓存</li>
+<li>不会保存在浏览器历史中</li>
+<li>不限制请求长度</li>
+<li>数据类型不限：可以提交文件</li>
+<li>请求方式：会先提交HEAD信息，得到100响应后，才会再次将DATA提交。</li>
+</ul>
+</li>
+<li><code>OPTIONS</code> 主要用来Preflight Request（预检请求）。</li>
+<li><code>HEAD</code> 用于获取报头信息，例如检查cache是否被修改，是否过期。</li>
+<li><code>PUT 与 PATCH</code> 主要用来更新资源。</li>
+<li><code>DELETE</code> 主要用来删除资源。</li>
+</ol>
+<p>事件流</p>
+<p>git merge和git rebase的区别</p>
+<h2 id="js中-运算符-的规则"><a href="#js中-运算符-的规则" class="headerlink" title="js中 运算符 + 的规则"></a>js中 运算符 <code>+</code> 的规则</h2><ul>
+<li>若任何一侧是 <code>string</code> 则两边转换为 <code>string</code> 进行拼接。</li>
+<li>否则均转换为 <code>number</code> 进行运算。</li>
+</ul>
 
       
     </div>
@@ -540,8 +592,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/19/api/" rel="next" title="接口文档">
-                <i class="fa fa-chevron-left"></i> 接口文档
+              <a href="/2019/07/19/api/" rel="next" title="浏览器地址输入url到显示页面的步骤（HTTP）">
+                <i class="fa fa-chevron-left"></i> 浏览器地址输入url到显示页面的步骤（HTTP）
               </a>
             
           </div>
@@ -680,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#居中实现方法"><span class="nav-number">1.</span> <span class="nav-text">居中实现方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#align-items-与-align-self-的区别"><span class="nav-number">2.</span> <span class="nav-text">align-items 与 align-self 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域问题"><span class="nav-number">3.</span> <span class="nav-text">跨域问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是跨域"><span class="nav-number">3.1.</span> <span class="nav-text">什么是跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">3.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js基本数据类型"><span class="nav-number">4.</span> <span class="nav-text">js基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防抖、节流"><span class="nav-number">5.</span> <span class="nav-text">防抖、节流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">6.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax原理"><span class="nav-number">7.</span> <span class="nav-text">ajax原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http状态码"><span class="nav-number">8.</span> <span class="nav-text">http状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this指向"><span class="nav-number">9.</span> <span class="nav-text">this指向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position-属性以及区别"><span class="nav-number">10.</span> <span class="nav-text">position 属性以及区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display"><span class="nav-number">11.</span> <span class="nav-text">display</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var-let-const-作用域"><span class="nav-number">12.</span> <span class="nav-text">var let const 作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js变量提升"><span class="nav-number">13.</span> <span class="nav-text">js变量提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">14.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是闭包"><span class="nav-number">14.1.</span> <span class="nav-text">什么是闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE-双向绑定"><span class="nav-number">15.</span> <span class="nav-text">VUE 双向绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5-转-ES6"><span class="nav-number">16.</span> <span class="nav-text">ES5 转 ES6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js中的事件循环（eventLoop）"><span class="nav-number">17.</span> <span class="nav-text">js中的事件循环（eventLoop）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件循环执行顺序"><span class="nav-number">17.0.1.</span> <span class="nav-text">事件循环执行顺序</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#回流和重绘"><span class="nav-number">18.</span> <span class="nav-text">回流和重绘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html加载时发生了什么"><span class="nav-number">18.1.</span> <span class="nav-text">html加载时发生了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么回流"><span class="nav-number">18.2.</span> <span class="nav-text">什么回流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是重绘"><span class="nav-number">18.3.</span> <span class="nav-text">什么是重绘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">18.4.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最小化重绘和重排"><span class="nav-number">18.4.1.</span> <span class="nav-text">最小化重绘和重排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量修改DOM"><span class="nav-number">18.4.2.</span> <span class="nav-text">批量修改DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免触发同步布局"><span class="nav-number">18.4.3.</span> <span class="nav-text">避免触发同步布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对于复杂的动画效果，使用绝对定位让其脱离文档流"><span class="nav-number">18.4.4.</span> <span class="nav-text">对于复杂的动画效果，使用绝对定位让其脱离文档流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css3硬件加速（GPU加速）"><span class="nav-number">18.4.5.</span> <span class="nav-text">css3硬件加速（GPU加速）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数、原型和实例的关系"><span class="nav-number">18.5.</span> <span class="nav-text">构造函数、原型和实例的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-继承"><span class="nav-number">18.6.</span> <span class="nav-text">JS 继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-new"><span class="nav-number">18.7.</span> <span class="nav-text">JS new</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#居中实现方法"><span class="nav-number">1.</span> <span class="nav-text">居中实现方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#align-items-与-align-self-的区别"><span class="nav-number">2.</span> <span class="nav-text">align-items 与 align-self 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域问题"><span class="nav-number">3.</span> <span class="nav-text">跨域问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是跨域"><span class="nav-number">3.1.</span> <span class="nav-text">什么是跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">3.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js基本数据类型"><span class="nav-number">4.</span> <span class="nav-text">js基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防抖、节流"><span class="nav-number">5.</span> <span class="nav-text">防抖、节流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">6.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax原理"><span class="nav-number">7.</span> <span class="nav-text">ajax原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http状态码"><span class="nav-number">8.</span> <span class="nav-text">http状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this指向"><span class="nav-number">9.</span> <span class="nav-text">this指向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position-属性以及区别"><span class="nav-number">10.</span> <span class="nav-text">position 属性以及区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display"><span class="nav-number">11.</span> <span class="nav-text">display</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数与普通函数的区别"><span class="nav-number">12.</span> <span class="nav-text">箭头函数与普通函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var-let-const-作用域"><span class="nav-number">13.</span> <span class="nav-text">var let const 作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js变量提升"><span class="nav-number">14.</span> <span class="nav-text">js变量提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">15.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是闭包"><span class="nav-number">15.1.</span> <span class="nav-text">什么是闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE-双向绑定"><span class="nav-number">16.</span> <span class="nav-text">VUE 双向绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5-转-ES6"><span class="nav-number">17.</span> <span class="nav-text">ES5 转 ES6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js中的事件循环（eventLoop）"><span class="nav-number">18.</span> <span class="nav-text">js中的事件循环（eventLoop）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件循环执行顺序"><span class="nav-number">18.0.1.</span> <span class="nav-text">事件循环执行顺序</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#回流和重绘"><span class="nav-number">19.</span> <span class="nav-text">回流和重绘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html加载时发生了什么"><span class="nav-number">19.1.</span> <span class="nav-text">html加载时发生了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么回流"><span class="nav-number">19.2.</span> <span class="nav-text">什么回流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是重绘"><span class="nav-number">19.3.</span> <span class="nav-text">什么是重绘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">19.4.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最小化重绘和重排"><span class="nav-number">19.4.1.</span> <span class="nav-text">最小化重绘和重排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量修改DOM"><span class="nav-number">19.4.2.</span> <span class="nav-text">批量修改DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免触发同步布局"><span class="nav-number">19.4.3.</span> <span class="nav-text">避免触发同步布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对于复杂的动画效果，使用绝对定位让其脱离文档流"><span class="nav-number">19.4.4.</span> <span class="nav-text">对于复杂的动画效果，使用绝对定位让其脱离文档流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css3硬件加速（GPU加速）"><span class="nav-number">19.4.5.</span> <span class="nav-text">css3硬件加速（GPU加速）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数、原型和实例的关系"><span class="nav-number">19.5.</span> <span class="nav-text">构造函数、原型和实例的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-继承"><span class="nav-number">19.6.</span> <span class="nav-text">JS 继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-new"><span class="nav-number">19.7.</span> <span class="nav-text">JS new</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中深拷贝和浅拷贝"><span class="nav-number">20.</span> <span class="nav-text">JS中深拷贝和浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js的隐性转换和显性转换"><span class="nav-number">21.</span> <span class="nav-text">js的隐性转换和显性转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP和UDP的区别。"><span class="nav-number">22.</span> <span class="nav-text">TCP和UDP的区别。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-method"><span class="nav-number">23.</span> <span class="nav-text">HTTP method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js中-运算符-的规则"><span class="nav-number">24.</span> <span class="nav-text">js中 运算符 + 的规则</span></a></li></div>
             
 
           </div>

@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="单词 释义     headline 新闻摘要   herd 兽群   conservation 保护   sustainable 可持续的   devise 设计；想出   elsewhere 在别处   nevertheless 然而；不过如此   otherwise 否则；原本   predator 捕食者   retort 反驳；回嘴   testimony 证词   wrestle">
+<meta name="description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined 引用类型：Object, Function  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单词2">
+<meta property="og:title" content="JS中的深浅拷贝">
 <meta property="og:url" content="http://yoursite.com/2019/06/04/工地英语2/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="单词 释义     headline 新闻摘要   herd 兽群   conservation 保护   sustainable 可持续的   devise 设计；想出   elsewhere 在别处   nevertheless 然而；不过如此   otherwise 否则；原本   predator 捕食者   retort 反驳；回嘴   testimony 证词   wrestle">
+<meta property="og:description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined 引用类型：Object, Function  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-15T05:51:14.641Z">
+<meta property="og:updated_time" content="2019-09-27T09:27:33.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单词2">
-<meta name="twitter:description" content="单词 释义     headline 新闻摘要   herd 兽群   conservation 保护   sustainable 可持续的   devise 设计；想出   elsewhere 在别处   nevertheless 然而；不过如此   otherwise 否则；原本   predator 捕食者   retort 反驳；回嘴   testimony 证词   wrestle">
+<meta name="twitter:title" content="JS中的深浅拷贝">
+<meta name="twitter:description" content="为什么要进行拷贝首先我们知道JS中的数据类型分为基本类型和引用类型：  基本类型：Number, Stirng, Boolean, Null, Undefined 引用类型：Object, Function  其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对基本类型进行复制时，（var i = 0; var j = i），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而引">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>单词2 | RainRx</title>
+  <title>JS中的深浅拷贝 | RainRx</title>
   
 
 
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">单词2</h1>
+          <h1 class="post-title" itemprop="name headline">JS中的深浅拷贝</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工地英语/" itemprop="url" rel="index">
-                    <span itemprop="name">工地英语</span>
+                  <a href="/categories/脑瘫前端/" itemprop="url" rel="index">
+                    <span itemprop="name">脑瘫前端</span>
                   </a>
                 </span>
 
@@ -321,228 +321,23 @@
       
 
       
-        <table>
-<thead>
-<tr>
-<th style="text-align:center">单词</th>
-<th style="text-align:center">释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">headline</td>
-<td style="text-align:center">新闻摘要</td>
-</tr>
-<tr>
-<td style="text-align:center">herd</td>
-<td style="text-align:center">兽群</td>
-</tr>
-<tr>
-<td style="text-align:center">conservation</td>
-<td style="text-align:center">保护</td>
-</tr>
-<tr>
-<td style="text-align:center">sustainable</td>
-<td style="text-align:center">可持续的</td>
-</tr>
-<tr>
-<td style="text-align:center">devise</td>
-<td style="text-align:center">设计；想出</td>
-</tr>
-<tr>
-<td style="text-align:center">elsewhere</td>
-<td style="text-align:center">在别处</td>
-</tr>
-<tr>
-<td style="text-align:center">nevertheless</td>
-<td style="text-align:center">然而；不过如此</td>
-</tr>
-<tr>
-<td style="text-align:center">otherwise</td>
-<td style="text-align:center">否则；原本</td>
-</tr>
-<tr>
-<td style="text-align:center">predator</td>
-<td style="text-align:center">捕食者</td>
-</tr>
-<tr>
-<td style="text-align:center">retort</td>
-<td style="text-align:center">反驳；回嘴</td>
-</tr>
-<tr>
-<td style="text-align:center">testimony</td>
-<td style="text-align:center">证词</td>
-</tr>
-<tr>
-<td style="text-align:center">wrestle</td>
-<td style="text-align:center">摔跤；使劲</td>
-</tr>
-<tr>
-<td style="text-align:center">whistle</td>
-<td style="text-align:center">口哨</td>
-</tr>
-<tr>
-<td style="text-align:center">clinical</td>
-<td style="text-align:center">临床</td>
-</tr>
-<tr>
-<td style="text-align:center">consistent</td>
-<td style="text-align:center">始终如一的；一致的</td>
-</tr>
-<tr>
-<td style="text-align:center">modest</td>
-<td style="text-align:center">谦逊的；微小的</td>
-</tr>
-<tr>
-<td style="text-align:center">contemporary</td>
-<td style="text-align:center">同时期的；同龄人</td>
-</tr>
-<tr>
-<td style="text-align:center">thereby</td>
-<td style="text-align:center">从而；因此</td>
-</tr>
-<tr>
-<td style="text-align:center">dean</td>
-<td style="text-align:center">院长</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>slightly</strong></td>
-<td style="text-align:center">轻微地</td>
-</tr>
-<tr>
-<td style="text-align:center">comprehensive</td>
-<td style="text-align:center">综合的；有理解力的</td>
-</tr>
-<tr>
-<td style="text-align:center">incorporate</td>
-<td style="text-align:center">包含；吸收</td>
-</tr>
-<tr>
-<td style="text-align:center">reinforce</td>
-<td style="text-align:center">加强</td>
-</tr>
-<tr>
-<td style="text-align:center">deficit</td>
-<td style="text-align:center">不足；赤字</td>
-</tr>
-<tr>
-<td style="text-align:center">account for</td>
-<td style="text-align:center">对···负有责任</td>
-</tr>
-<tr>
-<td style="text-align:center">conclude</td>
-<td style="text-align:center">推断；作结论</td>
-</tr>
-<tr>
-<td style="text-align:center">fantasize</td>
-<td style="text-align:center">幻想</td>
-</tr>
-<tr>
-<td style="text-align:center">session</td>
-<td style="text-align:center">一段时间</td>
-</tr>
-<tr>
-<td style="text-align:center">inevitably</td>
-<td style="text-align:center">不可避免地</td>
-</tr>
-<tr>
-<td style="text-align:center">pile up</td>
-<td style="text-align:center">堆积</td>
-</tr>
-<tr>
-<td style="text-align:center">deplete</td>
-<td style="text-align:center">耗尽</td>
-</tr>
-<tr>
-<td style="text-align:center">resilient</td>
-<td style="text-align:center">有回复力的</td>
-</tr>
-<tr>
-<td style="text-align:center">hectic</td>
-<td style="text-align:center">忙碌的</td>
-</tr>
-<tr>
-<td style="text-align:center">disrupting</td>
-<td style="text-align:center">扰乱；使中断</td>
-</tr>
-<tr>
-<td style="text-align:center">arousal</td>
-<td style="text-align:center">激发；唤起</td>
-</tr>
-<tr>
-<td style="text-align:center">bred</td>
-<td style="text-align:center">交配繁殖；导致</td>
-</tr>
-<tr>
-<td style="text-align:center">moody</td>
-<td style="text-align:center">情绪多变的</td>
-</tr>
-<tr>
-<td style="text-align:center">burnout</td>
-<td style="text-align:center">精疲力尽</td>
-</tr>
-<tr>
-<td style="text-align:center">take place</td>
-<td style="text-align:center">发生</td>
-</tr>
-<tr>
-<td style="text-align:center">contrary</td>
-<td style="text-align:center">相反的</td>
-</tr>
-<tr>
-<td style="text-align:center">upbringing</td>
-<td style="text-align:center">养育</td>
-</tr>
-<tr>
-<td style="text-align:center">formally</td>
-<td style="text-align:center">正式地</td>
-</tr>
-<tr>
-<td style="text-align:center">multiply</td>
-<td style="text-align:center">乘法；成倍增长</td>
-</tr>
-<tr>
-<td style="text-align:center">subtle</td>
-<td style="text-align:center">微妙地</td>
-</tr>
-<tr>
-<td style="text-align:center">implication</td>
-<td style="text-align:center">影响；含义</td>
-</tr>
-<tr>
-<td style="text-align:center">proportion</td>
-<td style="text-align:center">比例</td>
-</tr>
-<tr>
-<td style="text-align:center">laboratory</td>
-<td style="text-align:center">实验室</td>
-</tr>
-<tr>
-<td style="text-align:center">reveal</td>
-<td style="text-align:center">揭示；透露</td>
-</tr>
-<tr>
-<td style="text-align:center">intervention</td>
-<td style="text-align:center">干预</td>
-</tr>
-<tr>
-<td style="text-align:center">take for granted</td>
-<td style="text-align:center">视为理所当然</td>
-</tr>
-<tr>
-<td style="text-align:center">conduct</td>
-<td style="text-align:center">行为；指挥</td>
-</tr>
-<tr>
-<td style="text-align:center">rigorous</td>
-<td style="text-align:center">严格的；谨慎的</td>
-</tr>
-<tr>
-<td style="text-align:center">manner</td>
-<td style="text-align:center">方式；礼貌</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="为什么要进行拷贝"><a href="#为什么要进行拷贝" class="headerlink" title="为什么要进行拷贝"></a>为什么要进行拷贝</h2><p>首先我们知道JS中的数据类型分为基本类型和引用类型：</p>
+<ul>
+<li>基本类型：Number, Stirng, Boolean, Null, Undefined</li>
+<li>引用类型：Object, Function</li>
+</ul>
+<p>其中基本类型存放在内存栈中，而引用类型存放在内存堆中。因此在对<strong>基本类型</strong>进行复制时，（<code>var i = 0; var j = i</code>），将会重新开辟一个新的内存存放该基本类型，新旧数据互不干扰。而<strong>引用类型</strong>的变量其实更像一个指针（个人理解），因此在对新的变量赋值时，其实只是将地址赋值给这个变量，所以新旧变量其实指向的是同一数据，当对其中一个对象进行操作时，会影响到另一个变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    value: <span class="string">'a'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = obj1</span><br><span class="line"></span><br><span class="line">obj2.value = <span class="string">'b'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.value) <span class="comment">// b</span></span><br></pre></td></tr></table></figure>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><blockquote>
+<p>拷贝的是地址，最终两个变量指向同一份数据，修改其中一个变量会改变另一个。</p>
+</blockquote>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><blockquote>
+<p>两个变量是独立的，互不影响。</p>
+</blockquote>
+<p>使用原生的 <code>Object.assgin()</code> 就可以进行第一级属性的深拷贝</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">    value: <span class="string">'a'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj1)</span><br><span class="line">obj2.value = <span class="string">'b'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1.value) <span class="comment">// b</span></span><br></pre></td></tr></table></figure>
+<p>而如果拷贝的对象当中包含对象（即拷贝对象为多级属性），那么 <code>Object.assign()</code> 方法只会拷贝对象的引用地址。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1=&#123;</span><br><span class="line">    value: <span class="string">'a'</span>,</span><br><span class="line">    obj3:&#123;</span><br><span class="line">        value2: <span class="string">'c'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;,obj1);</span><br><span class="line">obj2.obj3.value2=<span class="string">'b'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1);<span class="comment">//&#123; value: 'a', obj3:&#123; value2: 'b' &#125; &#125;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -577,8 +372,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/11/工地英语3/" rel="prev" title="单词3">
-                单词3 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/11/工地英语3/" rel="prev" title="JS事件流">
+                JS事件流 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -631,8 +426,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -692,6 +496,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行拷贝"><span class="nav-number">1.</span> <span class="nav-text">为什么要进行拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝"><span class="nav-number">3.</span> <span class="nav-text">深拷贝</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
