@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="嗯冲">
+<meta name="description" content="什么是ProxyProxy对象是es6中新增的内建对象。Proxy是一种代理，可以帮助我们完成很多事情，例如对数据的处理，对构造函数的处理，对数据的验证等。Proxy更像是一种拦截器，可以在我们访问对象之前添加一层拦截，过滤一些操作。 12345/** target 目标对象（可以是任何类型的对象，包括原生数组，函数，甚至是另一个代理）。* handle 一个对象，其属性是操作对应的自定义函数。*">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
-<meta property="og:url" content="http://yoursite.com/2019/07/19/api/index.html">
+<meta property="og:title" content="JS Proxy">
+<meta property="og:url" content="http://yoursite.com/2019/10/02/JS-Proxy/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="嗯冲">
+<meta property="og:description" content="什么是ProxyProxy对象是es6中新增的内建对象。Proxy是一种代理，可以帮助我们完成很多事情，例如对数据的处理，对构造函数的处理，对数据的验证等。Proxy更像是一种拦截器，可以在我们访问对象之前添加一层拦截，过滤一些操作。 12345/** target 目标对象（可以是任何类型的对象，包括原生数组，函数，甚至是另一个代理）。* handle 一个对象，其属性是操作对应的自定义函数。*">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-26T07:02:43.084Z">
+<meta property="og:updated_time" content="2019-10-02T17:43:21.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
-<meta name="twitter:description" content="嗯冲">
+<meta name="twitter:title" content="JS Proxy">
+<meta name="twitter:description" content="什么是ProxyProxy对象是es6中新增的内建对象。Proxy是一种代理，可以帮助我们完成很多事情，例如对数据的处理，对构造函数的处理，对数据的验证等。Proxy更像是一种拦截器，可以在我们访问对象之前添加一层拦截，过滤一些操作。 12345/** target 目标对象（可以是任何类型的对象，包括原生数组，函数，甚至是另一个代理）。* handle 一个对象，其属性是操作对应的自定义函数。*">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/19/api/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/02/JS-Proxy/">
 
 
 
 
 
-  <title>浏览器地址输入url到显示页面的步骤（HTTP） | RainRx</title>
+  <title>JS Proxy | RainRx</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/api/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/02/JS-Proxy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RainRX">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浏览器地址输入url到显示页面的步骤（HTTP）</h1>
+          <h1 class="post-title" itemprop="name headline">JS Proxy</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-19T22:04:48+08:00">
-                2019-07-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-02T21:38:58+08:00">
+                2019-10-02
               </time>
             
 
@@ -299,7 +299,9 @@
       
 
       
-        
+        <h1 id="什么是Proxy"><a href="#什么是Proxy" class="headerlink" title="什么是Proxy"></a>什么是Proxy</h1><p>Proxy对象是es6中新增的内建对象。Proxy是一种代理，可以帮助我们完成很多事情，例如对数据的处理，对构造函数的处理，对数据的验证等。Proxy更像是一种拦截器，可以在我们访问对象之前添加一层拦截，过滤一些操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* target 目标对象（可以是任何类型的对象，包括原生数组，函数，甚至是另一个代理）。</span></span><br><span class="line"><span class="comment">* handle 一个对象，其属性是操作对应的自定义函数。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handle);</span><br></pre></td></tr></table></figure>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="get-target-propKey-receiver-：拦截对象属性的读取。"><a href="#get-target-propKey-receiver-：拦截对象属性的读取。" class="headerlink" title="get(target, propKey, receiver)：拦截对象属性的读取。"></a>get(target, propKey, receiver)：拦截对象属性的读取。</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* target 目标对象</span></span><br><span class="line"><span class="comment">* propKey 对象属性名</span></span><br><span class="line"><span class="comment">* proxy 实例本身（严格地说，是操作行为所针对的对象)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">get</span>(target, propKey, receiver)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -323,8 +325,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/18/OS/" rel="next" title="OS">
-                <i class="fa fa-chevron-left"></i> OS
+              <a href="/2019/09/20/头条前端面试/" rel="next" title="头条前端面试">
+                <i class="fa fa-chevron-left"></i> 头条前端面试
               </a>
             
           </div>
@@ -332,10 +334,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/20/头条前端面试/" rel="prev" title="头条前端面试">
-                头条前端面试 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -387,8 +385,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -448,6 +455,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Proxy"><span class="nav-number">1.</span> <span class="nav-text">什么是Proxy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本操作"><span class="nav-number">2.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#get-target-propKey-receiver-：拦截对象属性的读取。"><span class="nav-number">2.1.</span> <span class="nav-text">get(target, propKey, receiver)：拦截对象属性的读取。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
