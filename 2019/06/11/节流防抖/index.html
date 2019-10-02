@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="嗯冲">
+<meta name="description" content="节流 throttle函数节流指的是某个函数在一定时间间隔内（例如3秒）只执行一次。在这3秒内无视后来产生的函数调用请求。  节流可以理解为养金鱼时拧紧水龙头，3秒一滴。  「 管道中的水 」就是我们频繁操作事件而不断涌入的回调任务，它需要接收「 水龙头安排 」。 「 水龙头 」就是节流阀，控制水的流速，过滤无效的回调任务。 「 滴水 」就是每隔一段时间执行一次函数。 「 3秒 」就是间隔时间，它">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS事件流">
-<meta property="og:url" content="http://yoursite.com/2019/06/11/JS事件流/index.html">
+<meta property="og:title" content="节流防抖">
+<meta property="og:url" content="http://yoursite.com/2019/06/11/节流防抖/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="嗯冲">
+<meta property="og:description" content="节流 throttle函数节流指的是某个函数在一定时间间隔内（例如3秒）只执行一次。在这3秒内无视后来产生的函数调用请求。  节流可以理解为养金鱼时拧紧水龙头，3秒一滴。  「 管道中的水 」就是我们频繁操作事件而不断涌入的回调任务，它需要接收「 水龙头安排 」。 「 水龙头 」就是节流阀，控制水的流速，过滤无效的回调任务。 「 滴水 」就是每隔一段时间执行一次函数。 「 3秒 」就是间隔时间，它">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-28T08:50:24.776Z">
+<meta property="og:updated_time" content="2019-10-02T12:53:52.406Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS事件流">
-<meta name="twitter:description" content="嗯冲">
+<meta name="twitter:title" content="节流防抖">
+<meta name="twitter:description" content="节流 throttle函数节流指的是某个函数在一定时间间隔内（例如3秒）只执行一次。在这3秒内无视后来产生的函数调用请求。  节流可以理解为养金鱼时拧紧水龙头，3秒一滴。  「 管道中的水 」就是我们频繁操作事件而不断涌入的回调任务，它需要接收「 水龙头安排 」。 「 水龙头 」就是节流阀，控制水的流速，过滤无效的回调任务。 「 滴水 」就是每隔一段时间执行一次函数。 「 3秒 」就是间隔时间，它">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/11/JS事件流/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/11/节流防抖/">
 
 
 
 
 
-  <title>JS事件流 | RainRx</title>
+  <title>节流防抖 | RainRx</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/JS事件流/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/节流防抖/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RainRX">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS事件流</h1>
+          <h1 class="post-title" itemprop="name headline">节流防抖</h1>
         
 
         <div class="post-meta">
@@ -321,7 +321,20 @@
       
 
       
-        
+        <h2 id="节流-throttle"><a href="#节流-throttle" class="headerlink" title="节流 throttle"></a>节流 throttle</h2><p>函数节流指的是某个函数在一定时间间隔内（例如3秒）只执行一次。在这3秒内<strong>无视后来产生的函数调用请求</strong>。</p>
+<blockquote>
+<p>节流可以理解为养金鱼时拧紧水龙头，3秒一滴。</p>
+<ul>
+<li>「 管道中的水 」就是我们频繁操作事件而不断涌入的回调任务，它需要接收「 水龙头安排 」。</li>
+<li>「 水龙头 」就是节流阀，控制水的流速，过滤无效的回调任务。</li>
+<li>「 滴水 」就是每隔一段时间执行一次函数。</li>
+<li>「 3秒 」就是间隔时间，它是「 水龙头 」决定「 滴水 」的依据。</li>
+</ul>
+</blockquote>
+<p>完整节流函数如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fn是需要执行的函数</span></span><br><span class="line"><span class="comment">// wait是时间间隔</span></span><br><span class="line"><span class="keyword">const</span> throttle = <span class="function">(<span class="params">fn, wait = <span class="number">50</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 上一次执行的时间戳</span></span><br><span class="line">    <span class="keyword">let</span> previous = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 获得当前时间戳</span></span><br><span class="line">        <span class="keyword">let</span> now = +<span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">        <span class="keyword">if</span>(now - previous &gt; wait)&#123;</span><br><span class="line">            previous = now</span><br><span class="line">            fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Demo</span></span><br><span class="line"><span class="comment">// 执行throttle 返回新函数</span></span><br><span class="line"><span class="keyword">const</span> betterFn = throttle(<span class="function"><span class="params">()</span>=&gt;</span>&#123;<span class="built_in">console</span>.log(<span class="string">'fn函数执行了'</span>)&#125;,<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每10ms执行一次betterFn，但只有时间间隔大于1000ms时才会执行 fn</span></span><br><span class="line">setInterval(betterFn,<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<p>通过闭包原理：保存变量previous，在每次调用该闭包时，如果当前时间间隔大于wait，则执行fn，并更新previous</p>
+
       
     </div>
     
@@ -409,8 +422,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -470,6 +492,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#节流-throttle"><span class="nav-number">1.</span> <span class="nav-text">节流 throttle</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
