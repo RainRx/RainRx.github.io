@@ -86,10 +86,13 @@
 <meta property="og:site_name" content="RainRx">
 <meta property="og:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-09T16:36:17.402Z">
+<meta property="og:image" content="https://i.loli.net/2019/10/10/CHPwEuhVLnxiDMz.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/10/i1M8CPzR4y5sUtc.png">
+<meta property="og:updated_time" content="2019-10-09T16:39:37.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
 <meta name="twitter:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/10/CHPwEuhVLnxiDMz.png">
 
 
 
@@ -324,6 +327,7 @@
 <li><strong>顶级DNS服务区/根DNS服务器</strong>：根域名收到请求后，会判别这个域名(.com)是授权给哪台服务器管理,并返回这个顶级DNS服务器的IP。请求者收到这台顶级DNS的服务器IP后，会向该服务器发起查询，如果该服务器无法解析，该服务器就会返回下一级的DNS服务器IP（nicefilm.com），本机继续查找，直到服务器找到(<a href="http://www.nicefilm.com)的主机。" target="_blank" rel="noopener">www.nicefilm.com)的主机。</a></li>
 </ol>
 <h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>拿到了要请求的IP地址后，浏览器通过操作系统的Socket与服务器进行TCP连接，即<strong>三次握手</strong>。</p>
+<p><img src="https://i.loli.net/2019/10/10/CHPwEuhVLnxiDMz.png" alt="TCP连接三次握手"></p>
 <p>本机主动打开连接：</p>
 <ul>
 <li>本机将标识位<code>SYN</code>设置为<code>1</code>，<code>seq(Sequence number) = x</code> (TCP规定SYN =–se 1时不能携带信息，x为随机产生的一个值)，然后将状态设为<code>SYN_SEND</code></li>
@@ -354,6 +358,7 @@
 <li>最后将全部的节点遍历绘制出来后，一个页面就展现出来了。</li>
 </ul>
 <h2 id="连接关闭"><a href="#连接关闭" class="headerlink" title="连接关闭"></a>连接关闭</h2><p>现在的页面为了优化请求的耗时，默认都会开启持久连接（keep-alive），那么当tab标签页关闭时，才会确切关闭TCP连接。关闭过程即<strong>四次挥手</strong>。</p>
+<p><img src="https://i.loli.net/2019/10/10/i1M8CPzR4y5sUtc.png" alt="TCP断开连接四次挥手"></p>
 <p>关闭是一个全双工的过程，发包的顺序不一定。一般是客户端主动发起的关闭。</p>
 <p>假设最后一次客户端发出的数据<code>seq = x</code>，<code>ack = y</code>;</p>
 <ol>
