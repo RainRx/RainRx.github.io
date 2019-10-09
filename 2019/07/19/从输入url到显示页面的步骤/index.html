@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接 （TCP四次挥手）">
+<meta name="description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
 <meta property="og:url" content="https://rainrx.github.io/2019/07/19/从输入url到显示页面的步骤/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接 （TCP四次挥手）">
+<meta property="og:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-09T12:31:33.252Z">
+<meta property="og:updated_time" content="2019-10-09T13:24:49.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
-<meta name="twitter:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接 （TCP四次挥手）">
+<meta name="twitter:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
 
 
 
@@ -302,7 +302,7 @@
         <blockquote>
 <p>大致步骤：</p>
 <ol>
-<li>DNS解析 （浏览器缓存-&gt;系统缓存-&gt;路由器缓存-&gt;IP DNS缓存-&gt;从根域名服务器递归搜索）</li>
+<li>DNS解析 （浏览器缓存-&gt;系统缓存-&gt;host文件查找-&gt;路由器缓存-&gt;IP DNS缓存-&gt;从根域名服务器递归搜索）</li>
 <li>建立TCP连接 （TCP三次握手）</li>
 <li>浏览器向服务器发送HTTP请求</li>
 <li>服务器返回结果给浏览器</li>
@@ -310,6 +310,26 @@
 <li>断开TCP连接 （TCP四次挥手）</li>
 </ol>
 </blockquote>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>什么是DNS</p>
+<blockquote>
+<p>域名系统（英文：Domain Name System，缩写：DNS）是互联网的一项服务。它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。DNS使用TCP和UDP端口53。当前，对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。 –维基百科</p>
+</blockquote>
+<p>域名解析逐级查询：</p>
+<ol>
+<li><strong>浏览器缓存</strong>：首先会向浏览器缓存中获取上一次访问的记录。</li>
+<li><strong>操作系统缓存</strong>：查找存储在操作系统运行内存中的缓存。</li>
+<li><strong>在host文件中查找</strong>：读取系统中预设的host文件中的设置。</li>
+<li><strong>路由器缓存</strong>：有些路由器也有DNS缓存功能，访问过的域名会存在路由器上。</li>
+<li><strong>ISP DNS缓存</strong>：互联网服务提供商（如中国电信）也会提供DNS服务，比如比较著名的 114.114.114.114，在本地查找不到的情况下，就会向<code>ISP</code>进行查询，ISP会在当前服务器的缓存内查找是否有记录，如果有，则返回这个IP，若没有，则会开始向根域名服务器请求查询。</li>
+<li><strong>顶级DNS服务区/根DNS服务器</strong>：根域名收到请求后，会判别这个域名(.com)是授权给哪台服务器管理,并返回这个顶级DNS服务器的IP。请求者收到这台顶级DNS的服务器IP后，会向该服务器发起查询，如果该服务器无法解析，该服务器就会返回下一级的DNS服务器IP（nicefilm.com），本机继续查找，直到服务器找到(<a href="http://www.nicefilm.com)的主机。" target="_blank" rel="noopener">www.nicefilm.com)的主机。</a></li>
+</ol>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>拿到了要请求的IP地址后，浏览器通过操作系统的Socket与服务器进行TCP连接，即<strong>三次握手</strong>。</p>
+<p>本机主动打开连接：</p>
+<ul>
+<li>本机将标识位<code>SYN</code>设置为<code>1</code>，<code>seq(Sequence number) = x</code> (TCP规定SYN =–se 1时不能携带信息，x为随机产生的一个值)，然后将状态设为<code>SYN_SEND</code></li>
+<li>服务器受到<code>SYN</code>报文进行确认，将<code>SYN</code>标识位设为<code>1</code>，<code>ACK</code>设为<code>1</code>，<code>seq = y</code>，<code>ack(Acknowledgement Number) = x + 1</code>，然后进入<code>SYN_RECV</code>状态，这个状态被称为半连接状态。</li>
+<li>客户端再进行一次确认，将<code>ACK</code>置为<code>1</code>(此时不用SYN)，<code>seq = x + 1</code>，<code>ack = y + 1</code>，最后客户端和服务器都进入<code>ESTABLISHED</code>状态。<br>（SYN、ACK/SYN、ACK）</li>
+</ul>
 
       
     </div>
@@ -416,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -487,6 +516,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">1.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">2.</span> <span class="nav-text">TCP</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
