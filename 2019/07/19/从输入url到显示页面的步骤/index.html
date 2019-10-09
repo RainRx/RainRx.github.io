@@ -88,7 +88,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/10/10/CHPwEuhVLnxiDMz.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/10/i1M8CPzR4y5sUtc.png">
-<meta property="og:updated_time" content="2019-10-09T16:39:37.209Z">
+<meta property="og:updated_time" content="2019-10-09T16:41:51.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
 <meta name="twitter:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
@@ -330,7 +330,7 @@
 <p><img src="https://i.loli.net/2019/10/10/CHPwEuhVLnxiDMz.png" alt="TCP连接三次握手"></p>
 <p>本机主动打开连接：</p>
 <ul>
-<li>本机将标识位<code>SYN</code>设置为<code>1</code>，<code>seq(Sequence number) = x</code> (TCP规定SYN =–se 1时不能携带信息，x为随机产生的一个值)，然后将状态设为<code>SYN_SEND</code></li>
+<li>本机将标识位<code>SYN</code>设置为<code>1</code>，<code>seq(Sequence number) = x</code> (TCP规定SYN = 1时不能携带信息，x为随机产生的一个值)，然后将状态设为<code>SYN_SEND</code></li>
 <li>服务器受到<code>SYN</code>报文进行确认，将<code>SYN</code>标识位设为<code>1</code>，<code>ACK</code>设为<code>1</code>，<code>seq = y</code>，<code>ack(Acknowledgement Number) = x + 1</code>，然后进入<code>SYN_RECV</code>状态，这个状态被称为半连接状态。</li>
 <li>客户端再进行一次确认，将<code>ACK</code>置为<code>1</code>(此时不用SYN)，<code>seq = x + 1</code>，<code>ack = y + 1</code>，最后客户端和服务器都进入<code>ESTABLISHED</code>状态。</li>
 </ul>
