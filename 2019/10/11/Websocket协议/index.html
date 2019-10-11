@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="之前一般实现推送功能都是采用轮询的方法，轮询是指在特定的时间间隔，向服务端发起一个HTTP请求，然后由服务端返回数据给浏览器。HTTP协议是惰性的，只有客户端发送请求，服务端才会返回数据。 而Websockt属于服务端推送技术，和HTTP协议同属应用层，可以实现持久连接的全双工通信。 Ajax短轮询Ajax短轮询就是客户端周期性地想服务端发起请求，不管服务端是否需要发送数据，都会响应请求，即使发送">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Websocket协议">
+<meta property="og:url" content="https://rainrx.github.io/2019/10/11/Websocket协议/index.html">
+<meta property="og:site_name" content="RainRx">
+<meta property="og:description" content="之前一般实现推送功能都是采用轮询的方法，轮询是指在特定的时间间隔，向服务端发起一个HTTP请求，然后由服务端返回数据给浏览器。HTTP协议是惰性的，只有客户端发送请求，服务端才会返回数据。 而Websockt属于服务端推送技术，和HTTP协议同属应用层，可以实现持久连接的全双工通信。 Ajax短轮询Ajax短轮询就是客户端周期性地想服务端发起请求，不管服务端是否需要发送数据，都会响应请求，即使发送">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/10/11/8nwIOv9uBs1MTEz.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/11/lOKrHpnb6JSt2Py.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/11/wyeZifEx2KP9JQt.png">
+<meta property="og:updated_time" content="2019-10-11T09:08:00.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Websocket协议">
+<meta name="twitter:description" content="之前一般实现推送功能都是采用轮询的方法，轮询是指在特定的时间间隔，向服务端发起一个HTTP请求，然后由服务端返回数据给浏览器。HTTP协议是惰性的，只有客户端发送请求，服务端才会返回数据。 而Websockt属于服务端推送技术，和HTTP协议同属应用层，可以实现持久连接的全双工通信。 Ajax短轮询Ajax短轮询就是客户端周期性地想服务端发起请求，不管服务端是否需要发送数据，都会响应请求，即使发送">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/11/8nwIOv9uBs1MTEz.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rainrx.github.io/2019/10/11/Websocket协议/">
+
+
+
+
+
+  <title>Websocket协议 | RainRx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">RainRx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rainrx.github.io/2019/10/11/Websocket协议/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RainRX">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RainRx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Websocket协议</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-11T15:29:09+08:00">
+                2019-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前一般实现推送功能都是采用轮询的方法，轮询是指在特定的时间间隔，向服务端发起一个HTTP请求，然后由服务端返回数据给浏览器。HTTP协议是惰性的，只有客户端发送请求，服务端才会返回数据。</p>
+<p>而Websockt属于服务端推送技术，和HTTP协议同属应用层，可以实现持久连接的全双工通信。</p>
+<h2 id="Ajax短轮询"><a href="#Ajax短轮询" class="headerlink" title="Ajax短轮询"></a>Ajax短轮询</h2><p>Ajax短轮询就是客户端周期性地想服务端发起请求，不管服务端是否需要发送数据，都会响应请求，即使发送的数据为空。即每个<code>Request</code>都会有一个<code>Response</code>。HTTP/1.1实现了<strong>持久连接</strong>（建立一个TCP连接，可以发起多个请求）和<strong>管线化技术</strong>（可以异步发送请求），使得HTTP在建立起一个TCP连接可以发送多个异步请求。</p>
+<p><img src="https://i.loli.net/2019/10/11/8nwIOv9uBs1MTEz.png" alt="Ajax短轮询"></p>
+<p>缺点：需要浏览器不断地想服务器发送请求，每次请求都带上很长的头部请求字段，严重浪费带宽。</p>
+<h2 id="服务端推送-Comet"><a href="#服务端推送-Comet" class="headerlink" title="服务端推送(Comet)"></a>服务端推送(Comet)</h2><h3 id="Ajax长轮询"><a href="#Ajax长轮询" class="headerlink" title="Ajax长轮询"></a>Ajax长轮询</h3><p>长轮询是短轮询的一种变体。在客户端发送请求后，服务端并不立即响应，只有等到获得最新数据后，才会返回数据。如果长时间数据没有更新，一段时间后，请求就会超时。客户端收到超时信息后，需要重新向客户端发送一个HTTP请求。</p>
+<p><img src="https://i.loli.net/2019/10/11/lOKrHpnb6JSt2Py.png" alt="Ajax长轮询"></p>
+<p>长轮询和短轮询的差别在于服务端是否<strong>立即响应</strong>，长轮询可以减少大量无效请求。</p>
+<h3 id="HTTP流"><a href="#HTTP流" class="headerlink" title="HTTP流"></a>HTTP流</h3><p>服务器推送技术(HTTP流)，在客户端只发起一次HTTP请求，服务器保持连接状态，在数据更新之后，服务器会传输数据，否则保持连接状态。此时一个requset对应多个response。</p>
+<h2 id="H5-服务端推送"><a href="#H5-服务端推送" class="headerlink" title="H5 服务端推送"></a>H5 服务端推送</h2><p>H5实现了两个服务端推送接口：<code>SSE</code>和<code>WebSocket</code></p>
+<h3 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h3><p>SSE(Server-Send Events，服务端推送事件)用于创建到服务端的单向连接，服务端可以通过这个连接发送任意数量的数据。实现SSE有几点要求：</p>
+<ol>
+<li>服务器响应的MIME类型必须是<code>text/event-stream</code>。</li>
+<li>必须按照指定的格式输出。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// EventSource 接收的参数必须同源</span></span><br><span class="line"><span class="comment">// 使用message事件监听从服务器收到的消息，并存储在event.data对象里。</span></span><br><span class="line"><span class="keyword">let</span> source = <span class="keyword">new</span> EventSource(<span class="string">'index.php'</span>)</span><br><span class="line"></span><br><span class="line">source.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = e.data</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><p>WebSocket与HTTP同属应用层协议，都是TCP/IP的子集。HTTP协议是单向通信协议，只有客户端发起HTTP请求，服务端才会返回数据。而WebSocket协议是双向通信协议，在建立连接之后，客户端和服务器都可以<strong>主动</strong>向对方发送或接受数据。WebSocket协议建立的前提是借助HTTP协议，建立之后，持久连接的双向通信就与HTTP协议无关了。</p>
+<p>在JS创建WebSocket后，会有一个HTTP请求发送到服务端，服务端响应后，建立的连接会用HTTP升级将HTTP协议转换为WebSocket协议。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// url没有同源的限制</span></span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(url)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接open事件 连接成功后向服务端发送 纯文本信息（对象需要序列化）</span></span><br><span class="line">ws.onopen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(ws.readyState === WebSocket.OPEN)&#123;</span><br><span class="line">        ws.send(<span class="string">'Hello World'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听message事件，数据存储在e.data中</span></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = e.data</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听error事件，发生错误时触发，连接不能持续</span></span><br><span class="line">ws.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'websocket connecting error!!'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听close事件</span></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> clean = e.wasClean <span class="comment">// 是否已经关闭</span></span><br><span class="line">    <span class="keyword">let</span> code = e.code <span class="comment">// 服务器返回的数值状态码。</span></span><br><span class="line">    <span class="keyword">let</span> reason = e.reason <span class="comment">//服务器返回的消息。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>WebSocket 不支持 DOM2 语法(<code>ws.addEventListener(&#39;onopen&#39;,() =&gt; {})</code>)为事件绑定事件处理，因此使用 DOM0 级语法(<code>ws.onopen = () =&gt; {}</code>)</p>
+</blockquote>
+<p>WebSocket是应用层协议，是TCP/IP协议的子集，通过HTTP/1.1协议的101状态码进行握手。</p>
+<p><img src="https://i.loli.net/2019/10/11/wyeZifEx2KP9JQt.png" alt="请求字段"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    RainRX
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://rainrx.github.io/2019/10/11/Websocket协议/" title="Websocket协议">https://rainrx.github.io/2019/10/11/Websocket协议/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/10/观察者模式和发布-订阅模式/" rel="next" title="从观察者模式和发布-订阅模式到Vue响应式原理">
+                <i class="fa fa-chevron-left"></i> 从观察者模式和发布-订阅模式到Vue响应式原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">RainRX</p>
+              <p class="site-description motion-element" itemprop="description">嗯冲</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RainRx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax短轮询"><span class="nav-number">1.</span> <span class="nav-text">Ajax短轮询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端推送-Comet"><span class="nav-number">2.</span> <span class="nav-text">服务端推送(Comet)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax长轮询"><span class="nav-number">2.1.</span> <span class="nav-text">Ajax长轮询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP流"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H5-服务端推送"><span class="nav-number">3.</span> <span class="nav-text">H5 服务端推送</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSE"><span class="nav-number">3.1.</span> <span class="nav-text">SSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket"><span class="nav-number">3.2.</span> <span class="nav-text">WebSocket</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RainRX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
