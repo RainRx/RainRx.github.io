@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="嗯冲">
+<meta name="description" content="TCP: Overview: point-to-point: one sender, one receiver connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange. reliable,in-order byte steam: no “">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络-TCP">
 <meta property="og:url" content="https://rainrx.github.io/2019/10/12/计算机网络-TCP/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="嗯冲">
+<meta property="og:description" content="TCP: Overview: point-to-point: one sender, one receiver connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange. reliable,in-order byte steam: no “">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-12T06:53:51.088Z">
+<meta property="og:updated_time" content="2019-10-12T14:21:30.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络-TCP">
-<meta name="twitter:description" content="嗯冲">
+<meta name="twitter:description" content="TCP: Overview: point-to-point: one sender, one receiver connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange. reliable,in-order byte steam: no “">
 
 
 
@@ -299,7 +299,41 @@
       
 
       
-        
+        <h2 id="TCP-Overview"><a href="#TCP-Overview" class="headerlink" title="TCP: Overview:"></a>TCP: Overview:</h2><ul>
+<li>point-to-point: one sender, one receiver</li>
+<li>connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange.</li>
+<li>reliable,in-order byte steam: no “message boundries”</li>
+<li>full duplex data:<ul>
+<li>bi-directional data flow in same connection.</li>
+<li>MSS(maximum segment size):传输层能承载的应用层最大数据长度，不包括传输层的头部。</li>
+</ul>
+</li>
+<li>pipelined: TCP congetsion and </li>
+<li>flow controlled:</li>
+</ul>
+<h2 id="TCP-Connection"><a href="#TCP-Connection" class="headerlink" title="TCP Connection:"></a>TCP Connection:</h2><p>一个TCP连接包括 <code>buffers</code> <code>variables</code> and <code>a socket connection</code></p>
+<p>以字节流传输</p>
+<h2 id="TCP-segment-structure"><a href="#TCP-segment-structure" class="headerlink" title="TCP segment structure"></a>TCP segment structure</h2><h2 id="TCP-seq-numbers-ACKs"><a href="#TCP-seq-numbers-ACKs" class="headerlink" title="TCP seq. numbers, ACKs"></a>TCP seq. numbers, ACKs</h2><h3 id="sequence-numbers"><a href="#sequence-numbers" class="headerlink" title="sequence numbers:"></a>sequence numbers:</h3><ul>
+<li>is byte stream “number” of first byte in segments’s data(首个字节数据的编号)</li>
+</ul>
+<h3 id="ackonwledgements-number"><a href="#ackonwledgements-number" class="headerlink" title="ackonwledgements number:"></a>ackonwledgements number:</h3><ul>
+<li><p>ACK is the sequence number of the next byte receiver is expecting from sender(接收方期待收到的字节数据的序列号) </p>
+<blockquote>
+<p>与rdt3.0不同</p>
+</blockquote>
+</li>
+<li><p><code>cumulative ACK</code> TCP采用累积确认</p>
+</li>
+</ul>
+<h2 id="TCP-sender-event"><a href="#TCP-sender-event" class="headerlink" title="TCP sender event"></a>TCP sender event</h2><ul>
+<li>data rcvd from app:<ul>
+<li>create segment with seq #</li>
+<li>seq # is byte-stream number of first data byte in segment.</li>
+<li>start timer if not already running</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
@@ -351,6 +385,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/12/webpack/" rel="prev" title="webpack入门">
+                webpack入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -401,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -417,7 +464,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -472,6 +519,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-Overview"><span class="nav-number">1.</span> <span class="nav-text">TCP: Overview:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-Connection"><span class="nav-number">2.</span> <span class="nav-text">TCP Connection:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-segment-structure"><span class="nav-number">3.</span> <span class="nav-text">TCP segment structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-seq-numbers-ACKs"><span class="nav-number">4.</span> <span class="nav-text">TCP seq. numbers, ACKs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sequence-numbers"><span class="nav-number">4.1.</span> <span class="nav-text">sequence numbers:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ackonwledgements-number"><span class="nav-number">4.2.</span> <span class="nav-text">ackonwledgements number:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-sender-event"><span class="nav-number">5.</span> <span class="nav-text">TCP sender event</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
