@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
+<meta name="description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;ISP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
 <meta property="og:url" content="https://rainrx.github.io/2019/07/19/从输入url到显示页面的步骤/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
+<meta property="og:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;ISP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/10/10/CHPwEuhVLnxiDMz.png">
 <meta property="og:image" content="https://i.loli.net/2019/10/10/i1M8CPzR4y5sUtc.png">
-<meta property="og:updated_time" content="2019-10-09T16:41:51.680Z">
+<meta property="og:updated_time" content="2019-10-16T04:45:20.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器地址输入url到显示页面的步骤（HTTP）">
-<meta name="twitter:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;IP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
+<meta name="twitter:description" content="大致步骤：  DNS解析 （浏览器缓存-&amp;gt;系统缓存-&amp;gt;host文件查找-&amp;gt;路由器缓存-&amp;gt;ISP DNS缓存-&amp;gt;从根域名服务器递归搜索） 建立TCP连接 （TCP三次握手） 浏览器向服务器发送HTTP请求 服务器返回结果给浏览器 浏览器渲染页面 （解析HTML，构建DOM树；解析CSS，构建CSSOM树；合并构建渲染树；layout/painting） 断开TCP连接">
 <meta name="twitter:image" content="https://i.loli.net/2019/10/10/CHPwEuhVLnxiDMz.png">
 
 
@@ -305,7 +305,7 @@
         <blockquote>
 <p>大致步骤：</p>
 <ol>
-<li>DNS解析 （浏览器缓存-&gt;系统缓存-&gt;host文件查找-&gt;路由器缓存-&gt;IP DNS缓存-&gt;从根域名服务器递归搜索）</li>
+<li>DNS解析 （浏览器缓存-&gt;系统缓存-&gt;host文件查找-&gt;路由器缓存-&gt;ISP DNS缓存-&gt;从根域名服务器递归搜索）</li>
 <li>建立TCP连接 （TCP三次握手）</li>
 <li>浏览器向服务器发送HTTP请求</li>
 <li>服务器返回结果给浏览器</li>
