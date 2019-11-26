@@ -86,10 +86,15 @@
 <meta property="og:site_name" content="RainRx">
 <meta property="og:description" content="目标理解 多路传输 多路复用 可靠数据传输 流控制 阻塞控制学习协议 UDP 无连接传输 TCP 面向连接可靠传输 TCP 阻塞控制  传输服务和协议 在应用进程中提供逻辑通信。传输层协议运行在端系统。  发送端：将应用消息分成段 并传输到网络层。 接收端：将段组装成消息 传给应用层。   传输层和网络层的不同 传输层：在进程中进行逻辑通信。 网络层：在主机中进行逻辑通信。  传输层协议 可靠，顺">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-25T13:21:20.329Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9alupoxjjj31f00u0qda.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9amkbeul1j31h00u0dre.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9ampfy7voj31fb0u0k47.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9b97y1jraj30x80l4dlf.jpg">
+<meta property="og:updated_time" content="2019-11-26T13:36:55.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络之传输层">
 <meta name="twitter:description" content="目标理解 多路传输 多路复用 可靠数据传输 流控制 阻塞控制学习协议 UDP 无连接传输 TCP 面向连接可靠传输 TCP 阻塞控制  传输服务和协议 在应用进程中提供逻辑通信。传输层协议运行在端系统。  发送端：将应用消息分成段 并传输到网络层。 接收端：将段组装成消息 传给应用层。   传输层和网络层的不同 传输层：在进程中进行逻辑通信。 网络层：在主机中进行逻辑通信。  传输层协议 可靠，顺">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9alupoxjjj31f00u0qda.jpg">
 
 
 
@@ -404,7 +409,51 @@
 <li>发送方收到NAK之后，<strong>重传</strong>分组</li>
 </ul>
 </li>
+<li><p>基于这种重传机制的rdt协议成为<strong>ARQ(Automatic Repeat reQuest)</strong>协议</p>
+</li>
+<li><p>Rdt2.0引入的新机制：</p>
+<ul>
+<li>差错检测</li>
+<li>接收方反馈控制消息：ACK / NAK</li>
+<li>重传</li>
 </ul>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9alupoxjjj31f00u0qda.jpg" alt></p>
+<p><strong>停-等协议</strong></p>
+<p>缺陷：如果ACK/NAK消息发生错误/被破坏会怎么样？</p>
+<ul>
+<li>为ACK/NAK添加校验和 X</li>
+<li>发送方接收到被破坏的ACK/NAK时不知道接收方发生了什么，添加额外的控制消息 X</li>
+<li>如果ACK/NAK坏掉，发送方重传。不能简单的重传，会产生<strong>重复分组</strong>。如何解决重复分组：<ul>
+<li><strong>序列号(Sequence number)</strong>:发送方给每个分组增加序列号。</li>
+<li>接收方丢弃重复分组。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Rdt2-1：应对ACK-NAK破坏"><a href="#Rdt2-1：应对ACK-NAK破坏" class="headerlink" title="Rdt2.1：应对ACK/NAK破坏"></a>Rdt2.1：应对ACK/NAK破坏</h3><blockquote>
+<p>发送方<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9amkbeul1j31h00u0dre.jpg" alt="rdt2.0 发送方"></p>
+</blockquote>
+<blockquote>
+<p>接收方<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9ampfy7voj31fb0u0k47.jpg" alt="rdt2.0 接收方"></p>
+</blockquote>
+<h3 id="Rdt2-2：无NAK消息协议"><a href="#Rdt2-2：无NAK消息协议" class="headerlink" title="Rdt2.2：无NAK消息协议"></a>Rdt2.2：无NAK消息协议</h3><ul>
+<li><p>与rdt2.1功能相同，但是只使用ACK</p>
+</li>
+<li><p>如何实现？</p>
+<ul>
+<li>接受方通过ACK告知最后一个被正确接受的分组</li>
+<li>在ACK消息中<strong>显式地加入被确认分组的序列号</strong></li>
+</ul>
+</li>
+<li>发送方收到重复ACK之后，采取与收到NAK消息同样的动作<ul>
+<li>重传当前分组</li>
+</ul>
+</li>
+</ul>
+<h3 id="Rdt3-0"><a href="#Rdt3-0" class="headerlink" title="Rdt3.0"></a>Rdt3.0</h3><blockquote>
+<p>发送方FSM<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9b97y1jraj30x80l4dlf.jpg" alt></p>
+</blockquote>
 </image></image>
       
     </div>
@@ -597,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解"><span class="nav-number">1.1.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习协议"><span class="nav-number">1.2.</span> <span class="nav-text">学习协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输服务和协议"><span class="nav-number">2.</span> <span class="nav-text">传输服务和协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层和网络层的不同"><span class="nav-number">2.1.</span> <span class="nav-text">传输层和网络层的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层协议"><span class="nav-number">2.2.</span> <span class="nav-text">传输层协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路分解和多路复用"><span class="nav-number">3.</span> <span class="nav-text">多路分解和多路复用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要多路分解和多路复用"><span class="nav-number">3.1.</span> <span class="nav-text">为什么要多路分解和多路复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无连接的多路复用和多路分解（UDP）"><span class="nav-number">3.2.</span> <span class="nav-text">无连接的多路复用和多路分解（UDP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向连接的多路复用和多路分解（TCP）"><span class="nav-number">3.3.</span> <span class="nav-text">面向连接的多路复用和多路分解（TCP）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP-User-Datagram-Protocol"><span class="nav-number">4.</span> <span class="nav-text">UDP: User Datagram Protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP存在的意义"><span class="nav-number">4.1.</span> <span class="nav-text">UDP存在的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP-checksum"><span class="nav-number">4.2.</span> <span class="nav-text">UDP checksum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠数据传输的基本原理"><span class="nav-number">5.</span> <span class="nav-text">可靠数据传输的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt1-0"><span class="nav-number">5.1.</span> <span class="nav-text">Rdt1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt2-0：产生位错误的信道"><span class="nav-number">5.2.</span> <span class="nav-text">Rdt2.0：产生位错误的信道</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解"><span class="nav-number">1.1.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习协议"><span class="nav-number">1.2.</span> <span class="nav-text">学习协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输服务和协议"><span class="nav-number">2.</span> <span class="nav-text">传输服务和协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层和网络层的不同"><span class="nav-number">2.1.</span> <span class="nav-text">传输层和网络层的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层协议"><span class="nav-number">2.2.</span> <span class="nav-text">传输层协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路分解和多路复用"><span class="nav-number">3.</span> <span class="nav-text">多路分解和多路复用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要多路分解和多路复用"><span class="nav-number">3.1.</span> <span class="nav-text">为什么要多路分解和多路复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无连接的多路复用和多路分解（UDP）"><span class="nav-number">3.2.</span> <span class="nav-text">无连接的多路复用和多路分解（UDP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向连接的多路复用和多路分解（TCP）"><span class="nav-number">3.3.</span> <span class="nav-text">面向连接的多路复用和多路分解（TCP）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP-User-Datagram-Protocol"><span class="nav-number">4.</span> <span class="nav-text">UDP: User Datagram Protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP存在的意义"><span class="nav-number">4.1.</span> <span class="nav-text">UDP存在的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP-checksum"><span class="nav-number">4.2.</span> <span class="nav-text">UDP checksum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠数据传输的基本原理"><span class="nav-number">5.</span> <span class="nav-text">可靠数据传输的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt1-0"><span class="nav-number">5.1.</span> <span class="nav-text">Rdt1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt2-0：产生位错误的信道"><span class="nav-number">5.2.</span> <span class="nav-text">Rdt2.0：产生位错误的信道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt2-1：应对ACK-NAK破坏"><span class="nav-number">5.3.</span> <span class="nav-text">Rdt2.1：应对ACK/NAK破坏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt2-2：无NAK消息协议"><span class="nav-number">5.4.</span> <span class="nav-text">Rdt2.2：无NAK消息协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt3-0"><span class="nav-number">5.5.</span> <span class="nav-text">Rdt3.0</span></a></li></ol></li></ol></div>
             
 
           </div>
