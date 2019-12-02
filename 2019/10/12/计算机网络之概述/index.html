@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="TCP: Overview: point-to-point: one sender, one receiver connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange. reliable,in-order byte steam: no “">
+<meta name="description" content="什么是协议 Protocols define format, order of msgs send and recived among network entities, and action taken on msg transmission, receipt.  家庭接入 Dial-Up(拨号上网)：通过传统电话线路。 Digital subsciber line(DSL) Cable net">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络-TCP">
-<meta property="og:url" content="https://rainrx.github.io/2019/10/12/计算机网络-TCP/index.html">
+<meta property="og:title" content="计算机网络之概述">
+<meta property="og:url" content="https://rainrx.github.io/2019/10/12/计算机网络之概述/index.html">
 <meta property="og:site_name" content="RainRx">
-<meta property="og:description" content="TCP: Overview: point-to-point: one sender, one receiver connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange. reliable,in-order byte steam: no “">
+<meta property="og:description" content="什么是协议 Protocols define format, order of msgs send and recived among network entities, and action taken on msg transmission, receipt.  家庭接入 Dial-Up(拨号上网)：通过传统电话线路。 Digital subsciber line(DSL) Cable net">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-12T14:21:30.187Z">
+<meta property="og:updated_time" content="2019-12-02T12:14:28.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络-TCP">
-<meta name="twitter:description" content="TCP: Overview: point-to-point: one sender, one receiver connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange. reliable,in-order byte steam: no “">
+<meta name="twitter:title" content="计算机网络之概述">
+<meta name="twitter:description" content="什么是协议 Protocols define format, order of msgs send and recived among network entities, and action taken on msg transmission, receipt.  家庭接入 Dial-Up(拨号上网)：通过传统电话线路。 Digital subsciber line(DSL) Cable net">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://rainrx.github.io/2019/10/12/计算机网络-TCP/">
+  <link rel="canonical" href="https://rainrx.github.io/2019/10/12/计算机网络之概述/">
 
 
 
 
 
-  <title>计算机网络-TCP | RainRx</title>
+  <title>计算机网络之概述 | RainRx</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rainrx.github.io/2019/10/12/计算机网络-TCP/">
+    <link itemprop="mainEntityOfPage" href="https://rainrx.github.io/2019/10/12/计算机网络之概述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="RainRX">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">计算机网络-TCP</h1>
+          <h1 class="post-title" itemprop="name headline">计算机网络之概述</h1>
         
 
         <div class="post-meta">
@@ -299,40 +299,33 @@
       
 
       
-        <h2 id="TCP-Overview"><a href="#TCP-Overview" class="headerlink" title="TCP: Overview:"></a>TCP: Overview:</h2><ul>
-<li>point-to-point: one sender, one receiver</li>
-<li>connection-oriented: handshaking(exchange of control msgs) inits sender, receiver state before data exchange.</li>
-<li>reliable,in-order byte steam: no “message boundries”</li>
-<li>full duplex data:<ul>
-<li>bi-directional data flow in same connection.</li>
-<li>MSS(maximum segment size):传输层能承载的应用层最大数据长度，不包括传输层的头部。</li>
-</ul>
-</li>
-<li>pipelined: TCP congetsion and </li>
-<li>flow controlled:</li>
-</ul>
-<h2 id="TCP-Connection"><a href="#TCP-Connection" class="headerlink" title="TCP Connection:"></a>TCP Connection:</h2><p>一个TCP连接包括 <code>buffers</code> <code>variables</code> and <code>a socket connection</code></p>
-<p>以字节流传输</p>
-<h2 id="TCP-segment-structure"><a href="#TCP-segment-structure" class="headerlink" title="TCP segment structure"></a>TCP segment structure</h2><h2 id="TCP-seq-numbers-ACKs"><a href="#TCP-seq-numbers-ACKs" class="headerlink" title="TCP seq. numbers, ACKs"></a>TCP seq. numbers, ACKs</h2><h3 id="sequence-numbers"><a href="#sequence-numbers" class="headerlink" title="sequence numbers:"></a>sequence numbers:</h3><ul>
-<li>is byte stream “number” of first byte in segments’s data(首个字节数据的编号)</li>
-</ul>
-<h3 id="ackonwledgements-number"><a href="#ackonwledgements-number" class="headerlink" title="ackonwledgements number:"></a>ackonwledgements number:</h3><ul>
-<li><p>ACK is the sequence number of the next byte receiver is expecting from sender(接收方期待收到的字节数据的序列号) </p>
-<blockquote>
-<p>与rdt3.0不同</p>
+        <h2 id="什么是协议"><a href="#什么是协议" class="headerlink" title="什么是协议"></a>什么是协议</h2><blockquote>
+<p>Protocols define <strong>format</strong>, <strong>order</strong> of <strong>msgs send and recived</strong> among network entities, and <strong>action taken</strong> on msg transmission, receipt.</p>
 </blockquote>
-</li>
-<li><p><code>cumulative ACK</code> TCP采用累积确认</p>
-</li>
+<h2 id="家庭接入"><a href="#家庭接入" class="headerlink" title="家庭接入"></a>家庭接入</h2><ul>
+<li>Dial-Up(拨号上网)：通过传统电话线路。</li>
+<li>Digital subsciber line(DSL)</li>
+<li>Cable network: hybrid fiber coax(HFA 混合光线同轴)</li>
+<li>Fiber to the home(FTTH)</li>
 </ul>
-<h2 id="TCP-sender-event"><a href="#TCP-sender-event" class="headerlink" title="TCP sender event"></a>TCP sender event</h2><ul>
-<li>data rcvd from app:<ul>
-<li>create segment with seq #</li>
-<li>seq # is byte-stream number of first data byte in segment.</li>
-<li>start timer if not already running</li>
+<h2 id="分组交换的报文交付时间"><a href="#分组交换的报文交付时间" class="headerlink" title="分组交换的报文交付时间"></a>分组交换的报文交付时间</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">报文： M bits</span><br><span class="line">链路带宽（数据传输速率）：R bps</span><br><span class="line">分组长度（大小）：L bits</span><br><span class="line">跳步数：h</span><br><span class="line">路由器数：n <span class="comment">// n = h - 1</span></span><br><span class="line"></span><br><span class="line">T = M/R + (h<span class="number">-1</span>)L/R</span><br><span class="line">  = M/R + nL/R</span><br></pre></td></tr></table></figure>
+<h2 id="OSI网络七层协议"><a href="#OSI网络七层协议" class="headerlink" title="OSI网络七层协议"></a>OSI网络七层协议</h2><p>从上到下分别是：</p>
+<ul>
+<li>应用层</li>
+<li>表示层</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
 </ul>
-</li>
-</ul>
+<h2 id="协议数据单元-PDU"><a href="#协议数据单元-PDU" class="headerlink" title="协议数据单元(PDU)"></a>协议数据单元(PDU)</h2><ol>
+<li>物理层（一层）PDU指数据位（Bit）。</li>
+<li>数据链路层（二层）PDU指数据帧（Frame）。</li>
+<li>网络层（三层）PDU指数据包（Packet / datagram）。</li>
+<li>传输层（四层）PDU指数据段（Segment）。</li>
+<li>第五层或以上为数据（data / message）。在特定的上下文情况下，一个特定层的PDU有时可以代表这个层。</li>
+</ol>
 
       
     </div>
@@ -353,7 +346,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://rainrx.github.io/2019/10/12/计算机网络-TCP/" title="计算机网络-TCP">https://rainrx.github.io/2019/10/12/计算机网络-TCP/</a>
+    <a href="https://rainrx.github.io/2019/10/12/计算机网络之概述/" title="计算机网络之概述">https://rainrx.github.io/2019/10/12/计算机网络之概述/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -529,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-Overview"><span class="nav-number">1.</span> <span class="nav-text">TCP: Overview:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-Connection"><span class="nav-number">2.</span> <span class="nav-text">TCP Connection:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-segment-structure"><span class="nav-number">3.</span> <span class="nav-text">TCP segment structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-seq-numbers-ACKs"><span class="nav-number">4.</span> <span class="nav-text">TCP seq. numbers, ACKs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sequence-numbers"><span class="nav-number">4.1.</span> <span class="nav-text">sequence numbers:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ackonwledgements-number"><span class="nav-number">4.2.</span> <span class="nav-text">ackonwledgements number:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-sender-event"><span class="nav-number">5.</span> <span class="nav-text">TCP sender event</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是协议"><span class="nav-number">1.</span> <span class="nav-text">什么是协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#家庭接入"><span class="nav-number">2.</span> <span class="nav-text">家庭接入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组交换的报文交付时间"><span class="nav-number">3.</span> <span class="nav-text">分组交换的报文交付时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI网络七层协议"><span class="nav-number">4.</span> <span class="nav-text">OSI网络七层协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议数据单元-PDU"><span class="nav-number">5.</span> <span class="nav-text">协议数据单元(PDU)</span></a></li></ol></div>
             
 
           </div>
