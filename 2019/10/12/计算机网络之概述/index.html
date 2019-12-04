@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="RainRx">
 <meta property="og:description" content="什么是协议 Protocols define format, order of msgs send and recived among network entities, and action taken on msg transmission, receipt.  家庭接入 Dial-Up(拨号上网)：通过传统电话线路。 Digital subsciber line(DSL) Cable net">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-02T12:14:28.541Z">
+<meta property="og:updated_time" content="2019-12-02T14:02:33.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络之概述">
 <meta name="twitter:description" content="什么是协议 Protocols define format, order of msgs send and recived among network entities, and action taken on msg transmission, receipt.  家庭接入 Dial-Up(拨号上网)：通过传统电话线路。 Digital subsciber line(DSL) Cable net">
@@ -326,6 +326,25 @@
 <li>传输层（四层）PDU指数据段（Segment）。</li>
 <li>第五层或以上为数据（data / message）。在特定的上下文情况下，一个特定层的PDU有时可以代表这个层。</li>
 </ol>
+<h2 id="traffic-intensity-流量强度"><a href="#traffic-intensity-流量强度" class="headerlink" title="traffic intensity(流量强度)"></a>traffic intensity(流量强度)</h2><blockquote>
+<ul>
+<li>R:链路带宽(bps)</li>
+<li>L:分组长度(bits)</li>
+<li>a:平均分组到达速率</li>
+</ul>
+</blockquote>
+<p><strong>traffic intensity = La / R</strong></p>
+<ul>
+<li>La/R -&gt; 0 平均排队延迟很小</li>
+<li>La/R -&gt; 1 平均排队延迟很大</li>
+<li>La/R &gt; 1 超出服务能力，平均排队延迟无限大</li>
+</ul>
+<h2 id="Cookie-技术有4个组件"><a href="#Cookie-技术有4个组件" class="headerlink" title="Cookie 技术有4个组件"></a>Cookie 技术有4个组件</h2><ol>
+<li>在HTTP响应报文中的一个cookie首部行；</li>
+<li>在HTTP请求报文的一个cookie首部行；</li>
+<li>在用户端系统中保留有一个cookie文件，并由用户的浏览器进行管理；</li>
+<li>位于Web站点的一个后端数据库。</li>
+</ol>
 
       
     </div>
@@ -522,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是协议"><span class="nav-number">1.</span> <span class="nav-text">什么是协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#家庭接入"><span class="nav-number">2.</span> <span class="nav-text">家庭接入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组交换的报文交付时间"><span class="nav-number">3.</span> <span class="nav-text">分组交换的报文交付时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI网络七层协议"><span class="nav-number">4.</span> <span class="nav-text">OSI网络七层协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议数据单元-PDU"><span class="nav-number">5.</span> <span class="nav-text">协议数据单元(PDU)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是协议"><span class="nav-number">1.</span> <span class="nav-text">什么是协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#家庭接入"><span class="nav-number">2.</span> <span class="nav-text">家庭接入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组交换的报文交付时间"><span class="nav-number">3.</span> <span class="nav-text">分组交换的报文交付时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI网络七层协议"><span class="nav-number">4.</span> <span class="nav-text">OSI网络七层协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议数据单元-PDU"><span class="nav-number">5.</span> <span class="nav-text">协议数据单元(PDU)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#traffic-intensity-流量强度"><span class="nav-number">6.</span> <span class="nav-text">traffic intensity(流量强度)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-技术有4个组件"><span class="nav-number">7.</span> <span class="nav-text">Cookie 技术有4个组件</span></a></li></ol></div>
             
 
           </div>
