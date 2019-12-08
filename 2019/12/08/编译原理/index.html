@@ -94,7 +94,8 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcm7kyiej31hu0q0dkh.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcsbr4haj320m0detcp.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcwrlpmyj31ww0gg78p.jpg">
-<meta property="og:updated_time" content="2019-12-08T07:41:37.509Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcyi8ds1j31r10u0n4b.jpg">
+<meta property="og:updated_time" content="2019-12-08T08:21:15.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="第一章 引论两种主要策略 编译器(Compiler)：主要目的是将便于人编写、阅读、维护的高级语言的代码翻译为计算机能解读、运行的机器码。/C++ 解释器(Intercepter)：是一种直接执行高级语言代码的计算机程序，而无需将代码编译成机器码。/Python   编译器比解释器做了更多的预处理   Java 两者都使用  语言处理步骤 源程序 -&amp;gt; 预处理器(Processs 生成修改后">
@@ -385,20 +386,35 @@
 </li>
 </ul>
 <h3 id="NFA-gt-DFA"><a href="#NFA-gt-DFA" class="headerlink" title="NFA -&gt; DFA"></a>NFA -&gt; DFA</h3><ul>
-<li><p>伊普西隆-闭包(S)：状态S通过0个或多个<code>伊普西隆-转换</code>可以到达的状态合集。</p>
+<li><p><strong>伊普西隆-闭包(S)</strong>：状态S通过0个或多个<code>伊普西隆-转换</code>可以到达的状态合集。</p>
 </li>
-<li><p>伊普西隆-闭包(T)：可由0次或多次<code>伊普西隆-转换</code>从T中的状态到达的所有合集的集合。</p>
+<li><p><strong>伊普西隆-闭包(T)</strong>：可由0次或多次<code>伊普西隆-转换</code>从T中的状态到达的所有合集的集合。</p>
 </li>
 </ul>
 <p>示例：<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcm7kyiej31hu0q0dkh.jpg" alt></p>
 <ul>
-<li>move[T, a]：是一个状态集，它是所有可以从T的某一个状态出发，经过一条a边（跳过之前任意条的伊普西隆边）所能到达的状态组成的集合。</li>
+<li><strong>move[T, a]</strong>：是一个状态集，它是所有可以从T的某一个状态出发，经过一条a边（跳过之前任意条的伊普西隆边）所能到达的状态组成的集合。</li>
 </ul>
 <p>示例：<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcsbr4haj320m0detcp.jpg" alt></p>
 <ul>
-<li>Dtran[T, a] = 伊普西隆-闭包(move[T, a])</li>
+<li><strong>Dtran[T, a]</strong> = 伊普西隆-闭包(move[T, a])</li>
 </ul>
 <p>示例：<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcwrlpmyj31ww0gg78p.jpg" alt></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcyi8ds1j31r10u0n4b.jpg" alt></p>
+<h3 id="构造DFA"><a href="#构造DFA" class="headerlink" title="构造DFA"></a>构造DFA</h3><ol>
+<li><p>构建转换表</p>
+<ol>
+<li>确定表头：表列数 = 字符数 + 1</li>
+<li>填表：第一行第一列元素为T = 起始点闭包，然后求<code>Dtran(T, a)</code> <code>Dtran(T, b)</code></li>
+<li>填表：检查<code>Dtran[T, a]</code>和<code>Dtran[T, b]</code>是否在第1列出现过，把凡是没有出现过的<code>Dtran[t, a]</code>和<code>Dtran[T, b]</code>分别填在后面的空行的第1列上，分别又求出相应的<code>Dtran[T, a]</code>和<code>Dtran[T, b]</code>，直到所有<code>Dtran[T, a]</code>和<code>Dtran[T, b]</code>都在第1列出现过为止。</li>
+</ol>
+</li>
+<li><p>把上述的转换表看作是DFA D的状态转换表，并把每行每列的子集都作为状态重新编号：把第一行第一列的子集作为初态，编号为1，<strong>凡含有原终态的状态子集作为初态</strong>，其余为非初非终态。</p>
+</li>
+<li><p>根据转换表画出状态转换图</p>
+</li>
+</ol>
+<h2 id="DFA化简"><a href="#DFA化简" class="headerlink" title="DFA化简"></a>DFA化简</h2><p><a href="https://www.jianshu.com/p/c779953434ac" target="_blank" rel="noopener">DFA化简</a></p>
 
       
     </div>
@@ -591,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引论"><span class="nav-number">1.</span> <span class="nav-text">第一章 引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种主要策略"><span class="nav-number">1.1.</span> <span class="nav-text">两种主要策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言处理步骤"><span class="nav-number">1.2.</span> <span class="nav-text">语言处理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的七个阶段"><span class="nav-number">1.3.</span> <span class="nav-text">编译器的七个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的分类"><span class="nav-number">1.4.</span> <span class="nav-text">编译器的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析-Lexical-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">词法分析(Lexical Analyzer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元的说明"><span class="nav-number">2.1.</span> <span class="nav-text">词法单元的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正规表达式"><span class="nav-number">2.1.1.</span> <span class="nav-text">正规表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二意性-Ambiguity"><span class="nav-number">2.1.2.</span> <span class="nav-text">二意性(Ambiguity)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元识别"><span class="nav-number">2.2.</span> <span class="nav-text">词法单元识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限状态自动机-Finite-State-Machines"><span class="nav-number">2.3.</span> <span class="nav-text">有限状态自动机(Finite State Machines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从正规表达式到DFA"><span class="nav-number">2.4.</span> <span class="nav-text">从正规表达式到DFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从正规表达式到NFA"><span class="nav-number">2.4.1.</span> <span class="nav-text">从正规表达式到NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA-gt-DFA"><span class="nav-number">2.4.2.</span> <span class="nav-text">NFA -&gt; DFA</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引论"><span class="nav-number">1.</span> <span class="nav-text">第一章 引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种主要策略"><span class="nav-number">1.1.</span> <span class="nav-text">两种主要策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言处理步骤"><span class="nav-number">1.2.</span> <span class="nav-text">语言处理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的七个阶段"><span class="nav-number">1.3.</span> <span class="nav-text">编译器的七个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的分类"><span class="nav-number">1.4.</span> <span class="nav-text">编译器的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析-Lexical-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">词法分析(Lexical Analyzer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元的说明"><span class="nav-number">2.1.</span> <span class="nav-text">词法单元的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正规表达式"><span class="nav-number">2.1.1.</span> <span class="nav-text">正规表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二意性-Ambiguity"><span class="nav-number">2.1.2.</span> <span class="nav-text">二意性(Ambiguity)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元识别"><span class="nav-number">2.2.</span> <span class="nav-text">词法单元识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限状态自动机-Finite-State-Machines"><span class="nav-number">2.3.</span> <span class="nav-text">有限状态自动机(Finite State Machines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从正规表达式到DFA"><span class="nav-number">2.4.</span> <span class="nav-text">从正规表达式到DFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从正规表达式到NFA"><span class="nav-number">2.4.1.</span> <span class="nav-text">从正规表达式到NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA-gt-DFA"><span class="nav-number">2.4.2.</span> <span class="nav-text">NFA -&gt; DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造DFA"><span class="nav-number">2.4.3.</span> <span class="nav-text">构造DFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFA化简"><span class="nav-number">2.5.</span> <span class="nav-text">DFA化简</span></a></li></ol></li></ol></div>
             
 
           </div>
