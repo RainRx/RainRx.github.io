@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcwrlpmyj31ww0gg78p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcyi8ds1j31r10u0n4b.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9u02c9b8sj31uy0sgqb1.jpg">
-<meta property="og:updated_time" content="2019-12-12T11:55:23.650Z">
+<meta property="og:updated_time" content="2019-12-15T07:11:11.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="第一章 引论两种主要策略 编译器(Compiler)：主要目的是将便于人编写、阅读、维护的高级语言的代码翻译为计算机能解读、运行的机器码。/C++ 解释器(Intercepter)：是一种直接执行高级语言代码的计算机程序，而无需将代码编译成机器码。/Python   编译器比解释器做了更多的预处理   Java 两者都使用  语言处理步骤 源程序 -&amp;gt; 预处理器(Processs 生成修改后">
@@ -439,10 +439,55 @@
 <p>例如：<br>exp -&gt; exp op exp | (exp) | number<br>op -&gt; + | - | *</p>
 <ul>
 <li><strong>Non-terminals 非终结符号</strong><ul>
-<li>一个非终结符号描述一个程序的结构，代表一个结构还能由更小的结构组成。通常写为大写</li>
+<li>一个非终结符号描述一个程序的结构，代表一个结构还能由更小的结构组成</li>
+<li>通常写为大写字母(A, B, C等)，或者小写、斜体的名字(exp, stmt)等</li>
 </ul>
 </li>
+<li><strong>Start symbol 开始符号</strong> <ul>
+<li>一般放在语法规则的第一位</li>
+<li>是特殊的非终结符号，通常是S</li>
 </ul>
+</li>
+<li><strong>Terminals 终结符号</strong><ul>
+<li>代表一个结构不能由更小的结构组成。</li>
+<li>通常写为小写字母、运算符、界符、数字、黑体字符串<strong>id</strong>、<strong>if</strong>等。</li>
+</ul>
+</li>
+<li><strong>Production 产生式</strong>：产生式决定了程序合法的语法结构，每一行（<code>exp -&gt; exp op exp | (exp) | number</code>）就是一个产生式。</li>
+</ul>
+<h3 id="消除左递归"><a href="#消除左递归" class="headerlink" title="消除左递归"></a>消除左递归</h3><p><strong>立即左递归</strong>：对Aa|b替换为非左递归的产生式：</p>
+<pre><code>A -&gt; bA&apos;
+
+A -&gt; aA&apos; | `空`
+</code></pre><h2 id="Derivations-推导"><a href="#Derivations-推导" class="headerlink" title="Derivations 推导"></a>Derivations 推导</h2><p>一个推导从一个单结构名称开始，以一串词法单元字符串结束。</p>
+<ul>
+<li><strong>最右推导</strong>：每步推导总是用产生式右部符号串<strong>替换句型最右边</strong>的非终结符号；</li>
+<li><strong>最左推导</strong>：每步推导总是用产生式右部符号串<strong>替换句型最左边</strong>的非终结符号；</li>
+</ul>
+<h3 id="CFG-v-s-Regular-expression"><a href="#CFG-v-s-Regular-expression" class="headerlink" title="CFG v.s. Regular expression"></a>CFG v.s. Regular expression</h3><blockquote>
+<p>每个可以使用正规式描述的构造都可以使用上下文无关文法来描述；反之不成立。</p>
+</blockquote>
+<h3 id="构造正规式对应的上下文无关文法"><a href="#构造正规式对应的上下文无关文法" class="headerlink" title="构造正规式对应的上下文无关文法"></a>构造正规式对应的上下文无关文法</h3><p>先根据正规式构造对应的NFA，再构造相应的上下文无关文法。步骤：</p>
+<ul>
+<li>对于NFA的每个状态i，创建一个非终结符号Ai</li>
+<li>若状态i输入a后进入状态j，则有产生式Ai-&gt;aAj;若状态i输入<code>空</code>后进入状态j，则有Ai-&gt;Aj</li>
+<li>若状态i是结束状态，则有产生式Ai-&gt;<code>空</code></li>
+<li>若状态i是开始状态，则Ai是开始符号</li>
+</ul>
+<h2 id="Ambiguity二义性"><a href="#Ambiguity二义性" class="headerlink" title="Ambiguity二义性"></a>Ambiguity二义性</h2><h3 id="判断二义性"><a href="#判断二义性" class="headerlink" title="判断二义性"></a>判断二义性</h3><p>给一个字符串：</p>
+<ul>
+<li>存在两种最左推导</li>
+<li>存在两种最右推导</li>
+<li>存在两种解析树</li>
+</ul>
+<h3 id="消除二义性"><a href="#消除二义性" class="headerlink" title="消除二义性"></a>消除二义性</h3><ul>
+<li>Precedence优先级</li>
+<li>Associativity结合方向</li>
+<li>Most closely nested rule最近嵌套</li>
+</ul>
+<blockquote>
+<p>优先级低的算符放在离开始符号近的产生式中（即解析树中，优先级低的算符离根节点更近）</p>
+</blockquote>
 
       
     </div>
@@ -635,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引论"><span class="nav-number">1.</span> <span class="nav-text">第一章 引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种主要策略"><span class="nav-number">1.1.</span> <span class="nav-text">两种主要策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言处理步骤"><span class="nav-number">1.2.</span> <span class="nav-text">语言处理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的七个阶段"><span class="nav-number">1.3.</span> <span class="nav-text">编译器的七个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的分类"><span class="nav-number">1.4.</span> <span class="nav-text">编译器的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析-Lexical-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">词法分析(Lexical Analyzer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元的说明"><span class="nav-number">2.1.</span> <span class="nav-text">词法单元的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正规表达式"><span class="nav-number">2.1.1.</span> <span class="nav-text">正规表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二意性-Ambiguity"><span class="nav-number">2.1.2.</span> <span class="nav-text">二意性(Ambiguity)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元识别"><span class="nav-number">2.2.</span> <span class="nav-text">词法单元识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限状态自动机-Finite-State-Machines"><span class="nav-number">2.3.</span> <span class="nav-text">有限状态自动机(Finite State Machines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从正规表达式到DFA"><span class="nav-number">2.4.</span> <span class="nav-text">从正规表达式到DFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从正规表达式到NFA"><span class="nav-number">2.4.1.</span> <span class="nav-text">从正规表达式到NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA-gt-DFA"><span class="nav-number">2.4.2.</span> <span class="nav-text">NFA -&gt; DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造DFA"><span class="nav-number">2.4.3.</span> <span class="nav-text">构造DFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFA化简"><span class="nav-number">2.5.</span> <span class="nav-text">DFA化简</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法分析"><span class="nav-number">3.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种生成方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">三种生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误类型"><span class="nav-number">3.1.2.</span> <span class="nav-text">错误类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误恢复策略"><span class="nav-number">3.1.3.</span> <span class="nav-text">错误恢复策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CFG-上下文无关文法"><span class="nav-number">3.2.</span> <span class="nav-text">CFG - 上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">定义</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引论"><span class="nav-number">1.</span> <span class="nav-text">第一章 引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种主要策略"><span class="nav-number">1.1.</span> <span class="nav-text">两种主要策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言处理步骤"><span class="nav-number">1.2.</span> <span class="nav-text">语言处理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的七个阶段"><span class="nav-number">1.3.</span> <span class="nav-text">编译器的七个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的分类"><span class="nav-number">1.4.</span> <span class="nav-text">编译器的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析-Lexical-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">词法分析(Lexical Analyzer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元的说明"><span class="nav-number">2.1.</span> <span class="nav-text">词法单元的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正规表达式"><span class="nav-number">2.1.1.</span> <span class="nav-text">正规表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二意性-Ambiguity"><span class="nav-number">2.1.2.</span> <span class="nav-text">二意性(Ambiguity)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元识别"><span class="nav-number">2.2.</span> <span class="nav-text">词法单元识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限状态自动机-Finite-State-Machines"><span class="nav-number">2.3.</span> <span class="nav-text">有限状态自动机(Finite State Machines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从正规表达式到DFA"><span class="nav-number">2.4.</span> <span class="nav-text">从正规表达式到DFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从正规表达式到NFA"><span class="nav-number">2.4.1.</span> <span class="nav-text">从正规表达式到NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA-gt-DFA"><span class="nav-number">2.4.2.</span> <span class="nav-text">NFA -&gt; DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造DFA"><span class="nav-number">2.4.3.</span> <span class="nav-text">构造DFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFA化简"><span class="nav-number">2.5.</span> <span class="nav-text">DFA化简</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法分析"><span class="nav-number">3.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种生成方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">三种生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误类型"><span class="nav-number">3.1.2.</span> <span class="nav-text">错误类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误恢复策略"><span class="nav-number">3.1.3.</span> <span class="nav-text">错误恢复策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CFG-上下文无关文法"><span class="nav-number">3.2.</span> <span class="nav-text">CFG - 上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除左递归"><span class="nav-number">3.2.2.</span> <span class="nav-text">消除左递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Derivations-推导"><span class="nav-number">3.3.</span> <span class="nav-text">Derivations 推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CFG-v-s-Regular-expression"><span class="nav-number">3.3.1.</span> <span class="nav-text">CFG v.s. Regular expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造正规式对应的上下文无关文法"><span class="nav-number">3.3.2.</span> <span class="nav-text">构造正规式对应的上下文无关文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ambiguity二义性"><span class="nav-number">3.4.</span> <span class="nav-text">Ambiguity二义性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断二义性"><span class="nav-number">3.4.1.</span> <span class="nav-text">判断二义性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除二义性"><span class="nav-number">3.4.2.</span> <span class="nav-text">消除二义性</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
