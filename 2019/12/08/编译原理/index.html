@@ -96,7 +96,11 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcwrlpmyj31ww0gg78p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9pcyi8ds1j31r10u0n4b.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9u02c9b8sj31uy0sgqb1.jpg">
-<meta property="og:updated_time" content="2019-12-15T07:11:11.703Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9yvb6xupxj31140ks0xb.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9yvsf29igj310o0kkgt1.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9ywa039knj310i0k4gqz.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9ywahr49gj30xg0a0n0m.jpg">
+<meta property="og:updated_time" content="2019-12-16T13:42:09.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="第一章 引论两种主要策略 编译器(Compiler)：主要目的是将便于人编写、阅读、维护的高级语言的代码翻译为计算机能解读、运行的机器码。/C++ 解释器(Intercepter)：是一种直接执行高级语言代码的计算机程序，而无需将代码编译成机器码。/Python   编译器比解释器做了更多的预处理   Java 两者都使用  语言处理步骤 源程序 -&amp;gt; 预处理器(Processs 生成修改后">
@@ -488,6 +492,80 @@ A -&gt; aA&apos; | `空`
 <blockquote>
 <p>优先级低的算符放在离开始符号近的产生式中（即解析树中，优先级低的算符离根节点更近）</p>
 </blockquote>
+<h2 id="自顶向下的语法分析"><a href="#自顶向下的语法分析" class="headerlink" title="自顶向下的语法分析"></a>自顶向下的语法分析</h2><p>自顶向下的语法分析可以被看作是为输入串构造语法分析树的问题。（从根开始，深度优先）创建这棵语法分析树的各个结点。</p>
+<ul>
+<li>递归下降分析</li>
+<li>LL(1)分析</li>
+</ul>
+<h3 id="递归下降分析"><a href="#递归下降分析" class="headerlink" title="递归下降分析"></a>递归下降分析</h3><p>对于每一个非终结符号A都有一个过程：</p>
+<ol>
+<li>选择A的一个产生式(比如A -&gt; A|B，选择A还是B)</li>
+<li>产生式中的一个终结符对应一个匹配操作(Match)</li>
+<li>产生式的非终结符对应一个对其过程的调用</li>
+</ol>
+<h3 id="First-和-Follow-集"><a href="#First-和-Follow-集" class="headerlink" title="First 和 Follow 集"></a>First 和 Follow 集</h3><p><a href="https://blog.csdn.net/jxch____/article/details/78688894" target="_blank" rel="noopener">编译原理之First集和Follow集</a></p>
+<ul>
+<li><p><strong>FIRST</strong> 可以由α推导得到的串的首符号的集合，其中α是任意的文法符号串。</p>
+<ol>
+<li>若X是一个终结符号，那么FIRST(X) = X;</li>
+<li>如果X是非终结符号，且有产生式形如X → a…，则FIRST( X ) = { a };</li>
+<li>如果X是非终结符，且有产生式形如X → A|B ，则FIRST( X ) = { FIRST(A),FIRST(B)};</li>
+<li>如果X是非终结符，且有产生式形如X → AB<ul>
+<li>当ε不属于First(A)时，则FIRST( X ) = { FIRST(A) }</li>
+<li>当ε属于First(A)时，则FIRST( X ) = { FIRST(A)，FIRST(B) }</li>
+<li>当ε属于FIRST(A)、FIRST(B) 时，将空字符加入FIRST( X )</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>FOLLOW的计算</strong></p>
+<ol>
+<li>对于文法的开始符号S，置<code>$</code>于FOLLOW(S)中;</li>
+<li>若<code>A-&gt;aBb</code>是一个产生式，则把FIRST(b)中除了e之外的所有符号都放在FOLLOW(B)中;</li>
+<li>如果存在一个产生式<code>A-&gt;aB</code>，或存在产生式<code>A-&gt;aBb</code>且FIRST(b)包含e，那么把FOLLOW(A)中的所有符号加入FOLLOW(B)  <span style="color:green;font-weight:bold">// 如果B有可能是最后一个符号，则把FOLLOW(A)加入FOLLOW(B)中，否则把FIRST(B)-{e}加至FOLLOW(B)中。</span><blockquote>
+<p>注意：在FOLLOW集中没有ε。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="自底向上的语法分析"><a href="#自底向上的语法分析" class="headerlink" title="自底向上的语法分析"></a>自底向上的语法分析</h2><h3 id="句柄-handle"><a href="#句柄-handle" class="headerlink" title="句柄(handle)"></a>句柄(handle)</h3><blockquote>
+<p>分析树中<strong>最左边具有父子两代的子树</strong>的树叶结点自左至右排列而成。</p>
+</blockquote>
+<h3 id="LR-0"><a href="#LR-0" class="headerlink" title="LR(0)"></a>LR(0)</h3><ul>
+<li><strong>项</strong>：一个文法G的一个LR(0)项（简称为项）是G的一个产生式再加上一个位于它的体中某处的<code>点·</code>。如A-&gt;XYZ 产生了四个项：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A-&gt;·XYZ</span><br><span class="line">A-&gt;X·YZ</span><br><span class="line">A-&gt;XY·Z</span><br><span class="line">A-&gt;XYZ·</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>产生式 A-&gt;ε 只生成一个项 A-&gt; ·</p>
+</blockquote>
+<ul>
+<li><p><strong>闭包</strong>：如果I是文法G的一个项集，那么CLOSURE(I)就是根据下面的两个规则从I构造得到的项集：<br>  1) 一开始，将I中的各个项加入到CLOSURE(I)中。<br>  2) 如果A-&gt;a·Bb在CLOSURE(I)中，B-&gt;r是一个产生式，并且B-&gt;·r不在CLOSURE(I)中，就将这个项计入其中。不断应用这个规则，直到没有新项可以加入到CLOSURE(I)中为止。</p>
+</li>
+<li><p><strong>GOTO函数</strong>：GOTO(I, X) 其中I是一个项集而X是一个文法符号。GOTO(I, X)被定义为I中所有形如[A-&gt;a·Xb]的项所对应的项[A-&gt;aX·b]的集合的闭包。</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9yvb6xupxj31140ks0xb.jpg" alt></p>
+<ul>
+<li><strong>构造LR(0)分析表</strong>：<ol>
+<li>构造增广文法的LR(0)项目集族的DFA。</li>
+<li>根据各状态中的项目填写分析表：<ul>
+<li>如果从状态i到状态j有一个基于符号X的转换：<ul>
+<li>X属于终结符号T时，则Action[i, X] = sj;</li>
+<li>X属于非终结符号N时，则GOTO[i, X] = j;</li>
+</ul>
+</li>
+<li>如果状态i中有完整项目[A-&gt;r·]，且A不等于S‘，则对所有X属于T，Action[i, X] = r(A-&gt;r);</li>
+<li>如果状态i中有完整项目[S’-&gt;S·]，则Action[i, X] = acc;</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9yvsf29igj310o0kkgt1.jpg" alt></p>
+<ul>
+<li><strong>LR分析过程</strong>：<br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9ywa039knj310i0k4gqz.jpg" alt><br><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9ywahr49gj30xg0a0n0m.jpg" alt></li>
+</ul>
 
       
     </div>
@@ -680,7 +758,7 @@ A -&gt; aA&apos; | `空`
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引论"><span class="nav-number">1.</span> <span class="nav-text">第一章 引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种主要策略"><span class="nav-number">1.1.</span> <span class="nav-text">两种主要策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言处理步骤"><span class="nav-number">1.2.</span> <span class="nav-text">语言处理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的七个阶段"><span class="nav-number">1.3.</span> <span class="nav-text">编译器的七个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的分类"><span class="nav-number">1.4.</span> <span class="nav-text">编译器的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析-Lexical-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">词法分析(Lexical Analyzer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元的说明"><span class="nav-number">2.1.</span> <span class="nav-text">词法单元的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正规表达式"><span class="nav-number">2.1.1.</span> <span class="nav-text">正规表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二意性-Ambiguity"><span class="nav-number">2.1.2.</span> <span class="nav-text">二意性(Ambiguity)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元识别"><span class="nav-number">2.2.</span> <span class="nav-text">词法单元识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限状态自动机-Finite-State-Machines"><span class="nav-number">2.3.</span> <span class="nav-text">有限状态自动机(Finite State Machines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从正规表达式到DFA"><span class="nav-number">2.4.</span> <span class="nav-text">从正规表达式到DFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从正规表达式到NFA"><span class="nav-number">2.4.1.</span> <span class="nav-text">从正规表达式到NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA-gt-DFA"><span class="nav-number">2.4.2.</span> <span class="nav-text">NFA -&gt; DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造DFA"><span class="nav-number">2.4.3.</span> <span class="nav-text">构造DFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFA化简"><span class="nav-number">2.5.</span> <span class="nav-text">DFA化简</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法分析"><span class="nav-number">3.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种生成方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">三种生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误类型"><span class="nav-number">3.1.2.</span> <span class="nav-text">错误类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误恢复策略"><span class="nav-number">3.1.3.</span> <span class="nav-text">错误恢复策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CFG-上下文无关文法"><span class="nav-number">3.2.</span> <span class="nav-text">CFG - 上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除左递归"><span class="nav-number">3.2.2.</span> <span class="nav-text">消除左递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Derivations-推导"><span class="nav-number">3.3.</span> <span class="nav-text">Derivations 推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CFG-v-s-Regular-expression"><span class="nav-number">3.3.1.</span> <span class="nav-text">CFG v.s. Regular expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造正规式对应的上下文无关文法"><span class="nav-number">3.3.2.</span> <span class="nav-text">构造正规式对应的上下文无关文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ambiguity二义性"><span class="nav-number">3.4.</span> <span class="nav-text">Ambiguity二义性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断二义性"><span class="nav-number">3.4.1.</span> <span class="nav-text">判断二义性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除二义性"><span class="nav-number">3.4.2.</span> <span class="nav-text">消除二义性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引论"><span class="nav-number">1.</span> <span class="nav-text">第一章 引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种主要策略"><span class="nav-number">1.1.</span> <span class="nav-text">两种主要策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言处理步骤"><span class="nav-number">1.2.</span> <span class="nav-text">语言处理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的七个阶段"><span class="nav-number">1.3.</span> <span class="nav-text">编译器的七个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的分类"><span class="nav-number">1.4.</span> <span class="nav-text">编译器的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析-Lexical-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">词法分析(Lexical Analyzer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元的说明"><span class="nav-number">2.1.</span> <span class="nav-text">词法单元的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正规表达式"><span class="nav-number">2.1.1.</span> <span class="nav-text">正规表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二意性-Ambiguity"><span class="nav-number">2.1.2.</span> <span class="nav-text">二意性(Ambiguity)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元识别"><span class="nav-number">2.2.</span> <span class="nav-text">词法单元识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限状态自动机-Finite-State-Machines"><span class="nav-number">2.3.</span> <span class="nav-text">有限状态自动机(Finite State Machines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从正规表达式到DFA"><span class="nav-number">2.4.</span> <span class="nav-text">从正规表达式到DFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从正规表达式到NFA"><span class="nav-number">2.4.1.</span> <span class="nav-text">从正规表达式到NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA-gt-DFA"><span class="nav-number">2.4.2.</span> <span class="nav-text">NFA -&gt; DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造DFA"><span class="nav-number">2.4.3.</span> <span class="nav-text">构造DFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFA化简"><span class="nav-number">2.5.</span> <span class="nav-text">DFA化简</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法分析"><span class="nav-number">3.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种生成方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">三种生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误类型"><span class="nav-number">3.1.2.</span> <span class="nav-text">错误类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误恢复策略"><span class="nav-number">3.1.3.</span> <span class="nav-text">错误恢复策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CFG-上下文无关文法"><span class="nav-number">3.2.</span> <span class="nav-text">CFG - 上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除左递归"><span class="nav-number">3.2.2.</span> <span class="nav-text">消除左递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Derivations-推导"><span class="nav-number">3.3.</span> <span class="nav-text">Derivations 推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CFG-v-s-Regular-expression"><span class="nav-number">3.3.1.</span> <span class="nav-text">CFG v.s. Regular expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造正规式对应的上下文无关文法"><span class="nav-number">3.3.2.</span> <span class="nav-text">构造正规式对应的上下文无关文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ambiguity二义性"><span class="nav-number">3.4.</span> <span class="nav-text">Ambiguity二义性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断二义性"><span class="nav-number">3.4.1.</span> <span class="nav-text">判断二义性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除二义性"><span class="nav-number">3.4.2.</span> <span class="nav-text">消除二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自顶向下的语法分析"><span class="nav-number">3.5.</span> <span class="nav-text">自顶向下的语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归下降分析"><span class="nav-number">3.5.1.</span> <span class="nav-text">递归下降分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-和-Follow-集"><span class="nav-number">3.5.2.</span> <span class="nav-text">First 和 Follow 集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自底向上的语法分析"><span class="nav-number">3.6.</span> <span class="nav-text">自底向上的语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#句柄-handle"><span class="nav-number">3.6.1.</span> <span class="nav-text">句柄(handle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LR-0"><span class="nav-number">3.6.2.</span> <span class="nav-text">LR(0)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
