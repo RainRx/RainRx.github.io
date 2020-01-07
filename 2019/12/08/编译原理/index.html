@@ -1,85 +1,12 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="第一章 引论两种主要策略 编译器(Compiler)：主要目的是将便于人编写、阅读、维护的高级语言的代码翻译为计算机能解读、运行的机器码。/C++ 解释器(Intercepter)：是一种直接执行高级语言代码的计算机程序，而无需将代码编译成机器码。/Python   编译器比解释器做了更多的预处理   Java 两者都使用  语言处理步骤 源程序 -&amp;gt; 预处理器(Processs 生成修改后">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="第一章 引论两种主要策略 编译器(Compiler)：主要目的是将便于人编写、阅读、维护的高级语言的代码翻译为计算机能解读、运行的机器码。/C++ 解释器(Intercepter)：是一种直接执行高级语言代码的计算机程序，而无需将代码编译成机器码。/Python   编译器比解释器做了更多的预处理   Java 两者都使用  语言处理步骤 源程序 -&amp;gt; 预处理器(Processs 生成修改后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理">
 <meta property="og:url" content="https://rainrx.github.io/2019/12/08/编译原理/index.html">
@@ -108,216 +35,132 @@
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="第一章 引论两种主要策略 编译器(Compiler)：主要目的是将便于人编写、阅读、维护的高级语言的代码翻译为计算机能解读、运行的机器码。/C++ 解释器(Intercepter)：是一种直接执行高级语言代码的计算机程序，而无需将代码编译成机器码。/Python   编译器比解释器做了更多的预处理   Java 两者都使用  语言处理步骤 源程序 -&amp;gt; 预处理器(Processs 生成修改后">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9p4fk5uonj318m0u0n3p.jpg">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://rainrx.github.io/2019/12/08/编译原理/">
-
-
-
-
-
-  <title>编译原理 | RainRx</title>
-  
-
-
-
-
-
-
-
-
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>编译原理</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
-  
-  
+<body class="max-width mx-auto px3 ltr">
     
-  
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/12/25/系统级编程/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/11/24/计算机网络之传输层/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://rainrx.github.io/2019/12/08/编译原理/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://rainrx.github.io/2019/12/08/编译原理/&text=编译原理"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://rainrx.github.io/2019/12/08/编译原理/&is_video=false&description=编译原理"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=编译原理&body=Check out this article: https://rainrx.github.io/2019/12/08/编译原理/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://rainrx.github.io/2019/12/08/编译原理/&name=编译原理&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://rainrx.github.io/2019/12/08/编译原理/&t=编译原理"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">RainRx</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-引论"><span class="toc-number">1.</span> <span class="toc-text">第一章 引论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#两种主要策略"><span class="toc-number">1.1.</span> <span class="toc-text">两种主要策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语言处理步骤"><span class="toc-number">1.2.</span> <span class="toc-text">语言处理步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器的七个阶段"><span class="toc-number">1.3.</span> <span class="toc-text">编译器的七个阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器的分类"><span class="toc-number">1.4.</span> <span class="toc-text">编译器的分类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#词法分析-Lexical-Analyzer"><span class="toc-number">2.</span> <span class="toc-text">词法分析(Lexical Analyzer)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#词法单元的说明"><span class="toc-number">2.1.</span> <span class="toc-text">词法单元的说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正规表达式"><span class="toc-number">2.1.1.</span> <span class="toc-text">正规表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二意性-Ambiguity"><span class="toc-number">2.1.2.</span> <span class="toc-text">二意性(Ambiguity)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#词法单元识别"><span class="toc-number">2.2.</span> <span class="toc-text">词法单元识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有限状态自动机-Finite-State-Machines"><span class="toc-number">2.3.</span> <span class="toc-text">有限状态自动机(Finite State Machines)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从正规表达式到DFA"><span class="toc-number">2.4.</span> <span class="toc-text">从正规表达式到DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从正规表达式到NFA"><span class="toc-number">2.4.1.</span> <span class="toc-text">从正规表达式到NFA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NFA-gt-DFA"><span class="toc-number">2.4.2.</span> <span class="toc-text">NFA -&gt; DFA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造DFA"><span class="toc-number">2.4.3.</span> <span class="toc-text">构造DFA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DFA化简"><span class="toc-number">2.5.</span> <span class="toc-text">DFA化简</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#语法分析"><span class="toc-number">3.</span> <span class="toc-text">语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">3.1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三种生成方式"><span class="toc-number">3.1.1.</span> <span class="toc-text">三种生成方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误类型"><span class="toc-number">3.1.2.</span> <span class="toc-text">错误类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误恢复策略"><span class="toc-number">3.1.3.</span> <span class="toc-text">错误恢复策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CFG-上下文无关文法"><span class="toc-number">3.2.</span> <span class="toc-text">CFG - 上下文无关文法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">3.2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消除左递归"><span class="toc-number">3.2.2.</span> <span class="toc-text">消除左递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Derivations-推导"><span class="toc-number">3.3.</span> <span class="toc-text">Derivations 推导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CFG-v-s-Regular-expression"><span class="toc-number">3.3.1.</span> <span class="toc-text">CFG v.s. Regular expression</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造正规式对应的上下文无关文法"><span class="toc-number">3.3.2.</span> <span class="toc-text">构造正规式对应的上下文无关文法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ambiguity二义性"><span class="toc-number">3.4.</span> <span class="toc-text">Ambiguity二义性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断二义性"><span class="toc-number">3.4.1.</span> <span class="toc-text">判断二义性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消除二义性"><span class="toc-number">3.4.2.</span> <span class="toc-text">消除二义性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自顶向下的语法分析"><span class="toc-number">3.5.</span> <span class="toc-text">自顶向下的语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归下降分析"><span class="toc-number">3.5.1.</span> <span class="toc-text">递归下降分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#First-和-Follow-集"><span class="toc-number">3.5.2.</span> <span class="toc-text">First 和 Follow 集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1"><span class="toc-number">3.5.3.</span> <span class="toc-text">LL(1)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#判断是否为LL-1-文法"><span class="toc-number">3.5.3.1.</span> <span class="toc-text">判断是否为LL(1)文法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造LL-1"><span class="toc-number">3.5.3.2.</span> <span class="toc-text">构造LL(1)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自底向上的语法分析"><span class="toc-number">3.6.</span> <span class="toc-text">自底向上的语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#句柄-handle"><span class="toc-number">3.6.1.</span> <span class="toc-text">句柄(handle)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LR-0"><span class="toc-number">3.6.2.</span> <span class="toc-text">LR(0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SLR-1"><span class="toc-number">3.6.3.</span> <span class="toc-text">SLR(1)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#判断是否是SLR-1-文法"><span class="toc-number">3.6.3.1.</span> <span class="toc-text">判断是否是SLR(1)文法</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
 </div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+    
+    <div class="content index py4">
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        编译原理
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">RainRx</span>
+      </span>
       
+    <div class="postdate">
+      
+        <time datetime="2019-12-08T02:37:00.000Z" itemprop="datePublished">2019-12-08</time>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
+      
+    </div>
+
+
       
 
       
-    </ul>
+
+    </div>
+  </header>
   
 
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rainrx.github.io/2019/12/08/编译原理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RainRX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RainRx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">编译原理</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-08T10:37:00+08:00">
-                2019-12-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h1><h2 id="两种主要策略"><a href="#两种主要策略" class="headerlink" title="两种主要策略"></a>两种主要策略</h2><ul>
+  <div class="content" itemprop="articleBody">
+    <h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h1><h2 id="两种主要策略"><a href="#两种主要策略" class="headerlink" title="两种主要策略"></a>两种主要策略</h2><ul>
 <li>编译器(Compiler)：主要目的是将便于人编写、阅读、维护的高级语言的代码翻译为计算机能解读、运行的机器码。/C++</li>
 <li>解释器(Intercepter)：是一种直接执行高级语言代码的计算机程序，而无需将代码编译成机器码。/Python</li>
 </ul>
@@ -592,405 +435,122 @@ A -&gt; aA&apos; | `空`
 </ul>
 <h4 id="判断是否是SLR-1-文法"><a href="#判断是否是SLR-1-文法" class="headerlink" title="判断是否是SLR(1)文法"></a>判断是否是SLR(1)文法</h4><p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1ga17retbolj30ys0fs0wo.jpg" alt></p>
 
-      
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
     </div>
-    
-    
-    
 
-    
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-引论"><span class="toc-number">1.</span> <span class="toc-text">第一章 引论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#两种主要策略"><span class="toc-number">1.1.</span> <span class="toc-text">两种主要策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语言处理步骤"><span class="toc-number">1.2.</span> <span class="toc-text">语言处理步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器的七个阶段"><span class="toc-number">1.3.</span> <span class="toc-text">编译器的七个阶段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器的分类"><span class="toc-number">1.4.</span> <span class="toc-text">编译器的分类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#词法分析-Lexical-Analyzer"><span class="toc-number">2.</span> <span class="toc-text">词法分析(Lexical Analyzer)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#词法单元的说明"><span class="toc-number">2.1.</span> <span class="toc-text">词法单元的说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正规表达式"><span class="toc-number">2.1.1.</span> <span class="toc-text">正规表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二意性-Ambiguity"><span class="toc-number">2.1.2.</span> <span class="toc-text">二意性(Ambiguity)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#词法单元识别"><span class="toc-number">2.2.</span> <span class="toc-text">词法单元识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有限状态自动机-Finite-State-Machines"><span class="toc-number">2.3.</span> <span class="toc-text">有限状态自动机(Finite State Machines)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从正规表达式到DFA"><span class="toc-number">2.4.</span> <span class="toc-text">从正规表达式到DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从正规表达式到NFA"><span class="toc-number">2.4.1.</span> <span class="toc-text">从正规表达式到NFA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NFA-gt-DFA"><span class="toc-number">2.4.2.</span> <span class="toc-text">NFA -&gt; DFA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造DFA"><span class="toc-number">2.4.3.</span> <span class="toc-text">构造DFA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DFA化简"><span class="toc-number">2.5.</span> <span class="toc-text">DFA化简</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#语法分析"><span class="toc-number">3.</span> <span class="toc-text">语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">3.1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三种生成方式"><span class="toc-number">3.1.1.</span> <span class="toc-text">三种生成方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误类型"><span class="toc-number">3.1.2.</span> <span class="toc-text">错误类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误恢复策略"><span class="toc-number">3.1.3.</span> <span class="toc-text">错误恢复策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CFG-上下文无关文法"><span class="toc-number">3.2.</span> <span class="toc-text">CFG - 上下文无关文法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">3.2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消除左递归"><span class="toc-number">3.2.2.</span> <span class="toc-text">消除左递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Derivations-推导"><span class="toc-number">3.3.</span> <span class="toc-text">Derivations 推导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CFG-v-s-Regular-expression"><span class="toc-number">3.3.1.</span> <span class="toc-text">CFG v.s. Regular expression</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造正规式对应的上下文无关文法"><span class="toc-number">3.3.2.</span> <span class="toc-text">构造正规式对应的上下文无关文法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ambiguity二义性"><span class="toc-number">3.4.</span> <span class="toc-text">Ambiguity二义性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断二义性"><span class="toc-number">3.4.1.</span> <span class="toc-text">判断二义性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消除二义性"><span class="toc-number">3.4.2.</span> <span class="toc-text">消除二义性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自顶向下的语法分析"><span class="toc-number">3.5.</span> <span class="toc-text">自顶向下的语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归下降分析"><span class="toc-number">3.5.1.</span> <span class="toc-text">递归下降分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#First-和-Follow-集"><span class="toc-number">3.5.2.</span> <span class="toc-text">First 和 Follow 集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1"><span class="toc-number">3.5.3.</span> <span class="toc-text">LL(1)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#判断是否为LL-1-文法"><span class="toc-number">3.5.3.1.</span> <span class="toc-text">判断是否为LL(1)文法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造LL-1"><span class="toc-number">3.5.3.2.</span> <span class="toc-text">构造LL(1)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自底向上的语法分析"><span class="toc-number">3.6.</span> <span class="toc-text">自底向上的语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#句柄-handle"><span class="toc-number">3.6.1.</span> <span class="toc-text">句柄(handle)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LR-0"><span class="toc-number">3.6.2.</span> <span class="toc-text">LR(0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SLR-1"><span class="toc-number">3.6.3.</span> <span class="toc-text">SLR(1)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#判断是否是SLR-1-文法"><span class="toc-number">3.6.3.1.</span> <span class="toc-text">判断是否是SLR(1)文法</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
 
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:</strong>
-    RainRX
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link:</strong>
-    <a href="https://rainrx.github.io/2019/12/08/编译原理/" title="编译原理">https://rainrx.github.io/2019/12/08/编译原理/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
-  </li>
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://rainrx.github.io/2019/12/08/编译原理/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://rainrx.github.io/2019/12/08/编译原理/&text=编译原理"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://rainrx.github.io/2019/12/08/编译原理/&is_video=false&description=编译原理"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=编译原理&body=Check out this article: https://rainrx.github.io/2019/12/08/编译原理/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://rainrx.github.io/2019/12/08/编译原理/&title=编译原理"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://rainrx.github.io/2019/12/08/编译原理/&name=编译原理&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://rainrx.github.io/2019/12/08/编译原理/&t=编译原理"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
-      </div>
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/11/24/计算机网络之传输层/" rel="next" title="计算机网络之传输层">
-                <i class="fa fa-chevron-left"></i> 计算机网络之传输层
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/25/系统级编程/" rel="prev" title="系统级编程">
-                系统级编程 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
     </div>
-  </div>
 
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
+
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">RainRX</p>
-              <p class="site-description motion-element" itemprop="description">嗯冲</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/RainRx" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-引论"><span class="nav-number">1.</span> <span class="nav-text">第一章 引论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种主要策略"><span class="nav-number">1.1.</span> <span class="nav-text">两种主要策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言处理步骤"><span class="nav-number">1.2.</span> <span class="nav-text">语言处理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的七个阶段"><span class="nav-number">1.3.</span> <span class="nav-text">编译器的七个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器的分类"><span class="nav-number">1.4.</span> <span class="nav-text">编译器的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析-Lexical-Analyzer"><span class="nav-number">2.</span> <span class="nav-text">词法分析(Lexical Analyzer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元的说明"><span class="nav-number">2.1.</span> <span class="nav-text">词法单元的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正规表达式"><span class="nav-number">2.1.1.</span> <span class="nav-text">正规表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二意性-Ambiguity"><span class="nav-number">2.1.2.</span> <span class="nav-text">二意性(Ambiguity)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法单元识别"><span class="nav-number">2.2.</span> <span class="nav-text">词法单元识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有限状态自动机-Finite-State-Machines"><span class="nav-number">2.3.</span> <span class="nav-text">有限状态自动机(Finite State Machines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从正规表达式到DFA"><span class="nav-number">2.4.</span> <span class="nav-text">从正规表达式到DFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从正规表达式到NFA"><span class="nav-number">2.4.1.</span> <span class="nav-text">从正规表达式到NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA-gt-DFA"><span class="nav-number">2.4.2.</span> <span class="nav-text">NFA -&gt; DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造DFA"><span class="nav-number">2.4.3.</span> <span class="nav-text">构造DFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFA化简"><span class="nav-number">2.5.</span> <span class="nav-text">DFA化简</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法分析"><span class="nav-number">3.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种生成方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">三种生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误类型"><span class="nav-number">3.1.2.</span> <span class="nav-text">错误类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误恢复策略"><span class="nav-number">3.1.3.</span> <span class="nav-text">错误恢复策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CFG-上下文无关文法"><span class="nav-number">3.2.</span> <span class="nav-text">CFG - 上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除左递归"><span class="nav-number">3.2.2.</span> <span class="nav-text">消除左递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Derivations-推导"><span class="nav-number">3.3.</span> <span class="nav-text">Derivations 推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CFG-v-s-Regular-expression"><span class="nav-number">3.3.1.</span> <span class="nav-text">CFG v.s. Regular expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造正规式对应的上下文无关文法"><span class="nav-number">3.3.2.</span> <span class="nav-text">构造正规式对应的上下文无关文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ambiguity二义性"><span class="nav-number">3.4.</span> <span class="nav-text">Ambiguity二义性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断二义性"><span class="nav-number">3.4.1.</span> <span class="nav-text">判断二义性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除二义性"><span class="nav-number">3.4.2.</span> <span class="nav-text">消除二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自顶向下的语法分析"><span class="nav-number">3.5.</span> <span class="nav-text">自顶向下的语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归下降分析"><span class="nav-number">3.5.1.</span> <span class="nav-text">递归下降分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-和-Follow-集"><span class="nav-number">3.5.2.</span> <span class="nav-text">First 和 Follow 集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LL-1"><span class="nav-number">3.5.3.</span> <span class="nav-text">LL(1)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否为LL-1-文法"><span class="nav-number">3.5.3.1.</span> <span class="nav-text">判断是否为LL(1)文法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造LL-1"><span class="nav-number">3.5.3.2.</span> <span class="nav-text">构造LL(1)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自底向上的语法分析"><span class="nav-number">3.6.</span> <span class="nav-text">自底向上的语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#句柄-handle"><span class="nav-number">3.6.1.</span> <span class="nav-text">句柄(handle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LR-0"><span class="nav-number">3.6.2.</span> <span class="nav-text">LR(0)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SLR-1"><span class="nav-number">3.6.3.</span> <span class="nav-text">SLR(1)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否是SLR-1-文法"><span class="nav-number">3.6.3.1.</span> <span class="nav-text">判断是否是SLR(1)文法</span></a></li></ol></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">RainRX</span>
-
-  
 </div>
 
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
         
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 RainRX
   </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":100},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

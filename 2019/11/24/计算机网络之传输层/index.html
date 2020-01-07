@@ -1,85 +1,12 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="目标理解 多路传输 多路复用 可靠数据传输 流控制 阻塞控制学习协议 UDP 无连接传输 TCP 面向连接可靠传输 TCP 阻塞控制  传输服务和协议 在应用进程中提供逻辑通信。传输层协议运行在端系统。  发送端：将应用消息分成段 并传输到网络层。 接收端：将段组装成消息 传给应用层。   传输层和网络层的不同 传输层：在进程中进行逻辑通信。 网络层：在主机中进行逻辑通信。  传输层协议 可靠，顺">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="目标理解 多路传输 多路复用 可靠数据传输 流控制 阻塞控制学习协议 UDP 无连接传输 TCP 面向连接可靠传输 TCP 阻塞控制  传输服务和协议 在应用进程中提供逻辑通信。传输层协议运行在端系统。  发送端：将应用消息分成段 并传输到网络层。 接收端：将段组装成消息 传给应用层。   传输层和网络层的不同 传输层：在进程中进行逻辑通信。 网络层：在主机中进行逻辑通信。  传输层协议 可靠，顺">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络之传输层">
 <meta property="og:url" content="https://rainrx.github.io/2019/11/24/计算机网络之传输层/index.html">
@@ -95,216 +22,132 @@
 <meta name="twitter:title" content="计算机网络之传输层">
 <meta name="twitter:description" content="目标理解 多路传输 多路复用 可靠数据传输 流控制 阻塞控制学习协议 UDP 无连接传输 TCP 面向连接可靠传输 TCP 阻塞控制  传输服务和协议 在应用进程中提供逻辑通信。传输层协议运行在端系统。  发送端：将应用消息分成段 并传输到网络层。 接收端：将段组装成消息 传给应用层。   传输层和网络层的不同 传输层：在进程中进行逻辑通信。 网络层：在主机中进行逻辑通信。  传输层协议 可靠，顺">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g9alupoxjjj31f00u0qda.jpg">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://rainrx.github.io/2019/11/24/计算机网络之传输层/">
-
-
-
-
-
-  <title>计算机网络之传输层 | RainRx</title>
-  
-
-
-
-
-
-
-
-
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>计算机网络之传输层</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
-  
-  
+<body class="max-width mx-auto px3 ltr">
     
-  
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/12/08/编译原理/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/10/17/字节跳动前端面经/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://rainrx.github.io/2019/11/24/计算机网络之传输层/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&text=计算机网络之传输层"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&is_video=false&description=计算机网络之传输层"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=计算机网络之传输层&body=Check out this article: https://rainrx.github.io/2019/11/24/计算机网络之传输层/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&name=计算机网络之传输层&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&t=计算机网络之传输层"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">RainRx</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.</span> <span class="toc-text">目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解"><span class="toc-number">1.1.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习协议"><span class="toc-number">1.2.</span> <span class="toc-text">学习协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传输服务和协议"><span class="toc-number">2.</span> <span class="toc-text">传输服务和协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层和网络层的不同"><span class="toc-number">2.1.</span> <span class="toc-text">传输层和网络层的不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层协议"><span class="toc-number">2.2.</span> <span class="toc-text">传输层协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多路分解和多路复用"><span class="toc-number">3.</span> <span class="toc-text">多路分解和多路复用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要多路分解和多路复用"><span class="toc-number">3.1.</span> <span class="toc-text">为什么要多路分解和多路复用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无连接的多路复用和多路分解（UDP）"><span class="toc-number">3.2.</span> <span class="toc-text">无连接的多路复用和多路分解（UDP）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向连接的多路复用和多路分解（TCP）"><span class="toc-number">3.3.</span> <span class="toc-text">面向连接的多路复用和多路分解（TCP）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-User-Datagram-Protocol"><span class="toc-number">4.</span> <span class="toc-text">UDP: User Datagram Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP存在的意义"><span class="toc-number">4.1.</span> <span class="toc-text">UDP存在的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-checksum"><span class="toc-number">4.2.</span> <span class="toc-text">UDP checksum</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可靠数据传输的基本原理"><span class="toc-number">5.</span> <span class="toc-text">可靠数据传输的基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt1-0"><span class="toc-number">5.1.</span> <span class="toc-text">Rdt1.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt2-0：产生位错误的信道"><span class="toc-number">5.2.</span> <span class="toc-text">Rdt2.0：产生位错误的信道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt2-1：应对ACK-NAK破坏"><span class="toc-number">5.3.</span> <span class="toc-text">Rdt2.1：应对ACK/NAK破坏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt2-2：无NAK消息协议"><span class="toc-number">5.4.</span> <span class="toc-text">Rdt2.2：无NAK消息协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt3-0"><span class="toc-number">5.5.</span> <span class="toc-text">Rdt3.0</span></a></li></ol></li></ol>
+    </div>
+  </span>
 </div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+    
+    <div class="content index py4">
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        计算机网络之传输层
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">RainRx</span>
+      </span>
       
+    <div class="postdate">
+      
+        <time datetime="2019-11-24T02:28:24.000Z" itemprop="datePublished">2019-11-24</time>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
+      
+    </div>
+
+
       
 
       
-    </ul>
+
+    </div>
+  </header>
   
 
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rainrx.github.io/2019/11/24/计算机网络之传输层/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="RainRX">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RainRx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">计算机网络之传输层</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-24T10:28:24+08:00">
-                2019-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><ul>
+  <div class="content" itemprop="articleBody">
+    <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><ul>
 <li>多路传输 多路复用</li>
 <li>可靠数据传输</li>
 <li>流控制</li>
@@ -455,405 +298,122 @@
 <p>发送方FSM<br><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9b97y1jraj30x80l4dlf.jpg" alt></p>
 </blockquote>
 </image></image>
-      
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
     </div>
-    
-    
-    
 
-    
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.</span> <span class="toc-text">目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解"><span class="toc-number">1.1.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习协议"><span class="toc-number">1.2.</span> <span class="toc-text">学习协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传输服务和协议"><span class="toc-number">2.</span> <span class="toc-text">传输服务和协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层和网络层的不同"><span class="toc-number">2.1.</span> <span class="toc-text">传输层和网络层的不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层协议"><span class="toc-number">2.2.</span> <span class="toc-text">传输层协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多路分解和多路复用"><span class="toc-number">3.</span> <span class="toc-text">多路分解和多路复用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要多路分解和多路复用"><span class="toc-number">3.1.</span> <span class="toc-text">为什么要多路分解和多路复用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无连接的多路复用和多路分解（UDP）"><span class="toc-number">3.2.</span> <span class="toc-text">无连接的多路复用和多路分解（UDP）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向连接的多路复用和多路分解（TCP）"><span class="toc-number">3.3.</span> <span class="toc-text">面向连接的多路复用和多路分解（TCP）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-User-Datagram-Protocol"><span class="toc-number">4.</span> <span class="toc-text">UDP: User Datagram Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP存在的意义"><span class="toc-number">4.1.</span> <span class="toc-text">UDP存在的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-checksum"><span class="toc-number">4.2.</span> <span class="toc-text">UDP checksum</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可靠数据传输的基本原理"><span class="toc-number">5.</span> <span class="toc-text">可靠数据传输的基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt1-0"><span class="toc-number">5.1.</span> <span class="toc-text">Rdt1.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt2-0：产生位错误的信道"><span class="toc-number">5.2.</span> <span class="toc-text">Rdt2.0：产生位错误的信道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt2-1：应对ACK-NAK破坏"><span class="toc-number">5.3.</span> <span class="toc-text">Rdt2.1：应对ACK/NAK破坏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt2-2：无NAK消息协议"><span class="toc-number">5.4.</span> <span class="toc-text">Rdt2.2：无NAK消息协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rdt3-0"><span class="toc-number">5.5.</span> <span class="toc-text">Rdt3.0</span></a></li></ol></li></ol>
+    </div>
 
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:</strong>
-    RainRX
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link:</strong>
-    <a href="https://rainrx.github.io/2019/11/24/计算机网络之传输层/" title="计算机网络之传输层">https://rainrx.github.io/2019/11/24/计算机网络之传输层/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
-  </li>
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://rainrx.github.io/2019/11/24/计算机网络之传输层/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&text=计算机网络之传输层"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&is_video=false&description=计算机网络之传输层"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=计算机网络之传输层&body=Check out this article: https://rainrx.github.io/2019/11/24/计算机网络之传输层/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&title=计算机网络之传输层"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&name=计算机网络之传输层&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://rainrx.github.io/2019/11/24/计算机网络之传输层/&t=计算机网络之传输层"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
-      </div>
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/10/17/字节跳动前端面经/" rel="next" title="字节跳动前端面经">
-                <i class="fa fa-chevron-left"></i> 字节跳动前端面经
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/08/编译原理/" rel="prev" title="编译原理">
-                编译原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
     </div>
-  </div>
 
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
+
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">RainRX</p>
-              <p class="site-description motion-element" itemprop="description">嗯冲</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/RainRx" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解"><span class="nav-number">1.1.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习协议"><span class="nav-number">1.2.</span> <span class="nav-text">学习协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输服务和协议"><span class="nav-number">2.</span> <span class="nav-text">传输服务和协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层和网络层的不同"><span class="nav-number">2.1.</span> <span class="nav-text">传输层和网络层的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层协议"><span class="nav-number">2.2.</span> <span class="nav-text">传输层协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路分解和多路复用"><span class="nav-number">3.</span> <span class="nav-text">多路分解和多路复用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要多路分解和多路复用"><span class="nav-number">3.1.</span> <span class="nav-text">为什么要多路分解和多路复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无连接的多路复用和多路分解（UDP）"><span class="nav-number">3.2.</span> <span class="nav-text">无连接的多路复用和多路分解（UDP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向连接的多路复用和多路分解（TCP）"><span class="nav-number">3.3.</span> <span class="nav-text">面向连接的多路复用和多路分解（TCP）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP-User-Datagram-Protocol"><span class="nav-number">4.</span> <span class="nav-text">UDP: User Datagram Protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP存在的意义"><span class="nav-number">4.1.</span> <span class="nav-text">UDP存在的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP-checksum"><span class="nav-number">4.2.</span> <span class="nav-text">UDP checksum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠数据传输的基本原理"><span class="nav-number">5.</span> <span class="nav-text">可靠数据传输的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt1-0"><span class="nav-number">5.1.</span> <span class="nav-text">Rdt1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt2-0：产生位错误的信道"><span class="nav-number">5.2.</span> <span class="nav-text">Rdt2.0：产生位错误的信道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt2-1：应对ACK-NAK破坏"><span class="nav-number">5.3.</span> <span class="nav-text">Rdt2.1：应对ACK/NAK破坏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt2-2：无NAK消息协议"><span class="nav-number">5.4.</span> <span class="nav-text">Rdt2.2：无NAK消息协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rdt3-0"><span class="nav-number">5.5.</span> <span class="nav-text">Rdt3.0</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">RainRX</span>
-
-  
 </div>
 
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
         
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 RainRX
   </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":100},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
