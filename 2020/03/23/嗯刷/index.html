@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Day 1 寻找两个有序数组的中位数 给定两个大小为 m 和 n 的有序数组 nums1 和  nums2。请你找出两个有序数组的中位数，并且要求算法的时间复杂度为O(log(m+n))你可以假设 nums1 和 nums2 不会同时为空。  示例1：1234nums1 = [1, 2]nums2 = [2]// 则中位数是 2.0 示例2:1234nums1 = [1, 2]nums2 = [3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嗯刷">
+<meta property="og:url" content="https://rainrx.github.io/2020/03/23/嗯刷/index.html">
+<meta property="og:site_name" content="RainRx">
+<meta property="og:description" content="Day 1 寻找两个有序数组的中位数 给定两个大小为 m 和 n 的有序数组 nums1 和  nums2。请你找出两个有序数组的中位数，并且要求算法的时间复杂度为O(log(m+n))你可以假设 nums1 和 nums2 不会同时为空。  示例1：1234nums1 = [1, 2]nums2 = [2]// 则中位数是 2.0 示例2:1234nums1 = [1, 2]nums2 = [3">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://pic.leetcode-cn.com/735ea8129ab5b56b7058c6286217fa4bb5f8a198e4c8b2172fe0f75b29a966cd-image.png">
+<meta property="og:image" content="https://pic.leetcode-cn.com/09b8649cd2b8bbea74f7f632b098fed5f8404530ff44b5a0b54a360b3cf7dd8f-image.png">
+<meta property="og:image" content="https://pic.leetcode-cn.com/f2d72fd3dff109ad810895b9a0c8d8782f47df6b2f24f9de72704961bc547fcb-image.png">
+<meta property="og:image" content="https://pic.leetcode-cn.com/3c89a8ea29f2e19057b57242c8bc37c5f09b6796b96c30f3d42caea21c12f294-image.png">
+<meta property="og:image" content="https://pic.leetcode-cn.com/ad87d1f63a9bbd99e12605686290800ce61b03f9fb98d87f1d8c020d404421ac-image.png">
+<meta property="og:image" content="https://pic.leetcode-cn.com/7ea1963f184b1dcaddf951326ccbe7aa09cfbb9ebee7fffb2ede131853b3d1de-image.png">
+<meta property="og:updated_time" content="2020-03-23T10:57:17.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="嗯刷">
+<meta name="twitter:description" content="Day 1 寻找两个有序数组的中位数 给定两个大小为 m 和 n 的有序数组 nums1 和  nums2。请你找出两个有序数组的中位数，并且要求算法的时间复杂度为O(log(m+n))你可以假设 nums1 和 nums2 不会同时为空。  示例1：1234nums1 = [1, 2]nums2 = [2]// 则中位数是 2.0 示例2:1234nums1 = [1, 2]nums2 = [3">
+<meta name="twitter:image" content="https://pic.leetcode-cn.com/735ea8129ab5b56b7058c6286217fa4bb5f8a198e4c8b2172fe0f75b29a966cd-image.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>嗯刷</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/03/07/React-Context/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://rainrx.github.io/2020/03/23/嗯刷/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://rainrx.github.io/2020/03/23/嗯刷/&text=嗯刷"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://rainrx.github.io/2020/03/23/嗯刷/&is_video=false&description=嗯刷"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=嗯刷&body=Check out this article: https://rainrx.github.io/2020/03/23/嗯刷/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://rainrx.github.io/2020/03/23/嗯刷/&name=嗯刷&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://rainrx.github.io/2020/03/23/嗯刷/&t=嗯刷"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1-寻找两个有序数组的中位数"><span class="toc-number">1.</span> <span class="toc-text">Day 1 寻找两个有序数组的中位数</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        嗯刷
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">RainRx</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-23T09:54:38.000Z" itemprop="datePublished">2020-03-23</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="Day-1-寻找两个有序数组的中位数"><a href="#Day-1-寻找两个有序数组的中位数" class="headerlink" title="Day 1 寻找两个有序数组的中位数"></a>Day 1 寻找两个有序数组的中位数</h3><blockquote>
+<p>给定两个大小为 m 和 n 的有序数组 <code>nums1</code> 和  <code>nums2</code>。<br>请你找出两个有序数组的中位数，并且要求算法的时间复杂度为O(log(m+n))<br>你可以假设 nums1 和 nums2 不会同时为空。</p>
+</blockquote>
+<p>示例1：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">nums2 = [<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 则中位数是 2.0</span></span><br></pre></td></tr></table></figure></p>
+<p>示例2:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">nums2 = [<span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 则中位数是 (2 + 3) / 2 = 2.5</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>由于时间复杂度有log，因此很容易想到使用二分法。<br>由于是求中位数，因此我们可以换个思路，即求排列第 <code>k</code> 位的数。</p>
+<p>假设我们我们要找第k位数，我们可以每次循环剔除<code>k/2</code>个数。</p>
+<p>假设我们要找第7位小的数字</p>
+<p><img src="https://pic.leetcode-cn.com/735ea8129ab5b56b7058c6286217fa4bb5f8a198e4c8b2172fe0f75b29a966cd-image.png" alt></p>
+<p>我们比较数组的第 <code>k/2</code> 个数字，如果k是奇数，则向下取整。也就是比较两个数组的第3个数字。如果哪个数组的前 <code>k/2</code>个数字都不会是中位数，因此可以排除掉。如上图中的1，2，3都可以排除掉。</p>
+<p>橙色的部分表示已经去掉的数字</p>
+<p><img src="https://pic.leetcode-cn.com/09b8649cd2b8bbea74f7f632b098fed5f8404530ff44b5a0b54a360b3cf7dd8f-image.png" alt></p>
+<p>这时，我们只需要寻找新数组中的第 7 - 3 个数字，也就是k = 4。由于3 &lt; 5，所以上面数组的前两个数字1 3 out。</p>
+<p><img src="https://pic.leetcode-cn.com/f2d72fd3dff109ad810895b9a0c8d8782f47df6b2f24f9de72704961bc547fcb-image.png" alt></p>
+<p>现在k = 2，我们只需找到第2小的数字即可。比较两个数组中的 k / 2 = 1个数，由于4 = 4，因此无论去掉哪个数组的都行，假设我们去掉下面那个数组的4。</p>
+<p><img src="https://pic.leetcode-cn.com/3c89a8ea29f2e19057b57242c8bc37c5f09b6796b96c30f3d42caea21c12f294-image.png" alt></p>
+<p>此时，k = 1，只需要判断一下两个数组哪个数字小就可以了，也就是4。</p>
+<hr>
+<p>我们每次都选 <code>k / 2</code>，但有时会遇到数组小于 <code>k / 2</code>的情况。</p>
+<p><img src="https://pic.leetcode-cn.com/ad87d1f63a9bbd99e12605686290800ce61b03f9fb98d87f1d8c020d404421ac-image.png" alt></p>
+<p>这时，我们只需指向该数组的末尾，即2。</p>
+<p><img src="https://pic.leetcode-cn.com/7ea1963f184b1dcaddf951326ccbe7aa09cfbb9ebee7fffb2ede131853b3d1de-image.png" alt></p>
+<p>2、3被去除，因此下一个k = 7 - 2，即5，只需返回下面数组的第5个数字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums1</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums2</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getKth = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, start1, end1, nums2, start2, end2, k</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len1 = end1 - start1 + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">const</span> len2 = end2 - start2 + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (len1 &gt; len2) &#123;</span><br><span class="line">    <span class="keyword">return</span> getKth(nums2, start2, end2, nums1, start1, end1, k);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 当第一个数组为空，则可以直接从第二个数组中取出第k个数</span></span><br><span class="line">  <span class="keyword">if</span> (len1 === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> nums2[start2 + k - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 当 k = 1 时，比较两个数组位于k位置的大小的最小值</span></span><br><span class="line">  <span class="keyword">if</span> (k === <span class="number">1</span>) <span class="keyword">return</span> <span class="built_in">Math</span>.min(nums1[start1], nums2[start2]);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> i = start1 + <span class="built_in">Math</span>.min(len1, <span class="built_in">parseInt</span>(k / <span class="number">2</span>)) - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">const</span> j = start2 + <span class="built_in">Math</span>.min(len2, <span class="built_in">parseInt</span>(k / <span class="number">2</span>)) - <span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">    <span class="comment">// 此时已剔除掉 j - start2 + 1 个元素，因此k大小需要减去j - start2 + 1</span></span><br><span class="line">    <span class="keyword">return</span> getKth(nums1, start1, end1, nums2, j + <span class="number">1</span>, end2, k - (j - start2 + <span class="number">1</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> getKth(nums1, i + <span class="number">1</span>, end1, nums2, start2, end2, k - (i - start1 + <span class="number">1</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> findMedianSortedArrays = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, nums2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> n = nums1.length;</span><br><span class="line">  <span class="keyword">const</span> m = nums2.length;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (getKth(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, <span class="built_in">parseInt</span>((n + m + <span class="number">1</span>) / <span class="number">2</span>) ) + getKth(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, <span class="built_in">parseInt</span>((n + m + <span class="number">2</span>) / <span class="number">2</span>))) / <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1-寻找两个有序数组的中位数"><span class="toc-number">1.</span> <span class="toc-text">Day 1 寻找两个有序数组的中位数</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://rainrx.github.io/2020/03/23/嗯刷/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://rainrx.github.io/2020/03/23/嗯刷/&text=嗯刷"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://rainrx.github.io/2020/03/23/嗯刷/&is_video=false&description=嗯刷"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=嗯刷&body=Check out this article: https://rainrx.github.io/2020/03/23/嗯刷/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://rainrx.github.io/2020/03/23/嗯刷/&title=嗯刷"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://rainrx.github.io/2020/03/23/嗯刷/&name=嗯刷&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://rainrx.github.io/2020/03/23/嗯刷/&t=嗯刷"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 RainRX
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/Rainrx">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":100},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
